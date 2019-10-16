@@ -372,25 +372,25 @@
 16
 17
 18
-19</pre></div></td><td class=code><div class=codehilite><pre><span></span>void setup(){
-  pinMode(2, OUTPUT);
-  pinMode(3, OUTPUT);
-  pinMode(4, OUTPUT);
-  pinMode(A3, INPUT);
-}
+19</pre></div></td><td class=code><div class=codehilite><pre><span></span><span class=kt>void</span> <span class=nf>setup</span><span class=p>(){</span>
+  <span class=n>pinMode</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span> <span class=n>OUTPUT</span><span class=p>);</span>
+  <span class=n>pinMode</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span> <span class=n>OUTPUT</span><span class=p>);</span>
+  <span class=n>pinMode</span><span class=p>(</span><span class=mi>4</span><span class=p>,</span> <span class=n>OUTPUT</span><span class=p>);</span>
+  <span class=n>pinMode</span><span class=p>(</span><span class=n>A3</span><span class=p>,</span> <span class=n>INPUT</span><span class=p>);</span>
+<span class=p>}</span>
 
-void loop(){
-  int duration = pulseIn(A3, HIGH,25000);
-  if(duration &gt; 100){
-    digitalWrite(2, HIGH);
-    digitalWrite(3, HIGH);
-    digitalWrite(4, LOW);
-  } else{
-    digitalWrite(2, LOW);
-    digitalWrite(3, LOW);
-    digitalWrite(4, HIGH);
-  } 
-}
+<span class=kt>void</span> <span class=nf>loop</span><span class=p>(){</span>
+  <span class=kt>int</span> <span class=n>duration</span> <span class=o>=</span> <span class=n>pulseIn</span><span class=p>(</span><span class=n>A3</span><span class=p>,</span> <span class=n>HIGH</span><span class=p>,</span><span class=mi>25000</span><span class=p>);</span>
+  <span class=k>if</span><span class=p>(</span><span class=n>duration</span> <span class=o>&gt;</span> <span class=mi>100</span><span class=p>){</span>
+    <span class=n>digitalWrite</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span> <span class=n>HIGH</span><span class=p>);</span>
+    <span class=n>digitalWrite</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span> <span class=n>HIGH</span><span class=p>);</span>
+    <span class=n>digitalWrite</span><span class=p>(</span><span class=mi>4</span><span class=p>,</span> <span class=n>LOW</span><span class=p>);</span>
+  <span class=p>}</span> <span class=k>else</span><span class=p>{</span>
+    <span class=n>digitalWrite</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span> <span class=n>LOW</span><span class=p>);</span>
+    <span class=n>digitalWrite</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span> <span class=n>LOW</span><span class=p>);</span>
+    <span class=n>digitalWrite</span><span class=p>(</span><span class=mi>4</span><span class=p>,</span> <span class=n>HIGH</span><span class=p>);</span>
+  <span class=p>}</span> 
+<span class=p>}</span>
 </pre></div></td></tr></table></p>
                 
                   
