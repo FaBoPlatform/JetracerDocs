@@ -539,12 +539,42 @@
                 
                 <h1 id="_1">実行時メモリの節約</h1>
 <h2 id="jetson">Jetsonシリーズのメモリ</h2>
-<p>|Jetson|メモリ|速度|使用電力|
-|:--|:--|:--|
-|Nano|4GB|0.5TFLOPS(FP16)|5-10W|
-|TX2|8GB|1.3TFPLOPS(FP16)7.5-10W|
-|XAVIER NX|8GB|6TFLOPS(FP16)<br>21 TOPS(INTT8)|10-15W|
-|AGX XAVIER|8GB|20-32TOPS(INT8)<br>5.5-11TFLOPS(FP15)|10-30W|</p>
+<table>
+<thead>
+<tr>
+<th align="left">Jetson</th>
+<th align="left">メモリ</th>
+<th align="left">速度</th>
+<th align="left">使用電力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Nano</td>
+<td align="left">4GB</td>
+<td align="left">0.5TFLOPS(FP16)</td>
+<td align="left">5-10W</td>
+</tr>
+<tr>
+<td align="left">TX2</td>
+<td align="left">8GB</td>
+<td align="left">1.3TFPLOPS(FP16)7.5-10W</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">XAVIER NX</td>
+<td align="left">8GB</td>
+<td align="left">6TFLOPS(FP16)<br>21 TOPS(INTT8)</td>
+<td align="left">10-15W</td>
+</tr>
+<tr>
+<td align="left">AGX XAVIER</td>
+<td align="left">8GB</td>
+<td align="left">20-32TOPS(INT8)<br>5.5-11TFLOPS(FP15)</td>
+<td align="left">10-30W</td>
+</tr>
+</tbody>
+</table>
 <p>Nanoのメモリサイズは4GBなので、メモリ使用を最低限にする。</p>
 <h2 id="x-windows">X-Windowsの停止</h2>
 <p>X-Windowsは使用しないので、停止する。これで400MB程度の削減。JetRacer実行時にメモリが100MB以下になるケースがあるので、この400MBの削減は絶対にやっておく。</p>
