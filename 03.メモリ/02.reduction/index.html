@@ -36,7 +36,7 @@
     
     
       
-        <title>カメラのトラブルシューティング - FaBo JetRacer Docs</title>
+        <title>メモリの削減 - FaBo JetRacer Docs</title>
       
     
     
@@ -110,7 +110,7 @@
                 FaBo JetRacer Docs
               </span>
               <span class="md-header-nav__topic">
-                カメラのトラブルシューティング
+                メモリの削減
               </span>
             
           
@@ -299,10 +299,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       03.メモリ
@@ -320,8 +322,70 @@
 
 
   <li class="md-nav__item">
-    <a href="../../03.メモリ/01.sd/" title="実行時メモリの節約" class="md-nav__link">
-      実行時メモリの節約
+    <a href="../01.memory/" title="Jetsonシリーズのメモリ" class="md-nav__link">
+      Jetsonシリーズのメモリ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        メモリの削減
+      </label>
+    
+    <a href="./" title="メモリの削減" class="md-nav__link md-nav__link--active">
+      メモリの削減
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#x-windows" title="X-Windowsの停止" class="md-nav__link">
+    X-Windowsの停止
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03.usage/" title="メモリの使用量" class="md-nav__link">
+      メモリの使用量
     </a>
   </li>
 
@@ -407,19 +471,17 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
-      10.トラブルシューティング
+      10. Trouble Shooting 
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        10.トラブルシューティング
+        10. Trouble Shooting 
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -428,20 +490,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="カメラのトラブルシューティング" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../10. Trouble Shooting /01.camera/" title="カメラのトラブルシューティング" class="md-nav__link">
       カメラのトラブルシューティング
     </a>
-    
   </li>
 
         
@@ -467,6 +520,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#x-windows" title="X-Windowsの停止" class="md-nav__link">
+    X-Windowsの停止
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -478,23 +547,12 @@
               
                 
                 
-                <h1 id="_1">カメラのトラブルシューティング</h1>
-<p>カメラ関連のエラー</p>
-<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span>journalctl -u nvargus-daemon.service -f
+                <h1 id="_1">メモリの削減</h1>
+<p>Jetracerに関係ない処理は停止する。</p>
+<h2 id="x-windows">X-Windowsの停止</h2>
+<p>X-Windowsは使用しないので、停止する。これで300MB程度の削減。</p>
+<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span>sudo systemctl set-default multi-user.target
 </pre></div></td></tr></table></p>
-<p><img alt="" src="../img/error001.png" /></p>
-<p>カメラ関連のDaemon再起動</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>本作業を実施する際、Jupyter notebookの全notebookのプロセスをシャットダウンして、下記手順を実施してください。</p>
-</div>
-<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span>sudo systemctl restart nvargus-daemon
-</pre></div></td></tr></table></p>
-<p>を実行しnvargus-daemonを再起動します。</p>
-<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span>journalctl -u nvargus-daemon.service -f
-</pre></div></td></tr></table></p>
-<p>を実行し、nvargus-daemonが再起動された事をログで確認します。</p>
-<p><img alt="" src="../img/error002.png" /></p>
                 
                   
                 
@@ -515,7 +573,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../04.Firmware/04.pin/" title="PIN配置" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../01.memory/" title="Jetsonシリーズのメモリ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -524,11 +582,25 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                PIN配置
+                Jetsonシリーズのメモリ
               </span>
             </div>
           </a>
         
+        
+          <a href="../03.usage/" title="メモリの使用量" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                メモリの使用量
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
