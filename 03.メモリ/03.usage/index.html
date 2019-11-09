@@ -334,8 +334,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../02.reduction/" title="メモリの削減" class="md-nav__link">
-      メモリの削減
+    <a href="../02.reduction/" title="メモリの調整" class="md-nav__link">
+      メモリの調整
     </a>
   </li>
 
@@ -375,6 +375,13 @@
         <li class="md-nav__item">
   <a href="#jetson-stats" title="jetson-stats" class="md-nav__link">
     jetson-stats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#free" title="free" class="md-nav__link">
+    free
   </a>
   
 </li>
@@ -530,6 +537,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#free" title="free" class="md-nav__link">
+    free
+  </a>
+  
+</li>
+      
       
       
       
@@ -558,6 +572,15 @@
 <p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span>sudo jtop
 </pre></div></td></tr></table></p>
 <p><img alt="" src="../img/memory001.png" /></p>
+<h2 id="free">free</h2>
+<p>freeコマンドでもメモリ状況を確認可能である。</p>
+<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span>free -m
+</pre></div></td></tr></table></p>
+<p><img alt="" src="../img/free001.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">メモリの残量</p>
+<p>100MBより少なくなるとNotebookがカクついてまともに動かなくなります。</p>
+</div>
                 
                   
                 
@@ -578,7 +601,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../02.reduction/" title="メモリの削減" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../02.reduction/" title="メモリの調整" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -587,7 +610,7 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                メモリの削減
+                メモリの調整
               </span>
             </div>
           </a>
