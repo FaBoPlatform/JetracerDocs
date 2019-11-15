@@ -401,10 +401,46 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
-      09.Firmware
+      05.ログ
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        05.ログ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../05.ログ/01.log/" title="Log" class="md-nav__link">
+      Log
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      09.Firmware
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
         09.Firmware
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -472,13 +508,13 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-7">
       10. Trouble Shooting 
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-7">
         10. Trouble Shooting 
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -498,9 +534,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        カメラのトラブルシューティング
+      </label>
+    
     <a href="./" title="カメラのトラブルシューティング" class="md-nav__link md-nav__link--active">
       カメラのトラブルシューティング
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jupyter" title="Jupyterないでの再起動" class="md-nav__link">
+    Jupyterないでの再起動
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -526,6 +591,22 @@
   
     
   
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jupyter" title="Jupyterないでの再起動" class="md-nav__link">
+    Jupyterないでの再起動
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -555,6 +636,9 @@
 </pre></div></td></tr></table></p>
 <p>を実行し、nvargus-daemonが再起動された事をログで確認します。</p>
 <p><img alt="" src="../img/error002.png" /></p>
+<h2 id="jupyter">Jupyterないでの再起動</h2>
+<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span><span class=sx>!echo jetson | sudo -S systemctl restart nvargus-daemon</span>
+</pre></div></td></tr></table></p>
                 
                   
                 
