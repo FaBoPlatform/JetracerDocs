@@ -474,9 +474,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        学習
+      </label>
+    
     <a href="./" title="学習" class="md-nav__link md-nav__link--active">
       学習
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="学習の流れ" class="md-nav__link">
+    学習の流れ
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -671,6 +700,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="学習の流れ" class="md-nav__link">
+    学習の流れ
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -685,6 +730,41 @@
                 <h1 id="_1">学習</h1>
 <p>JetRacerでは、走行用の推論は、<a href="https://arxiv.org/abs/1512.03385">ResNet</a>の転移学習でおこないます。</p>
 <p>データセット規模は、標準コースで200-300枚程度必要です。</p>
+<h2 id="_2">学習の流れ</h2>
+<table>
+<thead>
+<tr>
+<th align="left">No</th>
+<th align="left">手順</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">コースの画像を100枚程度撮影</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">20 epoch学習</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">テストラン</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">うまく走行できない場所を再度撮影</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">1 epoch学習</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">テストラン, 以後 4〜6の繰り返し</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
