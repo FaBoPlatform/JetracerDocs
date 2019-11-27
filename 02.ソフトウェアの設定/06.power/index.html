@@ -729,10 +729,27 @@
                 
                 <h1 id="_1">電力モード</h1>
 <p>Jetson Nanoでは、2つの電力モードが存在しています。</p>
-<p>|モード|コマンド|使用CPU|
-|:--|:--|:00|
-|5W|sudo nvpmodel -m 1|2個|
-|MAXN|sudo nvpmodel -m 0|4個|</p>
+<table>
+<thead>
+<tr>
+<th align="left">モード</th>
+<th align="left">コマンド</th>
+<th align="left">使用CPU</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">5W</td>
+<td align="left">sudo nvpmodel -m 1</td>
+<td align="left">2個</td>
+</tr>
+<tr>
+<td align="left">MAXN</td>
+<td align="left">sudo nvpmodel -m 0</td>
+<td align="left">4個</td>
+</tr>
+</tbody>
+</table>
 <p>電力モードを変える事で、CPUの使用数を変える事が可能になります。</p>
 <h2 id="5w-power">5W Powerモードの設定</h2>
 <p>5Wモードに変更します。</p>
