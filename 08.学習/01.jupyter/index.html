@@ -572,6 +572,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#jupyterkill" title="JupyterのプロセスをKillする" class="md-nav__link">
+    JupyterのプロセスをKillする
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" title="容量の圧迫" class="md-nav__link">
     容量の圧迫
   </a>
@@ -802,6 +809,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#jupyterkill" title="JupyterのプロセスをKillする" class="md-nav__link">
+    JupyterのプロセスをKillする
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" title="容量の圧迫" class="md-nav__link">
     容量の圧迫
   </a>
@@ -828,6 +842,16 @@
                 <h1 id="jupyter">Jupyterの注意事項</h1>
 <h2 id="jupyter_1">Jupyterのメモリ管理</h2>
 <p>Jupyterでは、開かれたNotebookは、プロセスとして常駐します。プロセスをKillする場合は、Shutdownの処理を必ず実行します。(Linuxの再起動時でも、Killしないプロセスは再び常駐します)</p>
+<p><img alt="" src="../img/jupyter001.png" /></p>
+<p>Notebookは、同時に1つ以上起動しないようにしてください。メモリ不足に至る可能性があります。</p>
+<h2 id="jupyterkill">JupyterのプロセスをKillする</h2>
+<p>Notebookを閉じます。</p>
+<p><img alt="" src="../img/kill001.png" /></p>
+<p>緑色の丸が点灯しているのでプロセス自体は残っています。</p>
+<p><img alt="" src="../img/kill002.png" /></p>
+<p>プロセスをShutdownします。</p>
+<p><img alt="" src="../img/kill003.png" /></p>
+<p>この状態で初めてメモリが開放されます。</p>
 <h2 id="_1">容量の圧迫</h2>
 <p>/var/log/syslogにログが蓄積し、容量圧迫の原因となる。</p>
                 
