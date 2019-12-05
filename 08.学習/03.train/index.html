@@ -614,6 +614,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" title="転移学習" class="md-nav__link">
+    転移学習
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset" title="Dataset" class="md-nav__link">
+    Dataset
+  </a>
+  
+</li>
+      
       
       
       
@@ -832,6 +846,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" title="転移学習" class="md-nav__link">
+    転移学習
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset" title="Dataset" class="md-nav__link">
+    Dataset
+  </a>
+  
+</li>
+      
       
       
       
@@ -924,6 +952,13 @@
 </tbody>
 </table>
 <p>今回は、<code>教師あり学習</code>の転移学習を用いてコースの学習をおこないます。</p>
+<h2 id="_4">転移学習</h2>
+<p>転移学習で用いる学習済みモデルは、<a href="https://arxiv.org/pdf/1512.03385.pdf">ResNet</a>です。<a href="https://arxiv.org/pdf/1512.03385.pdf">ResNet</a>の学習済みモデルに、新たな層を追加し、学習させる事で、ラジコンの自動走行を実現します。</p>
+<h2 id="dataset">Dataset</h2>
+<p>Jetracerでは、画像に対して走行したい(X,Y)座標の組み合わせを、ResNetの転移学習でおこないます。</p>
+<p>(X,Y)座標は、画像データのファイル名に付与され、学習時に画像を呼び出す際に、(X,Y)を数値として取り出し、それを学習させます。</p>
+<p>この事で、学習済みモデルでは、画像を渡すと(X,Y)が推論されます。その(X,Y)を走行データに変換する事で自動走行します。</p>
+<p><img alt="" src="../img/train002.png" /></p>
                 
                   
                 
