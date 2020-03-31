@@ -1,5 +1,9 @@
 # JetRacer Docs
 
+![](./img/JetRacerSide1400.jpg)
+
+※写真は開発中のものです。
+
 ## JetRacer Docsについて
 
 JetRacer Docsは、FaBo JetRacerの学習用ドキュメントです。
