@@ -1020,19 +1020,19 @@ cat <span class=nv>$FILE</span>
 
 <span class=c1># fix USB device mode</span>
 <span class=nv>DIR</span><span class=o>=</span><span class=s2>&quot;/opt/nvidia/l4t-usb-device-mode/&quot;</span>
-<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S cp <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-config.sh <span class=nv>$DIR</span>/nv-l4t-usb-device-mode.sh.orig
-<span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S cp <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh.orig
-</span><span class=c1>#cat $DIR/nv-l4t-usb-device-mode.sh | grep dhcpd_.*=</span>
-<span class=hll><span class=c1>#cat $DIR/nv-l4t-usb-device-mode-stop.sh | grep dhcpd_.*=</span>
-</span><span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.leases|/run/dhcpd.leases|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-config.sh
-</span><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.pid|/run/dhcpd.pid|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-config.sh
-<span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.leases|/run/dhcpd.leases|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh
-</span><span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.pid|/run/dhcpd.pid|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh
-</span><span class=c1>#cat $DIR/nv-l4t-usb-device-mode.sh | grep dhcpd_.*=</span>
-<span class=c1>#cat $DIR/nv-l4t-usb-device-mode-stop.sh | grep dhcpd_.*=</span>
-<span class=hll>
-</span><span class=hll><span class=c1># enable i2c permissions</span>
-</span><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S usermod -aG i2c <span class=nv>$USER</span>
+<span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S cp <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-config.sh <span class=nv>$DIR</span>/nv-l4t-usb-device-mode.sh.orig
+</span><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S cp <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh.orig
+<span class=hll><span class=c1>#cat $DIR/nv-l4t-usb-device-mode.sh | grep dhcpd_.*=</span>
+</span><span class=hll><span class=c1>#cat $DIR/nv-l4t-usb-device-mode-stop.sh | grep dhcpd_.*=</span>
+</span><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.leases|/run/dhcpd.leases|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-config.sh
+<span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.pid|/run/dhcpd.pid|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-config.sh
+</span><span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.leases|/run/dhcpd.leases|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh
+</span><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.pid|/run/dhcpd.pid|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh
+<span class=hll><span class=c1>#cat $DIR/nv-l4t-usb-device-mode.sh | grep dhcpd_.*=</span>
+</span><span class=hll><span class=c1>#cat $DIR/nv-l4t-usb-device-mode-stop.sh | grep dhcpd_.*=</span>
+</span>
+<span class=c1># enable i2c permissions</span>
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S usermod -aG i2c <span class=nv>$USER</span>
 
 <span class=c1># install pip and some apt dependencies</span>
 <span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S apt-get update
@@ -1052,21 +1052,21 @@ wget https://nvidia.box.com/shared/static/veo87trfaawj5pfwuqvhl6mzc5b55fbj.whl -
 <span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S pip3 install -U torchvision
 
 <span class=c1># setup Jetson.GPIO</span>
-<span class=c1>#echo $password | sudo -S groupadd -f -r gpio</span>
-<span class=c1>#echo $password | sudo -S usermod -a -G gpio $USER</span>
-<span class=c1>#echo $password | sudo -S cp /opt/nvidia/jetson-gpio/etc/99-gpio.rules /etc/udev/rules.d/</span>
-<span class=c1>#echo $password | sudo -S udevadm control --reload-rules</span>
-<span class=c1>#echo $password | sudo -S udevadm trigger</span>
-
+<span class=hll><span class=c1>#echo $password | sudo -S groupadd -f -r gpio</span>
+</span><span class=hll><span class=c1>#echo $password | sudo -S usermod -a -G gpio $USER</span>
+</span><span class=hll><span class=c1>#echo $password | sudo -S cp /opt/nvidia/jetson-gpio/etc/99-gpio.rules /etc/udev/rules.d/</span>
+</span><span class=hll><span class=c1>#echo $password | sudo -S udevadm control --reload-rules</span>
+</span><span class=hll><span class=c1>#echo $password | sudo -S udevadm trigger</span>
+</span>
 <span class=c1># install traitlets (master)</span>
 <span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S python3 -m pip install git+https://github.com/ipython/traitlets@master
 
 <span class=c1># install jupyter lab</span>
-<span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S apt install -y nodejs npm
-</span><span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S pip3 install -U jupyter jupyterlab
-</span><span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S jupyter labextension install @jupyter-widgets/jupyterlab-manager
-</span><span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S jupyter labextension install @jupyterlab/statusbar
-</span>jupyter lab --generate-config
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S apt install -y nodejs npm
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S pip3 install -U jupyter jupyterlab
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S jupyter labextension install @jupyter-widgets/jupyterlab-manager
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S jupyter labextension install @jupyterlab/statusbar
+jupyter lab --generate-config
 
 <span class=c1># set jupyter password</span>
 python3 -c <span class=s2>&quot;from notebook.auth.security import set_password; set_password(&#39;</span><span class=nv>$password</span><span class=s2>&#39;, &#39;</span><span class=nv>$HOME</span><span class=s2>/.jupyter/jupyter_notebook_config.json&#39;)&quot;</span>
