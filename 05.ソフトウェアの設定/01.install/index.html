@@ -888,104 +888,242 @@
 <p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span>git clone https://github.com/NVIDIA-AI-IOT/jetcard
 </pre></div></td></tr></table></p>
 <p>install.shを修正</p>
-<p>```shell hl_lines="17 19 20 22 23 26 27"</p>
-<h1 id="binsh">!/bin/sh</h1>
-<p>set -e</p>
-<p>password=$1</p>
-<h1 id="fix-ntp-server">fix NTP server</h1>
-<p>FILE="/etc/systemd/timesyncd.conf"
-echo $password | sudo -S bash -c "echo 'NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org' &gt;&gt; $FILE"
-echo $password | sudo -S bash -c "echo 'FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.us.pool.ntp.org' &gt;&gt; $FILE"
-cat $FILE
-echo $password | sudo -S systemctl restart systemd-timesyncd.service</p>
-<h1 id="fix-usb-device-mode">fix USB device mode</h1>
-<p>DIR="/opt/nvidia/l4t-usb-device-mode/"
-echo $password | sudo -S cp $DIR/nv-l4t-usb-device-mode-config.sh $DIR/nv-l4t-usb-device-mode.sh.orig
-echo $password | sudo -S cp $DIR/nv-l4t-usb-device-mode-stop.sh $DIR/nv-l4t-usb-device-mode-stop.sh.orig</p>
-<h1 id="cat-dirnv-l4t-usb-device-modesh-grep-dhcpd_">cat $DIR/nv-l4t-usb-device-mode.sh | grep dhcpd_.*=</h1>
-<h1 id="cat-dirnv-l4t-usb-device-mode-stopsh-grep-dhcpd_">cat $DIR/nv-l4t-usb-device-mode-stop.sh | grep dhcpd_.*=</h1>
-<p>echo $password | sudo -S sed -i 's|${script_dir}/dhcpd.leases|/run/dhcpd.leases|g' $DIR/nv-l4t-usb-device-mode-config.sh
-echo $password | sudo -S sed -i 's|${script_dir}/dhcpd.pid|/run/dhcpd.pid|g' $DIR/nv-l4t-usb-device-mode-config.sh
-echo $password | sudo -S sed -i 's|${script_dir}/dhcpd.leases|/run/dhcpd.leases|g' $DIR/nv-l4t-usb-device-mode-stop.sh
-echo $password | sudo -S sed -i 's|${script_dir}/dhcpd.pid|/run/dhcpd.pid|g' $DIR/nv-l4t-usb-device-mode-stop.sh</p>
-<h1 id="cat-dirnv-l4t-usb-device-modesh-grep-dhcpd__1">cat $DIR/nv-l4t-usb-device-mode.sh | grep dhcpd_.*=</h1>
-<h1 id="cat-dirnv-l4t-usb-device-mode-stopsh-grep-dhcpd__1">cat $DIR/nv-l4t-usb-device-mode-stop.sh | grep dhcpd_.*=</h1>
-<h1 id="enable-i2c-permissions">enable i2c permissions</h1>
-<p>echo $password | sudo -S usermod -aG i2c $USER</p>
-<h1 id="install-pip-and-some-apt-dependencies">install pip and some apt dependencies</h1>
-<p>echo $password | sudo -S apt-get update
-echo $password | sudo -S apt install -y python3-pip python3-pil python3-smbus python3-matplotlib cmake
-echo $password | sudo -S pip3 install -U pip
-echo $password | sudo -S pip3 install flask
-echo $password | sudo -S pip3 install -U --upgrade numpy</p>
-<h1 id="install-tensorflow">install tensorflow</h1>
-<p>echo $password | sudo -S apt-get install -y libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev
-echo $password | sudo -S pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta
-echo $password | sudo -S pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v42 tensorflow-gpu</p>
-<h1 id="install-pytorch">install pytorch</h1>
-<p>wget https://nvidia.box.com/shared/static/veo87trfaawj5pfwuqvhl6mzc5b55fbj.whl -O torch-1.1.0a0+b457266-cp36-cp36m-linux_aarch64.whl
-echo $password | sudo -S pip3 install -U numpy torch-1.1.0a0+b457266-cp36-cp36m-linux_aarch64.whl
-echo $password | sudo -S pip3 install -U torchvision</p>
-<h1 id="setup-jetsongpio">setup Jetson.GPIO</h1>
-<p>echo $password | sudo -S groupadd -f -r gpio
-echo $password | sudo -S usermod -a -G gpio $USER
-echo $password | sudo -S cp /opt/nvidia/jetson-gpio/etc/99-gpio.rules /etc/udev/rules.d/
-echo $password | sudo -S udevadm control --reload-rules
-echo $password | sudo -S udevadm trigger</p>
-<h1 id="install-traitlets-master">install traitlets (master)</h1>
-<p>echo $password | sudo -S python3 -m pip install git+https://github.com/ipython/traitlets@master</p>
-<h1 id="install-jupyter-lab">install jupyter lab</h1>
-<p>echo $password | sudo -S apt install -y nodejs npm
-echo $password | sudo -S pip3 install -U jupyter jupyterlab
-echo $password | sudo -S jupyter labextension install @jupyter-widgets/jupyterlab-manager
-echo $password | sudo -S jupyter labextension install @jupyterlab/statusbar
-jupyter lab --generate-config</p>
-<h1 id="set-jupyter-password">set jupyter password</h1>
-<p>python3 -c "from notebook.auth.security import set_password; set_password('$password', '$HOME/.jupyter/jupyter_notebook_config.json')"</p>
-<h1 id="install-jetcard">install jetcard</h1>
-<p>echo $password | sudo -S python3 setup.py install</p>
-<h1 id="install-jetcard-display-service">install jetcard display service</h1>
-<p>python3 -m jetcard.create_display_service
-echo $password | sudo -S mv jetcard_display.service /etc/systemd/system/jetcard_display.service
-echo $password | sudo -S systemctl enable jetcard_display
-echo $password | sudo -S systemctl start jetcard_display</p>
-<h1 id="install-jetcard-jupyter-service">install jetcard jupyter service</h1>
-<p>python3 -m jetcard.create_jupyter_service
-echo $password | sudo -S mv jetcard_jupyter.service /etc/systemd/system/jetcard_jupyter.service
-echo $password | sudo -S systemctl enable jetcard_jupyter
-echo $password | sudo -S systemctl start jetcard_jupyter</p>
-<h1 id="make-swapfile">make swapfile</h1>
-<p>echo $password | sudo -S fallocate -l 4G /var/swapfile
-echo $password | sudo -S chmod 600 /var/swapfile
-echo $password | sudo -S mkswap /var/swapfile
-echo $password | sudo -S swapon /var/swapfile
-echo $password | sudo -S bash -c 'echo "/var/swapfile swap swap defaults 0 0" &gt;&gt; /etc/fstab'</p>
-<h1 id="install-tensorflow-models-repository">install TensorFlow models repository</h1>
-<p>git clone https://github.com/tensorflow/models
-cd models/research
+<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118</pre></div></td><td class=code><div class=codehilite><pre><span></span><span class=ch>#!/bin/sh</span>
+
+<span class=nb>set</span> -e
+
+<span class=nv>password</span><span class=o>=</span><span class=nv>$1</span>
+
+<span class=c1># fix NTP server</span>
+<span class=nv>FILE</span><span class=o>=</span><span class=s2>&quot;/etc/systemd/timesyncd.conf&quot;</span>
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S bash -c <span class=s2>&quot;echo &#39;NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org&#39; &gt;&gt; </span><span class=nv>$FILE</span><span class=s2>&quot;</span>
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S bash -c <span class=s2>&quot;echo &#39;FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.us.pool.ntp.org&#39; &gt;&gt; </span><span class=nv>$FILE</span><span class=s2>&quot;</span>
+cat <span class=nv>$FILE</span>
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S systemctl restart systemd-timesyncd.service
+
+<span class=c1># fix USB device mode</span>
+<span class=nv>DIR</span><span class=o>=</span><span class=s2>&quot;/opt/nvidia/l4t-usb-device-mode/&quot;</span>
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S cp <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-config.sh <span class=nv>$DIR</span>/nv-l4t-usb-device-mode.sh.orig
+<span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S cp <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh.orig
+</span><span class=c1>#cat $DIR/nv-l4t-usb-device-mode.sh | grep dhcpd_.*=</span>
+<span class=hll><span class=c1>#cat $DIR/nv-l4t-usb-device-mode-stop.sh | grep dhcpd_.*=</span>
+</span><span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.leases|/run/dhcpd.leases|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-config.sh
+</span><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.pid|/run/dhcpd.pid|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-config.sh
+<span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.leases|/run/dhcpd.leases|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh
+</span><span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.pid|/run/dhcpd.pid|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh
+</span><span class=c1>#cat $DIR/nv-l4t-usb-device-mode.sh | grep dhcpd_.*=</span>
+<span class=c1>#cat $DIR/nv-l4t-usb-device-mode-stop.sh | grep dhcpd_.*=</span>
+<span class=hll>
+</span><span class=hll><span class=c1># enable i2c permissions</span>
+</span><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S usermod -aG i2c <span class=nv>$USER</span>
+
+<span class=c1># install pip and some apt dependencies</span>
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S apt-get update
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S apt install -y python3-pip python3-pil python3-smbus python3-matplotlib cmake
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S pip3 install -U pip
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S pip3 install flask
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S pip3 install -U --upgrade numpy
+
+<span class=c1># install tensorflow</span>
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S apt-get install -y libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v42 tensorflow-gpu
+
+<span class=c1># install pytorch</span>
+wget https://nvidia.box.com/shared/static/veo87trfaawj5pfwuqvhl6mzc5b55fbj.whl -O torch-1.1.0a0+b457266-cp36-cp36m-linux_aarch64.whl
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S pip3 install -U numpy torch-1.1.0a0+b457266-cp36-cp36m-linux_aarch64.whl
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S pip3 install -U torchvision
+
+<span class=c1># setup Jetson.GPIO</span>
+<span class=c1>#echo $password | sudo -S groupadd -f -r gpio</span>
+<span class=c1>#echo $password | sudo -S usermod -a -G gpio $USER</span>
+<span class=c1>#echo $password | sudo -S cp /opt/nvidia/jetson-gpio/etc/99-gpio.rules /etc/udev/rules.d/</span>
+<span class=c1>#echo $password | sudo -S udevadm control --reload-rules</span>
+<span class=c1>#echo $password | sudo -S udevadm trigger</span>
+
+<span class=c1># install traitlets (master)</span>
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S python3 -m pip install git+https://github.com/ipython/traitlets@master
+
+<span class=c1># install jupyter lab</span>
+<span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S apt install -y nodejs npm
+</span><span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S pip3 install -U jupyter jupyterlab
+</span><span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S jupyter labextension install @jupyter-widgets/jupyterlab-manager
+</span><span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S jupyter labextension install @jupyterlab/statusbar
+</span>jupyter lab --generate-config
+
+<span class=c1># set jupyter password</span>
+python3 -c <span class=s2>&quot;from notebook.auth.security import set_password; set_password(&#39;</span><span class=nv>$password</span><span class=s2>&#39;, &#39;</span><span class=nv>$HOME</span><span class=s2>/.jupyter/jupyter_notebook_config.json&#39;)&quot;</span>
+
+<span class=c1># install jetcard</span>
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S python3 setup.py install
+
+<span class=c1># install jetcard display service</span>
+python3 -m jetcard.create_display_service
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S mv jetcard_display.service /etc/systemd/system/jetcard_display.service
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S systemctl <span class=nb>enable</span> jetcard_display
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S systemctl start jetcard_display
+
+<span class=c1># install jetcard jupyter service</span>
+python3 -m jetcard.create_jupyter_service
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S mv jetcard_jupyter.service /etc/systemd/system/jetcard_jupyter.service
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S systemctl <span class=nb>enable</span> jetcard_jupyter
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S systemctl start jetcard_jupyter
+
+<span class=c1># make swapfile</span>
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S fallocate -l 4G /var/swapfile
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S chmod <span class=m>600</span> /var/swapfile
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S mkswap /var/swapfile
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S swapon /var/swapfile
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S bash -c <span class=s1>&#39;echo &quot;/var/swapfile swap swap defaults 0 0&quot; &gt;&gt; /etc/fstab&#39;</span>
+
+<span class=c1># install TensorFlow models repository</span>
+git clone https://github.com/tensorflow/models
+<span class=nb>cd</span> models/research
 git checkout 5f4d34fc
-wget -O protobuf.zip https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-linux-aarch_64.zip</p>
-<h1 id="wget-o-protobufzip-httpsgithubcomprotocolbuffersprotobufreleasesdownloadv371protoc-371-linux-x86_64zip">wget -O protobuf.zip https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-linux-x86_64.zip</h1>
-<p>unzip protobuf.zip
-./bin/protoc object_detection/protos/*.proto --python_out=.
-echo $password | sudo -S python3 setup.py install
-cd slim
-echo $password | sudo -S python3 setup.py install</p>
-<h1 id="disable-syslog-to-prevent-large-log-files-from-collecting">disable syslog to prevent large log files from collecting</h1>
-<p>echo $password | sudo -S service rsyslog stop
-echo $password | sudo -S systemctl disable rsyslog</p>
-<h1 id="install-jupyter_clickable_image_widget">install jupyter_clickable_image_widget</h1>
-<p>echo $password | sudo -S npm install -g typescript
+wget -O protobuf.zip https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-linux-aarch_64.zip
+<span class=c1># wget -O protobuf.zip https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-linux-x86_64.zip</span>
+unzip protobuf.zip
+./bin/protoc object_detection/protos/*.proto --python_out<span class=o>=</span>.
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S python3 setup.py install
+<span class=nb>cd</span> slim
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S python3 setup.py install
+
+<span class=c1># disable syslog to prevent large log files from collecting</span>
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S service rsyslog stop
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S systemctl disable rsyslog
+
+<span class=c1># install jupyter_clickable_image_widget</span>
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S npm install -g typescript
 git clone https://github.com/jaybdub/jupyter_clickable_image_widget
-cd jupyter_clickable_image_widget</p>
-<h1 id="allow-next-command-to-fail">allow next command to fail</h1>
-<p>set +e
-echo $password | sudo -S python3 setup.py build</p>
-<p>set -e
-echo $password | sudo -S npm run build
-echo $password | sudo -S pip3 install .
-echo $password | sudo -S jupyter labextension install .
-echo $password | sudo -S jupyter labextension install @jupyter-widgets/jupyterlab-manager</p>
+<span class=nb>cd</span> jupyter_clickable_image_widget
+
+<span class=c1># allow next command to fail</span>
+<span class=nb>set</span> +e
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S python3 setup.py build
+
+<span class=nb>set</span> -e
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S npm run build
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S pip3 install .
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S jupyter labextension install .
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S jupyter labextension install @jupyter-widgets/jupyterlab-manager
+</pre></div></td></tr></table></p>
                 
                   
                 
