@@ -1086,10 +1086,10 @@ cat <span class=nv>$FILE</span>
 </span><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S cp <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh.orig
 <span class=hll><span class=c1>#cat $DIR/nv-l4t-usb-device-mode.sh | grep dhcpd_.*=</span>
 </span><span class=hll><span class=c1>#cat $DIR/nv-l4t-usb-device-mode-stop.sh | grep dhcpd_.*=</span>
-</span><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.leases|/run/dhcpd.leases|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-config.sh
-<span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.pid|/run/dhcpd.pid|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-config.sh
-</span><span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.leases|/run/dhcpd.leases|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh
-</span><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.pid|/run/dhcpd.pid|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh
+</span><span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.leases|/run/dhcpd.leases|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-config.sh
+</span><span class=hll><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.pid|/run/dhcpd.pid|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-config.sh
+</span><span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.leases|/run/dhcpd.leases|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh
+<span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S sed -i <span class=s1>&#39;s|${script_dir}/dhcpd.pid|/run/dhcpd.pid|g&#39;</span> <span class=nv>$DIR</span>/nv-l4t-usb-device-mode-stop.sh
 <span class=hll><span class=c1>#cat $DIR/nv-l4t-usb-device-mode.sh | grep dhcpd_.*=</span>
 </span><span class=hll><span class=c1>#cat $DIR/nv-l4t-usb-device-mode-stop.sh | grep dhcpd_.*=</span>
 </span>
