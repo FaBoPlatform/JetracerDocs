@@ -913,8 +913,11 @@
                 
                 <h1 id="jetcard">JetCard</h1>
 <h2 id="jetsongpio">Jetson.GPIOをインストール</h2>
-<div class=md-fenced-code-tabs id=tab-tab-group-0><input name=tab-group-0 type=radio id=tab-group-0-0_lqlmmldw04vlt6h checked=checked class=code-tab data-lang aria-controls=tab-group-0-0_lqlmmldw04vlt6h-panel role=tab><label for=tab-group-0-0_lqlmmldw04vlt6h class=code-tab-label data-lang id=tab-group-0-0_lqlmmldw04vlt6h-label></label><div class=code-tabpanel role=tabpanel data-lang id=tab-group-0-0_lqlmmldw04vlt6h-panel aria-labelledby=tab-group-0-0_lqlmmldw04vlt6h-label><table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span>sudo pip install Jetson.GPIO
-</pre></div></td></tr></table></div><input name=tab-group-0 type=radio id=tab-group-0-1_8mf7i5qqga1uv3k class=code-tab data-lang aria-controls=tab-group-0-1_8mf7i5qqga1uv3k-panel role=tab><label for=tab-group-0-1_8mf7i5qqga1uv3k class=code-tab-label data-lang id=tab-group-0-1_8mf7i5qqga1uv3k-label></label><div class=code-tabpanel role=tabpanel data-lang id=tab-group-0-1_8mf7i5qqga1uv3k-panel aria-labelledby=tab-group-0-1_8mf7i5qqga1uv3k-label><table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1
+<p>pipでJetson.GPIOをインストール</p>
+<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span>sudo pip install Jetson.GPIO
+</pre></div></td></tr></table></p>
+<p>rulesをコピーし、設定を更新</p>
+<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1
 2
 3
 4
@@ -927,9 +930,9 @@ sudo groupadd -f -r gpio
 sudo usermod -a -G gpio your_user_name
 sudo cp lib/python/Jetson/GPIO/99-gpio.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules &amp;&amp; sudo udevadm trigger
-</pre></div></td></tr></table></div></div>
-
+</pre></div></td></tr></table></p>
 <h2 id="nodejsupdate">NodejsのUpdate</h2>
+<p>NodejsをUpdateする</p>
 <p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1
 2
 3
@@ -941,9 +944,12 @@ sudo apt purge -y nodejs npm
 node -v
 </pre></div></td></tr></table></p>
 <h2 id="jetcard_1">JetCardをインストールする</h2>
-<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span>git clone https://github.com/NVIDIA-AI-IOT/jetcard
+<p>JetCardをClone</p>
+<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1
+2</pre></div></td><td class=code><div class=codehilite><pre><span></span>cd $HOME
+git clone https://github.com/NVIDIA-AI-IOT/jetcard
 </pre></div></td></tr></table></p>
-<p>install.shを修正</p>
+<p>install.shを修正(修正箇所は黄色行)</p>
 <p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>  1
   2
   3
@@ -1179,6 +1185,11 @@ git clone https://github.com/jaybdub/jupyter_clickable_image_widget
 <span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S pip3 install .
 <span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S jupyter labextension install .
 <span class=nb>echo</span> <span class=nv>$password</span> <span class=p>|</span> sudo -S jupyter labextension install @jupyter-widgets/jupyterlab-manager
+</pre></div></td></tr></table></p>
+<p>JetCardをインストール</p>
+<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1
+2</pre></div></td><td class=code><div class=codehilite><pre><span></span>cd jetcard
+./install.sh &lt;password&gt;
 </pre></div></td></tr></table></p>
                 
                   
