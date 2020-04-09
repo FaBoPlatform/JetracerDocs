@@ -895,7 +895,7 @@ git clone https://github.com/NVIDIA-AI-IOT/jetcard
 cd jetcard
 git checkout jetpack_4.3
 </pre></div></td></tr></table></p>
-<p>install.shを修正(修正箇所は黄色行)</p>
+<p>install.shを修正(修正箇所は黄色行)、設定したPasswordが'jetson'意外の場合は、5行目で自分のパスワードに修正する</p>
 <p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>  1
   2
   3
@@ -1211,7 +1211,7 @@ date
 <p>JetCardをインストール</p>
 <p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1
 2</pre></div></td><td class=code><div class=codehilite><pre><span></span>cd jetcard
-./install.sh &lt;password&gt;
+./install.sh
 </pre></div></td></tr></table></p>
                 
                   
