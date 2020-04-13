@@ -392,7 +392,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../../05.ソフトウェアの設定/01.package/" title="必要なパッケージ" class="md-nav__link">
+    <a href="../../05.ソフトウェアの設定/01.install/" title="JetCard" class="md-nav__link">
+      JetCard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../05.ソフトウェアの設定/02.package/" title="必要なパッケージ" class="md-nav__link">
       必要なパッケージ
     </a>
   </li>
@@ -404,7 +416,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../05.ソフトウェアの設定/02.i2c/" title="I2Cの認識確認" class="md-nav__link">
+    <a href="../../05.ソフトウェアの設定/03.i2c/" title="I2Cの認識確認" class="md-nav__link">
       I2Cの認識確認
     </a>
   </li>
@@ -416,7 +428,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../05.ソフトウェアの設定/03.camera/" title="Cameraの認識確認" class="md-nav__link">
+    <a href="../../05.ソフトウェアの設定/04.camera/" title="Cameraの認識確認" class="md-nav__link">
       Cameraの認識確認
     </a>
   </li>
@@ -428,7 +440,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../05.ソフトウェアの設定/04.power/" title="電力モード" class="md-nav__link">
+    <a href="../../05.ソフトウェアの設定/05.power/" title="電力モード" class="md-nav__link">
       電力モード
     </a>
   </li>
@@ -440,7 +452,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../05.ソフトウェアの設定/05.oled/" title="OLED" class="md-nav__link">
+    <a href="../../05.ソフトウェアの設定/06.oled/" title="OLED" class="md-nav__link">
       OLED
     </a>
   </li>
@@ -861,24 +873,24 @@
                 
                 <h1 id="_1">カメラのトラブルシューティング</h1>
 <p>カメラ関連のエラー</p>
-<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span><code><span class=err>journalctl -u nvargus-daemon.service -f</span>
-</code></pre></div></td></tr></table></p>
+<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span>journalctl -u nvargus-daemon.service -f
+</pre></div></td></tr></table></p>
 <p><img alt="" src="../img/error001.png" /></p>
 <p>カメラ関連のDaemon再起動</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>本作業を実施する際、Jupyter notebookの全notebookのプロセスをシャットダウンして、下記手順を実施してください。</p>
 </div>
-<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span><code><span class=err>sudo systemctl restart nvargus-daemon</span>
-</code></pre></div></td></tr></table></p>
+<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span>sudo systemctl restart nvargus-daemon
+</pre></div></td></tr></table></p>
 <p>を実行しnvargus-daemonを再起動します。</p>
-<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span><code><span class=err>journalctl -u nvargus-daemon.service -f</span>
-</code></pre></div></td></tr></table></p>
+<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span>journalctl -u nvargus-daemon.service -f
+</pre></div></td></tr></table></p>
 <p>を実行し、nvargus-daemonが再起動された事をログで確認します。</p>
 <p><img alt="" src="../img/error002.png" /></p>
 <h2 id="jupyter">Jupyterないでの再起動</h2>
-<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span><code><span class=sx>!echo jetson | sudo -S systemctl restart nvargus-daemon</span>
-</code></pre></div></td></tr></table></p>
+<p> <table class=codehilitetable><tr><td class=linenos><div class=linenodiv><pre>1</pre></div></td><td class=code><div class=codehilite><pre><span></span><span class=sx>!echo jetson | sudo -S systemctl restart nvargus-daemon</span>
+</pre></div></td></tr></table></p>
                 
                   
                 
