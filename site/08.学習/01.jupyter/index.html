@@ -664,6 +664,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ビルド要求について
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -883,6 +890,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ビルド要求について
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -901,7 +915,8 @@
                 
                 <h1 id="jupyter">Jupyterの注意事項</h1>
 <h2 id="jupyter_1">Jupyterのメモリ管理</h2>
-<p>Jupyterでは、開かれたNotebookは、プロセスとして常駐します。プロセスをKillする場合は、Shutdownの処理を必ず実行します。(Linuxの再起動時でも、Killしないプロセスは再び常駐します)</p>
+<p>Jupyterでは、開かれたNotebookは、プロセスとして常駐します。プロセスをKillする場合は、Shutdownの処理を必ず実行します。
+(Linuxの再起動時でも、Killしないプロセスは再び常駐します)</p>
 <p><img alt="" src="../img/jupyter001.png" /></p>
 <p>Notebookは、同時に1つ以上起動しないようにしてください。メモリ不足に至る可能性があります。</p>
 <h2 id="jupyterkill">JupyterのプロセスをKillする</h2>
@@ -912,6 +927,10 @@
 <p>プロセスをShutdownします。</p>
 <p><img alt="" src="../img/kill003.png" /></p>
 <p>この状態で初めてメモリが開放されます。</p>
+<h2 id="_1">ビルド要求について</h2>
+<p>Notebookを開くと、jupyter_clickable_image_widgetをビルドするようにポップアップが表示されることがあります。<br>
+ここでのBuildは失敗するので、これはCancelでOKです。<br>
+<img alt="" src="../img/jetracer_jupyter_build.png" /><br></p>
                 
               
               
@@ -979,7 +998,7 @@
     </div>
     
       <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.config.pipeline": "trimmer, stopWordFilter", "search.config.lang": "ja", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f"}</script>
+      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.config.lang": "ja", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.config.pipeline": "trimmer, stopWordFilter", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+"}</script>
       
       <script>
         app = initialize({
