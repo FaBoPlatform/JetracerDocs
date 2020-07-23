@@ -2,7 +2,6 @@
 
 ![](./img/JetRacerSide1400.jpg)
 
-※写真は開発中のものです。
 
 ## JetRacer Docsについて
 
