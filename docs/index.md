@@ -2,6 +2,7 @@
 
 ![](./img/JetRacerSide1400.jpg)
 
+**FaBo JetRacer Kit JR1-S-P**
 
 ## JetRacer Docsについて
 
