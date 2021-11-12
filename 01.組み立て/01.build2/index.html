@@ -1,66 +1,43 @@
 
-
-
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
       
       
-        <meta name="lang:clipboard.copy" content="クリップボードへコピー">
-      
-        <meta name="lang:clipboard.copied" content="コピーしました">
-      
-        <meta name="lang:search.language" content="jp">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="何も見つかりませんでした">
-      
-        <meta name="lang:search.result.one" content="1件見つかりました">
-      
-        <meta name="lang:search.result.other" content="#件見つかりました">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
-      
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-3.1.0">
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.1.4">
     
     
       
-        <title>JetRacerの組み立て(新型) - FaBo JetRacer Docs</title>
+        <title>JetRacerの組み立て(新型) - FaBo JetRacer Docs - 0.3.0</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.11e41852.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
-      
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
       
         
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
         
-        <meta name="theme-color" content="#4caf50">
+          
+          
+          <meta name="theme-color" content="#4cae4f">
+        
       
     
     
-      <script src="../../assets/javascripts/modernizr.20ef595d.js"></script>
-    
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -70,109 +47,96 @@
       <link rel="stylesheet" href="../../css/custom.css">
     
     
+      
+    
+    
   </head>
   
-    
-    
-    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="black">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="black">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#jetracer" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="FaBo JetRacer Docs" class="md-header-nav__button md-logo">
-          
-            <i class="md-icon"></i>
-          
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jetracer" class="md-skip">
+          コンテンツにスキップ
         </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            
-              <span class="md-header-nav__topic">
-                FaBo JetRacer Docs
-              </span>
-              <span class="md-header-nav__topic">
-                JetRacerの組み立て(新型)
-              </span>
-            
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
-            検索キーワードを入力してください
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-          
-        
-      </div>
       
     </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="FaBo JetRacer Docs - 0.3.0" class="md-header__button md-logo" aria-label="FaBo JetRacer Docs - 0.3.0" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FaBo JetRacer Docs - 0.3.0
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JetRacerの組み立て(新型)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
+      
       
         
       
-      
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="FaBo JetRacer Docs" class="md-nav__button md-logo">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FaBo JetRacer Docs - 0.3.0" class="md-nav__button md-logo" aria-label="FaBo JetRacer Docs - 0.3.0" data-md-component="logo">
       
-        <i class="md-icon"></i>
-      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
     </a>
-    FaBo JetRacer Docs
+    FaBo JetRacer Docs - 0.3.0
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -181,12 +145,15 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../.." title="JetRacer Docs" class="md-nav__link">
-      JetRacer Docs
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
 
     
       
@@ -194,846 +161,14 @@
       
 
   
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
-    
-    <label class="md-nav__link" for="nav-2">
-      01.組み立て
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        01.組み立て
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../00.bom/" title="JetRacer BOM(新型)" class="md-nav__link">
-      JetRacer BOM(新型)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        JetRacerの組み立て(新型)
-      </label>
-    
-    <a href="./" title="JetRacerの組み立て(新型)" class="md-nav__link md-nav__link--active">
-      JetRacerの組み立て(新型)
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
   
   
-    
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Version Selector
+      </a>
+    </li>
   
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" title="拡張ボディシャーシの組み立て" class="md-nav__link">
-    拡張ボディシャーシの組み立て
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="ボディシャーシの取り付け" class="md-nav__link">
-    ボディシャーシの取り付け
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jetson-nano" title="Jetson Nanoの取り付け" class="md-nav__link">
-    Jetson Nanoの取り付け
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="カメラの取り付け" class="md-nav__link">
-    カメラの取り付け
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jumper" title="Jumperピンの設置" class="md-nav__link">
-    Jumperピンの設置
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#led" title="LEDの取り付け" class="md-nav__link">
-    LEDの取り付け
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cpu" title="CPU ファンの取り付け" class="md-nav__link">
-    CPU ファンの取り付け
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#wi-fi" title="Wi-Fiルーターの固定" class="md-nav__link">
-    Wi-Fiルーターの固定
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="コントローラーボードの装着" class="md-nav__link">
-    コントローラーボードの装着
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" title="バッテリーの固定" class="md-nav__link">
-    バッテリーの固定
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../02.line2/" title="JetRacerの配線(新型)" class="md-nav__link">
-      JetRacerの配線(新型)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../03.build/" title="JetRacerの組み立て(旧型)" class="md-nav__link">
-      JetRacerの組み立て(旧型)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../04.line/" title="JetRacerの配線(旧型)" class="md-nav__link">
-      JetRacerの配線(旧型)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6" type="checkbox" id="nav-2-6">
-    
-    <label class="md-nav__link" for="nav-2-6">
-      Carbon edition
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-6">
-        Carbon edition
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6-1" type="checkbox" id="nav-2-6-1">
-    
-    <label class="md-nav__link" for="nav-2-6-1">
-      JR1 S C
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-6-1">
-        JR1 S C
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../carbon_edition/JR1_S_C/05.bom_CarbonEdition/" title="JetRacer Carbon Edition BOMリスト" class="md-nav__link">
-      JetRacer Carbon Edition BOMリスト
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../carbon_edition/JR1_S_C/06.build_Carbon/" title="JetRacer Carbon Edition 組み立て" class="md-nav__link">
-      JetRacer Carbon Edition 組み立て
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6-2" type="checkbox" id="nav-2-6-2">
-    
-    <label class="md-nav__link" for="nav-2-6-2">
-      JR1 S C B
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-6-2">
-        JR1 S C B
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../carbon_edition/JR1_S_C_B/07.bom_CarbonEdition_B/" title="JetRacer Kit Carbon Edition ４GBモデル BOMリスト" class="md-nav__link">
-      JetRacer Kit Carbon Edition ４GBモデル BOMリスト
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../carbon_edition/JR1_S_C_B/08.build_Carbon_B/" title="JetRacer Kit Carbon Edition ４GBモデル　組み立て" class="md-nav__link">
-      JetRacer Kit Carbon Edition ４GBモデル　組み立て
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-6-3" type="checkbox" id="nav-2-6-3">
-    
-    <label class="md-nav__link" for="nav-2-6-3">
-      JR1 S C C
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-6-3">
-        JR1 S C C
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../carbon_edition/JR1_S_C_C/07.bom_CarbonEdition_C/" title="JetRacer Kit Carbon Edition ４GBモデル BOMリスト" class="md-nav__link">
-      JetRacer Kit Carbon Edition ４GBモデル BOMリスト
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../carbon_edition/JR1_S_C_C/08.build_Carbon_C/" title="JetRacer Kit Carbon Edition ４GBモデル　組み立て" class="md-nav__link">
-      JetRacer Kit Carbon Edition ４GBモデル　組み立て
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
-      02.SDカード
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        02.SDカード
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../02.SD%E3%82%AB%E3%83%BC%E3%83%89/01.sd/" title="SDカードの作成" class="md-nav__link">
-      SDカードの作成
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
-      03.ルーターへの接続
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        03.ルーターへの接続
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../03.%E3%83%AB%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%B8%E3%81%AE%E6%8E%A5%E7%B6%9A/01.router/" title="ルーターの設定" class="md-nav__link">
-      ルーターの設定
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      04.Jetracerへの接続
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        04.Jetracerへの接続
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../04.Jetracer%E3%81%B8%E3%81%AE%E6%8E%A5%E7%B6%9A/01.connect/" title="JetRacerへの接続" class="md-nav__link">
-      JetRacerへの接続
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
-    
-    <label class="md-nav__link" for="nav-6">
-      05.ソフトウェアの設定
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
-        05.ソフトウェアの設定
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../05.%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AE%E8%A8%AD%E5%AE%9A/01.install/" title="JetCard" class="md-nav__link">
-      JetCard
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../05.%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AE%E8%A8%AD%E5%AE%9A/02.package/" title="必要なパッケージ" class="md-nav__link">
-      必要なパッケージ
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../05.%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AE%E8%A8%AD%E5%AE%9A/03.i2c/" title="I2Cの認識確認" class="md-nav__link">
-      I2Cの認識確認
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../05.%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AE%E8%A8%AD%E5%AE%9A/04.camera/" title="カメラの認識確認" class="md-nav__link">
-      カメラの認識確認
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../05.%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AE%E8%A8%AD%E5%AE%9A/05.power/" title="電力モード" class="md-nav__link">
-      電力モード
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../05.%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AE%E8%A8%AD%E5%AE%9A/06.oled/" title="OLED" class="md-nav__link">
-      OLED
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
-    
-    <label class="md-nav__link" for="nav-7">
-      06.メモリ
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        06.メモリ
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../06.%E3%83%A1%E3%83%A2%E3%83%AA/01.memory/" title="Jetsonシリーズのメモリ" class="md-nav__link">
-      Jetsonシリーズのメモリ
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../06.%E3%83%A1%E3%83%A2%E3%83%AA/02.reduction/" title="メモリの調整" class="md-nav__link">
-      メモリの調整
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../06.%E3%83%A1%E3%83%A2%E3%83%AA/03.usage/" title="メモリの使用量" class="md-nav__link">
-      メモリの使用量
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
-      07.クロック
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        07.クロック
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../07.%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF/01.clock/" title="クロックの調整" class="md-nav__link">
-      クロックの調整
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
-    
-    <label class="md-nav__link" for="nav-9">
-      08.学習
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        08.学習
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../08.%E5%AD%A6%E7%BF%92/01.jupyter/" title="Jupyterの注意事項" class="md-nav__link">
-      Jupyterの注意事項
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../08.%E5%AD%A6%E7%BF%92/02.notebook/" title="JetRacer用のNotebook" class="md-nav__link">
-      JetRacer用のNotebook
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../08.%E5%AD%A6%E7%BF%92/03.train/" title="学習" class="md-nav__link">
-      学習
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
-    
-    <label class="md-nav__link" for="nav-10">
-      09.Firmware
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-10">
-        09.Firmware
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../09.Firmware/01.firmware/" title="Firmwareの開発" class="md-nav__link">
-      Firmwareの開発
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../09.Firmware/02.led/" title="SPI-LEDの制御" class="md-nav__link">
-      SPI-LEDの制御
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../09.Firmware/03.multiprexer/" title="Multiplexer" class="md-nav__link">
-      Multiplexer
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../09.Firmware/04.pin/" title="PIN配置" class="md-nav__link">
-      PIN配置
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
-    
-    <label class="md-nav__link" for="nav-11">
-      10.Trouble Shooting 
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        10.Trouble Shooting 
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../10.Trouble%20Shooting%20/01.camera/" title="カメラのトラブルシューティング" class="md-nav__link">
-      カメラのトラブルシューティング
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../10.Trouble%20Shooting%20/02.jupyter/" title="原因不明のエラーでJupyter Notebookが実行できない" class="md-nav__link">
-      原因不明のエラーでJupyter Notebookが実行できない
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../10.Trouble%20Shooting%20/03.log/" title="SDカードの容量はいっぱいになる" class="md-nav__link">
-      SDカードの容量はいっぱいになる
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
 
     
   </ul>
@@ -1043,92 +178,93 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="拡張ボディシャーシの組み立て" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     拡張ボディシャーシの組み立て
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="ボディシャーシの取り付け" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     ボディシャーシの取り付け
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#jetson-nano" title="Jetson Nanoの取り付け" class="md-nav__link">
+  <a href="#jetson-nano" class="md-nav__link">
     Jetson Nanoの取り付け
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="カメラの取り付け" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     カメラの取り付け
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#jumper" title="Jumperピンの設置" class="md-nav__link">
+  <a href="#jumper" class="md-nav__link">
     Jumperピンの設置
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#led" title="LEDの取り付け" class="md-nav__link">
+  <a href="#led" class="md-nav__link">
     LEDの取り付け
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cpu" title="CPU ファンの取り付け" class="md-nav__link">
+  <a href="#cpu" class="md-nav__link">
     CPU ファンの取り付け
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#wi-fi" title="Wi-Fiルーターの固定" class="md-nav__link">
+  <a href="#wi-fi" class="md-nav__link">
     Wi-Fiルーターの固定
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="コントローラーボードの装着" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     コントローラーボードの装着
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="バッテリーの固定" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     バッテリーの固定
   </a>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -1138,7 +274,7 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
@@ -1223,8 +359,6 @@ Rev B01(カメラ端子が2つのモデル)は、Jumperピンが標準でつい�
 <p><img alt="" src="../img/kit2_037.jpg" /></p>
 <p><img alt="" src="../img/kit2_038.jpg" /></p>
                 
-                  
-                
               
               
                 
@@ -1234,88 +368,68 @@ Rev B01(カメラ端子が2つのモデル)は、Jumperピンが標準でつい�
             </article>
           </div>
         </div>
+        
       </main>
       
         
 <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../00.bom/" title="JetRacer BOM(新型)" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  前
-                </span>
-                JetRacer BOM(新型)
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
+      
+        <a href="../00.bom/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
               </span>
+              JetRacer BOM(新型)
             </div>
-          </a>
-        
-        
-          <a href="../02.line2/" title="JetRacerの配線(新型)" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  次
-                </span>
-                JetRacerの配線(新型)
+          </div>
+        </a>
+      
+      
+        <a href="../02.line2/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
               </span>
+              JetRacerの配線(新型)
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
-      </div>
-      
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
         
+      </div>
       
     </div>
   </div>
 </footer>
       
     </div>
-    
-      <script src="../../assets/javascripts/application.9e1f3b71.js"></script>
-      
-        
-        
-          
-          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
-          
-            
-              
-                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
-              
-              
-                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
-              
-            
-          
-          
-        
-      
-      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
-      
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044"}, "search": "../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
     
     
+      <script src="../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
       
     
   </body>
