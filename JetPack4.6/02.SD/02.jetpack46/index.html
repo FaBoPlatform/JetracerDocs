@@ -575,7 +575,7 @@ chmod 755 install_batch.sh
 </code></pre></p>
 <h2 id="jetcard_jupyterservice">jetcard_jupyter.serviceの修正</h2>
 <p><code>/etc/systemd/system/jetcard_jupyter.service</code>に、Environmentの項目を追加</p>
-<div class=md-fenced-code-tabs id=tab-tab-group-1><input name=tab-group-1 type=radio id=tab-group-1-0_clsz65i4bh4f7o3 checked=checked class=code-tab data-lang aria-controls=tab-group-1-0_clsz65i4bh4f7o3-panel role=tab><label for=tab-group-1-0_clsz65i4bh4f7o3 class=code-tab-label data-lang id=tab-group-1-0_clsz65i4bh4f7o3-label></label><div class=code-tabpanel role=tabpanel data-lang id=tab-group-1-0_clsz65i4bh4f7o3-panel aria-labelledby=tab-group-1-0_clsz65i4bh4f7o3-label><pre><code class>[Unit]
+<p> <pre><code class>[Unit]
 Description=Jupyter Notebook Service
 
 [Service]
@@ -588,8 +588,10 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
-</code></pre></div><input name=tab-group-1 type=radio id=tab-group-1-1_nv113zie7yb8rmd class=code-tab data-lang aria-controls=tab-group-1-1_nv113zie7yb8rmd-panel role=tab><label for=tab-group-1-1_nv113zie7yb8rmd class=code-tab-label data-lang id=tab-group-1-1_nv113zie7yb8rmd-label></label><div class=code-tabpanel role=tabpanel data-lang id=tab-group-1-1_nv113zie7yb8rmd-panel aria-labelledby=tab-group-1-1_nv113zie7yb8rmd-label><pre><code class>sudo systemctl daemon-reload
-</code></pre></div></div>
+</code></pre></p>
+<p>再起動</p>
+<p> <pre><code class>sudo systemctl restart jetcard_jupyter.service
+</code></pre></p>
                 
               
               
