@@ -14,7 +14,7 @@
     
     
       
-        <title>SPI-LEDの制御 - FaBo JetRacer Docs</title>
+        <title>TensorRTへの変換 - FaBo JetRacer Docs</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#spi-led" class="md-skip">
+        <a href="#tensorrt" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SPI-LEDの制御
+              TensorRTへの変換
             
           </span>
         </div>
@@ -428,12 +428,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       <label class="md-nav__link" for="__nav_6">
         学習と走行
@@ -451,7 +453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../test/01.notebooks/" class="md-nav__link">
+      <a href="../01.notebooks/" class="md-nav__link">
         使用するNotebook
       </a>
     </li>
@@ -463,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../test/02.basic_motion/" class="md-nav__link">
+      <a href="../02.basic_motion/" class="md-nav__link">
         動作確認
       </a>
     </li>
@@ -475,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../test/03.interactive_regression/" class="md-nav__link">
+      <a href="../03.interactive_regression/" class="md-nav__link">
         データセットの作成/学習
       </a>
     </li>
@@ -485,11 +487,51 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../test/04.optimize_model/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          TensorRTへの変換
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         TensorRTへの変換
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#optimize_model" class="md-nav__link">
+    optimize_model
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -499,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../test/05.road_following/" class="md-nav__link">
+      <a href="../05.road_following/" class="md-nav__link">
         走行
       </a>
     </li>
@@ -538,8 +580,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#spi-led_1" class="md-nav__link">
-    SPI-LEDの説明
+  <a href="#optimize_model" class="md-nav__link">
+    optimize_model
   </a>
   
 </li>
@@ -557,52 +599,17 @@
               
                 
                 
-                <h1 id="spi-led">SPI-LEDの制御</h1>
-<h2 id="spi-led_1">SPI-LEDの説明</h2>
-<p>FaBo JetRacer #612では、フルカラーLEDのAPA102とSPIで接続可能です。</p>
-<p>レインボーのサンプル</p>
-<p> <pre><code class=c>#include &quot;SPI.h&quot;
-
-void startBit() {
-  byte start = 0x00;
-  SPI.transfer(start);
-  SPI.transfer(start);
-  SPI.transfer(start);
-  SPI.transfer(start);
-}
-
-void endBit() {
-  byte end = 0x11;
-  SPI.transfer(end);
-  SPI.transfer(end);
-  SPI.transfer(end);
-  SPI.transfer(end);
-}
-
-void setRGB(short r, short g, short b) {
-  SPI.transfer(0xEF);
-  SPI.transfer(r);
-  SPI.transfer(g);
-  SPI.transfer(b);
-}
-
-void setup() {
-  SPI.begin();
-}
-
-void loop() {
-  for(int i = 0; i &lt; 255; i++) {
-    startBit();
-    setRGB(255,   i,   0);
-    setRGB(255,   i, 255);
-    setRGB(255, 255,   i);
-    setRGB(255,   0,   i); 
-    setRGB(i,   255,   0);
-    setRGB(i,   255,   255);
-    endBit();
-    delay(100);
-  }
-}
+                <h1 id="tensorrt">TensorRTへの変換</h1>
+<h2 id="optimize_model">optimize_model</h2>
+<p>interactive_regressionで保存した学習済みモデルをTensorRTのフォーマットに変換します。</p>
+<p>2つめのcellが、学習済みモデルの読み込みになるので、保存した名前に合わせて書き換えます。</p>
+<p> <pre><code class>model.load_state_dict(torch.load('model_08-06.pth'))
+</code></pre></p>
+<p>例えば<code>model_11-13.pth</code>という名前で保存した場合は、下記のように書き換えます。</p>
+<p> <pre><code class>model.load_state_dict(torch.load('model_11-13.pth'))
+</code></pre></p>
+<p>4つめのcellが、TensorRTフォーマットで出力するTensorRTフォーマットの学習済みモデルになっていますので、必要に応じて書き直します。</p>
+<p> <pre><code class>torch.save(model_trt.state_dict(), 'model_08-06_trt.pth')
 </code></pre></p>
                 
               
@@ -619,6 +626,39 @@ void loop() {
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
+      
+        <a href="../03.interactive_regression/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              データセットの作成/学習
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../05.road_following/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              走行
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
