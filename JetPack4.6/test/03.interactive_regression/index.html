@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#basic-motion" class="md-skip">
+        <a href="#interactive_regression" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -511,14 +511,28 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    ステアリング
+    データセットの作成
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    スロットル
+    学習
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    データの追加と再学習
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    学習済みモデルの保存
   </a>
   
 </li>
@@ -564,14 +578,28 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    ステアリング
+    データセットの作成
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    スロットル
+    学習
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    データの追加と再学習
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    学習済みモデルの保存
   </a>
   
 </li>
@@ -589,51 +617,37 @@
               
                 
                 
-                <h1 id="basic-motion">Basic motion</h1>
-<p><code>basic_motion.ipynb</code>では、RCカーが問題なく制御できるかの確認をおこないます。</p>
-<h2 id="_1">ステアリング</h2>
-<p><code>car.steering</code>が前輪のステアリングの値になります。-1〜1の間の値が設定可能です。</p>
-<p> <pre><code class>car.steering = 0.3
-</code></pre></p>
-<p>左にいっぱいタイヤを切る</p>
-<p> <pre><code class>car.steering = 1
-</code></pre></p>
-<p>右にいっぱいタイヤを切る</p>
-<p> <pre><code class>car.steering = -1
-</code></pre></p>
-<p>中央位置に戻す</p>
-<p> <pre><code class>car.steering = 0
-</code></pre></p>
-<p>ここで、左右にいっぱいにタイヤが切れない場合は調節が必要です。</p>
+                <h1 id="interactive_regression">interactive_regression</h1>
+<h2 id="_1">データセットの作成</h2>
+<p>interactive_regressionでデータセットの作成をおこないます。RCカー向かわせたい方向をマウスでクリックし登録していきます。</p>
+<h2 id="_2">学習</h2>
+<p>学習は、epoch数を入力し、学習していきます。学習回数は、初回/データロード時は20epoch程度連続して実施する事をおすすめします。</p>
 <table>
 <thead>
 <tr>
-<th align="left">値</th>
-<th align="left">内容</th>
-<th align="left">用途</th>
+<th align="left">タイミング</th>
+<th align="left">epoch数</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">car.steering_gain</td>
-<td align="left">キレ角の調整</td>
-<td align="left">切れすぎる時、切れなすぎる時に調整</td>
+<td align="left">初めての学習時</td>
+<td align="left">20 epoch</td>
 </tr>
 <tr>
-<td align="left">car.steering_offset</td>
-<td align="left">オフセット</td>
-<td align="left">前輪の初期値が曲がっている場合に調整</td>
+<td align="left">データをロードした後</td>
+<td align="left">20 epoch</td>
+</tr>
+<tr>
+<td align="left">データ追加時</td>
+<td align="left">数 epoch</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_2">スロットル</h2>
-<p>ここでは、スロットルが動きますので、車輪を浮かせた状態にしていてください。</p>
-<p> <pre><code class>car.throttle = 0.0
-</code></pre></p>
-<p>ここの値も1〜-1の間が設定可能です。</p>
-<p>0.2程度の値を設定して、タイヤが回るかを確認してみましょう。</p>
-<p> <pre><code class>car.throttle = 0.2
-</code></pre></p>
+<h2 id="_3">データの追加と再学習</h2>
+<p>liveモードで表示される青い○と比較しながら、うまく認識できない箇所を中心にデータ追加し、数epoch学習(train)します。</p>
+<h2 id="_4">学習済みモデルの保存</h2>
+<p>saveボタンで学習済みモデルを保存します。</p>
                 
               
               
