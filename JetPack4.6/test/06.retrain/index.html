@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tensorrt" class="md-skip">
+        <a href="#_1" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -546,8 +546,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#optimize_model" class="md-nav__link">
-    optimize_model
+  <a href="#_2" class="md-nav__link">
+    再学習の方法
   </a>
   
 </li>
@@ -592,8 +592,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#optimize_model" class="md-nav__link">
-    optimize_model
+  <a href="#_2" class="md-nav__link">
+    再学習の方法
   </a>
   
 </li>
@@ -611,19 +611,11 @@
               
                 
                 
-                <h1 id="tensorrt">TensorRTへの変換</h1>
-<p><img alt="YOUTUBE" src="jtj9brpBrXo" /></p>
-<h2 id="optimize_model">optimize_model</h2>
-<p>interactive_regressionで保存した学習済みモデルをTensorRTのフォーマットに変換します。</p>
-<p>2つめのcellが、学習済みモデルの読み込みになるので、保存した名前に合わせて書き換えます。</p>
-<p> <pre><code class>model.load_state_dict(torch.load('model_08-06.pth'))
-</code></pre></p>
-<p>例えば<code>model_11-13.pth</code>という名前で保存した場合は、下記のように書き換えます。</p>
-<p> <pre><code class>model.load_state_dict(torch.load('model_11-13.pth'))
-</code></pre></p>
-<p>4つめのcellが、TensorRTフォーマットで出力するTensorRTフォーマットの学習済みモデルになっていますので、必要に応じて書き直します。</p>
-<p> <pre><code class>torch.save(model_trt.state_dict(), 'model_08-06_trt.pth')
-</code></pre></p>
+                <h1 id="_1">再学習</h1>
+<p><img alt="YOUTUBE" src="" /></p>
+<h2 id="_2">再学習の方法</h2>
+<p>road_following.liveおよび、road_followingの自動走行でうまくいかない場合は、再度、interactive_regressionでデータセットの追加と転移学習を実施します。</p>
+<p>学習済みのモデルを任意の名前で保存し、TensorRTに変換し、road_following.liveおよび、road_followingで自動走行にトライします。</p>
                 
               
               
