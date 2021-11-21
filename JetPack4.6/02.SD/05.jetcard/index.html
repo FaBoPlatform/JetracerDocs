@@ -709,7 +709,7 @@ chmod 755 install_batch.sh
 Description=Jupyter Notebook Service
 
 [Service]
-Environment=“LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1”
+Environment=&quot;LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1&quot;
 Type=simple
 User=jetson
 ExecStart=/bin/sh -c &quot;jupyter lab --ip=0.0.0.0 --no-browser&quot;
