@@ -384,27 +384,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#sdjetson" class="md-nav__link">
-    焼き込んだSDカードをJetsonに差し込み起動
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jetcard" class="md-nav__link">
-    JetCardのインストール
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jetcard_jupyterservice" class="md-nav__link">
-    jetcard_jupyter.serviceの修正
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -619,27 +598,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#sdjetson" class="md-nav__link">
-    焼き込んだSDカードをJetsonに差し込み起動
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jetcard" class="md-nav__link">
-    JetCardのインストール
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jetcard_jupyterservice" class="md-nav__link">
-    jetcard_jupyter.serviceの修正
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -654,6 +612,14 @@
                 
                 
                 <h1 id="sd">SDカードの作成</h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>FaBo Storeより、JetRacerを購入の方は、付属SDカードにJetPack4.6を焼き込み済みです。</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>本ドキュメントはJetson Nano 4GBのみ対応しています</p>
+</div>
 <h2 id="jetpack46sd">JetPack4.6ベースでのSDカードの作成</h2>
 <p>NVIDIA社の<a href="https://developer.nvidia.com/embedded/jetpack">JETPACK SDK</a>のページよりJetPack4.6イメージをダウンロードし、SDカードに焼き込みます。</p>
 <p>SDカードは64GBをおすすめします。</p>
@@ -662,38 +628,6 @@
 <p><img alt="" src="../img/sd003.png" /></p>
 <p><img alt="" src="../img/sd004.png" /></p>
 <p><img alt="" src="../img/sd005.png" /></p>
-<h2 id="sdjetson">焼き込んだSDカードをJetsonに差し込み起動</h2>
-<p>Jetsonを起動し、初期設定をおこないます。設定はDefaultのままで問題ありません。</p>
-<p><img alt="" src="../img/setting001.jpg" /></p>
-<p>初期設定がおわったら WiFiの設定を実施します。</p>
-<p><img alt="" src="../img/wifi001.jpeg" /></p>
-<h2 id="jetcard">JetCardのインストール</h2>
-<p> <pre><code class>cd $HOME
-git clone https://github.com/NVIDIA-AI-IOT/jetcard
-cd jetcard
-cat install.sh | sed 's/sudo -H python3 setup.py install --plugins/sudo -H python3 setup.py install/g' &gt; install_batch.sh
-chmod 755 install_batch.sh
-./install_batch.sh
-</code></pre></p>
-<h2 id="jetcard_jupyterservice">jetcard_jupyter.serviceの修正</h2>
-<p><code>/etc/systemd/system/jetcard_jupyter.service</code>に、Environmentの項目を追加</p>
-<p> <pre><code class>[Unit]
-Description=Jupyter Notebook Service
-
-[Service]
-Environment=“LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1”
-Type=simple
-User=jetson
-ExecStart=/bin/sh -c &quot;jupyter lab --ip=0.0.0.0 --no-browser&quot;
-WorkingDirectory=/home/jetson
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-</code></pre></p>
-<p>再起動</p>
-<p> <pre><code class>sudo systemctl restart jetcard_jupyter.service
-</code></pre></p>
                 
               
               
