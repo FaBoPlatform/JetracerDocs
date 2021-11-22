@@ -14,7 +14,7 @@
     
     
       
-        <title>メモリの調整 - FaBo JetRacer Docs</title>
+        <title>NXへの対応 - FaBo JetRacer Docs</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#nx" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              メモリの調整
+              NXへの対応
             
           </span>
         </div>
@@ -322,12 +322,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       <label class="md-nav__link" for="__nav_4">
         SDカード
@@ -343,12 +345,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
       
       <label class="md-nav__link" for="__nav_4_1">
         JetPack4.6
@@ -366,7 +370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02.SD/02.jetpack46/" class="md-nav__link">
+      <a href="../02.jetpack46/" class="md-nav__link">
         SDカードの焼込
       </a>
     </li>
@@ -378,7 +382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02.SD/03.setting/" class="md-nav__link">
+      <a href="../03.setting/" class="md-nav__link">
         初期設定
       </a>
     </li>
@@ -390,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02.SD/04.wifi/" class="md-nav__link">
+      <a href="../04.wifi/" class="md-nav__link">
         Wi-Fiの設定
       </a>
     </li>
@@ -402,7 +406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02.SD/05.jetcard/" class="md-nav__link">
+      <a href="../05.jetcard/" class="md-nav__link">
         JetCardのインストール
       </a>
     </li>
@@ -412,11 +416,58 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../02.SD/06.nx/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          NXへの対応
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         NXへの対応
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nx_1" class="md-nav__link">
+    NXでの修正箇所
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adafruit_blinka" class="md-nav__link">
+    Adafruit_Blinkaの更新
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -432,7 +483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02.SD/01.sd/" class="md-nav__link">
+      <a href="../01.sd/" class="md-nav__link">
         JetPack4.4
       </a>
     </li>
@@ -651,8 +702,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#x-windows" class="md-nav__link">
-    X-Windowsの停止
+  <a href="#nx_1" class="md-nav__link">
+    NXでの修正箇所
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adafruit_blinka" class="md-nav__link">
+    Adafruit_Blinkaの更新
   </a>
   
 </li>
@@ -670,13 +728,22 @@
               
                 
                 
-                <h1 id="_1">メモリの調整</h1>
-<p>JetRacerに関係ない処理は停止させます。</p>
-<h2 id="x-windows">X-Windowsの停止</h2>
-<p>X-Windowsは使用しないので停止させます。これで300MB程度削減できます。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>sudo systemctl set-default multi-user.target
+                <h1 id="nx">NXへの対応</h1>
+<h2 id="nx_1">NXでの修正箇所</h2>
+<p>Jetson Nanoでは、I2C Bus番号が1を使用し、NXでは、I2C Bus番号が8を使用しています。この差分を修正する必要があります。</p>
+<p>JetCardのインストールが問題なくできた場合は、下記更新を実施する事で、JetRacerを動かせるようになると思われます。</p>
+<h2 id="adafruit_blinka">Adafruit_Blinkaの更新</h2>
+<p>JetRacerではI2C経由での制御チップ(PCA9685)へのアクセスには、Adafruit_Blinkaを使用しています。最新版のAdafruit_BlinkaではJetson Xavier NX も認識できるようになったので、最新版に更新します。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">cd $HOME</span>
+<span style="color: #66d9ef">git clone https://github.com/adafruit/Adafruit_Blinka</span>
+<span style="color: #66d9ef">cd Adafruit_Blinka</span>
+<span style="color: #66d9ef">python3 setup.py install</span>
 </code></pre></div>
 </td></tr></table>
+<p>これで、JetRacerで使用するI2C Bus番号が8に更新されます。</p>
                 
               
               
@@ -692,6 +759,39 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
+      
+        <a href="../05.jetcard/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              JetCardのインストール
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../01.sd/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              JetPack4.4
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
