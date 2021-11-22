@@ -736,19 +736,19 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #960050; background-color: #1e0010">[Unit]</span>
-<span style="color: #960050; background-color: #1e0010">Description=Jupyter</span> <span style="color: #960050; background-color: #1e0010">Notebook</span> <span style="color: #960050; background-color: #1e0010">Service</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>[Unit]
+Description=Jupyter Notebook Service
 
-<span style="color: #960050; background-color: #1e0010">[Service]</span>
-<span style="color: #960050; background-color: #1e0010">Environment=&quot;LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1&quot;</span>
-<span style="color: #960050; background-color: #1e0010">Type=simple</span>
-<span style="color: #960050; background-color: #1e0010">User=jetson</span>
-<span style="color: #960050; background-color: #1e0010">ExecStart=/bin/sh</span> <span style="color: #960050; background-color: #1e0010">-c</span> <span style="color: #960050; background-color: #1e0010">&quot;jupyter</span> <span style="color: #960050; background-color: #1e0010">lab</span> <span style="color: #960050; background-color: #1e0010">--ip=0.0.0.0</span> <span style="color: #960050; background-color: #1e0010">--no-browser&quot;</span>
-<span style="color: #960050; background-color: #1e0010">WorkingDirectory=/home/jetson</span>
-<span style="color: #960050; background-color: #1e0010">Restart=always</span>
+[Service]
+Environment=&quot;LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1&quot;
+Type=simple
+User=jetson
+ExecStart=/bin/sh -c &quot;jupyter lab --ip=0.0.0.0 --no-browser&quot;
+WorkingDirectory=/home/jetson
+Restart=always
 
-<span style="color: #960050; background-color: #1e0010">[Install]</span>
-<span style="color: #960050; background-color: #1e0010">WantedBy=multi-user.target</span>
+[Install]
+WantedBy=multi-user.target
 </code></pre></div>
 </td></tr></table>
 <p>再起動
