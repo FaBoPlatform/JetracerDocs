@@ -14,7 +14,7 @@
     
     
       
-        <title>初期設定 - FaBo JetRacer Docs</title>
+        <title>JetCardのインストール - FaBo JetRacer Docs</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#jetpack46" class="md-skip">
+        <a href="#jetcard" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              初期設定
+              JetCardのインストール
             
           </span>
         </div>
@@ -380,51 +380,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          初期設定
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../03.setting/" class="md-nav__link">
         初期設定
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sdjetson" class="md-nav__link">
-    焼き込んだSDカードをJetsonに差し込み起動
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -444,11 +404,58 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../05.jetcard/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          JetCardのインストール
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         JetCardのインストール
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jetcard_1" class="md-nav__link">
+    JetCardのインストール
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jetcard_jupyterservice" class="md-nav__link">
+    jetcard_jupyter.serviceの修正
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -476,7 +483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01.sd/" class="md-nav__link">
+      <a href="../01.jetpack44/" class="md-nav__link">
         JetPack4.4
       </a>
     </li>
@@ -707,8 +714,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sdjetson" class="md-nav__link">
-    焼き込んだSDカードをJetsonに差し込み起動
+  <a href="#jetcard_1" class="md-nav__link">
+    JetCardのインストール
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jetcard_jupyterservice" class="md-nav__link">
+    jetcard_jupyter.serviceの修正
   </a>
   
 </li>
@@ -726,14 +740,69 @@
               
                 
                 
-                <h1 id="jetpack46">JetPack4.6の初期設定</h1>
+                <h1 id="jetcard">JetCardのインストール</h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>本ドキュメントはJetson Nano 4GBのみ対応しています</p>
 </div>
-<h2 id="sdjetson">焼き込んだSDカードをJetsonに差し込み起動</h2>
-<p>Jetsonを起動し、初期設定をおこないます。設定はDefaultのままで問題ありません。</p>
-<p><img alt="" src="../img/setting001.jpg" /></p>
+<h2 id="jetcard_1">JetCardのインストール</h2>
+<p>作業ディレクトリに移動します。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">cd $HOME</span>
+<span style="color: #66d9ef">git clone https://github.com/NVIDIA-AI-IOT/jetcard</span>
+<span style="color: #66d9ef">cd jetcard</span>
+</code></pre></div>
+</td></tr></table>
+<p>install.shを修正し、install_batch.shという名称で保存します。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">cat install.sh | sed &#39;s/sudo -H python3 setup.py install --plugins/sudo -H python3 setup.py install/g&#39; &gt; install_batch.sh</span>
+</code></pre></div>
+</td></tr></table>
+<p>install_batch.shのパーミッションを変更します。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">chmod 755 install_batch.sh</span>
+</code></pre></div>
+</td></tr></table>
+<p>インストールの実行。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">./install_batch.sh</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>JetCardのインストールには1時間〜3時間程度時間がかかります。</p>
+</div>
+<h2 id="jetcard_jupyterservice">jetcard_jupyter.serviceの修正</h2>
+<p><code>/etc/systemd/system/jetcard_jupyter.service</code>に、Environmentの項目を追加。また、ユーザ名が<code>jetson</code>ではない場合、<code>User=jetson</code>の箇所も自分のユーザー名の修正。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">[Unit]</span>
+<span style="color: #f8f8f2">Description</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">Jupyter</span> <span style="color: #f8f8f2">Notebook</span> <span style="color: #f8f8f2">Service</span>
+
+<span style="color: #f8f8f2">[Service]</span>
+<span style="color: #f8f8f2">Environment</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">LD_PRELOAD</span><span style="color: #f92672">=/</span><span style="color: #f8f8f2">usr</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">lib</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">aarch64</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">linux</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gnu</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">libgomp.so.1</span>
+<span style="color: #f8f8f2">Type</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">simple</span>
+<span style="color: #f8f8f2">User</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">jetson</span>
+<span style="color: #f8f8f2">ExecStart</span><span style="color: #f92672">=/</span><span style="color: #f8f8f2">bin</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">sh</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">c</span> <span style="color: #e6db74">&quot;jupyter lab --ip=0.0.0.0 --no-browser&quot;</span>
+<span style="color: #f8f8f2">WorkingDirectory</span><span style="color: #f92672">=/</span><span style="color: #f8f8f2">home</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">jetson</span>
+<span style="color: #f8f8f2">Restart</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">always</span>
+
+<span style="color: #f8f8f2">[Install]</span>
+<span style="color: #f8f8f2">WantedBy</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">multi</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">user.target</span>
+</code></pre></div>
+</td></tr></table>
+<p>再起動
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">sudo reboot</span>
+</code></pre></div>
+</td></tr></table></p>
                 
               
               
@@ -752,7 +821,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../02.jetpack46/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../04.wifi/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -761,19 +830,19 @@
               <span class="md-footer__direction">
                 前
               </span>
-              SDカードの焼込
+              Wi-Fiの設定
             </div>
           </div>
         </a>
       
       
-        <a href="../04.wifi/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../06.nx/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              Wi-Fiの設定
+              NXへの対応
             </div>
           </div>
           <div class="md-footer__button md-icon">

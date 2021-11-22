@@ -14,7 +14,7 @@
     
     
       
-        <title>JetCardのインストール - FaBo JetRacer Docs</title>
+        <title>NXへの対応 - FaBo JetRacer Docs</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#jetcard" class="md-skip">
+        <a href="#nx" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              JetCardのインストール
+              NXへの対応
             
           </span>
         </div>
@@ -404,6 +404,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../05.jetcard/" class="md-nav__link">
+        JetCardのインストール
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -416,12 +428,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          JetCardのインストール
+          NXへの対応
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        JetCardのインストール
+        NXへの対応
       </a>
       
         
@@ -439,15 +451,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jetcard_1" class="md-nav__link">
-    JetCardのインストール
+  <a href="#nx_1" class="md-nav__link">
+    NXでの修正箇所
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#jetcard_jupyterservice" class="md-nav__link">
-    jetcard_jupyter.serviceの修正
+  <a href="#adafruit_blinka" class="md-nav__link">
+    Adafruit_Blinkaの更新
   </a>
   
 </li>
@@ -456,18 +468,6 @@
   
 </nav>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../06.nx/" class="md-nav__link">
-        NXへの対応
-      </a>
     </li>
   
 
@@ -483,7 +483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01.sd/" class="md-nav__link">
+      <a href="../01.jetpack44/" class="md-nav__link">
         JetPack4.4
       </a>
     </li>
@@ -714,15 +714,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jetcard_1" class="md-nav__link">
-    JetCardのインストール
+  <a href="#nx_1" class="md-nav__link">
+    NXでの修正箇所
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#jetcard_jupyterservice" class="md-nav__link">
-    jetcard_jupyter.serviceの修正
+  <a href="#adafruit_blinka" class="md-nav__link">
+    Adafruit_Blinkaの更新
   </a>
   
 </li>
@@ -740,69 +740,26 @@
               
                 
                 
-                <h1 id="jetcard">JetCardのインストール</h1>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>本ドキュメントはJetson Nano 4GBのみ対応しています</p>
+                <h1 id="nx">NXへの対応</h1>
+<div class="admonition warrning">
+<p class="admonition-title">Warrning</p>
+<p>NXは現在非公式サポートです。</p>
 </div>
-<h2 id="jetcard_1">JetCardのインストール</h2>
-<p>作業ディレクトリに移動します。</p>
+<h2 id="nx_1">NXでの修正箇所</h2>
+<p>Jetson Nanoでは、I2C Bus番号が1を使用し、NXでは、I2C Bus番号が8を使用しています。この差分を修正する必要があります。</p>
+<p>JetCardのインストールが問題なくできた場合は、下記更新を実施する事で、JetRacerを動かせるようになると思われます。</p>
+<h2 id="adafruit_blinka">Adafruit_Blinkaの更新</h2>
+<p>JetRacerではI2C経由での制御チップ(PCA9685)へのアクセスには、Adafruit_Blinkaを使用しています。最新版のAdafruit_BlinkaではJetson Xavier NX も認識できるようになったので、最新版に更新します。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">cd $HOME</span>
-<span style="color: #66d9ef">git clone https://github.com/NVIDIA-AI-IOT/jetcard</span>
-<span style="color: #66d9ef">cd jetcard</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">cd $HOME</span>
+<span style="color: #66d9ef">git clone https://github.com/adafruit/Adafruit_Blinka</span>
+<span style="color: #66d9ef">cd Adafruit_Blinka</span>
+<span style="color: #66d9ef">python3 setup.py install</span>
 </code></pre></div>
 </td></tr></table>
-<p>install.shを修正し、install_batch.shという名称で保存します。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">cat install.sh | sed &#39;s/sudo -H python3 setup.py install --plugins/sudo -H python3 setup.py install/g&#39; &gt; install_batch.sh</span>
-</code></pre></div>
-</td></tr></table>
-<p>install_batch.shのパーミッションを変更します。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">chmod 755 install_batch.sh</span>
-</code></pre></div>
-</td></tr></table>
-<p>インストールの実行。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">./install_batch.sh</span>
-</code></pre></div>
-</td></tr></table>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>JetCardのインストールには1時間〜3時間程度時間がかかります。</p>
-</div>
-<h2 id="jetcard_jupyterservice">jetcard_jupyter.serviceの修正</h2>
-<p><code>/etc/systemd/system/jetcard_jupyter.service</code>に、Environmentの項目を追加。また、ユーザ名が<code>jetson</code>ではない場合、<code>User=jetson</code>の箇所も自分のユーザー名の修正。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">[Unit]</span>
-<span style="color: #f8f8f2">Description</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">Jupyter</span> <span style="color: #f8f8f2">Notebook</span> <span style="color: #f8f8f2">Service</span>
-
-<span style="color: #f8f8f2">[Service]</span>
-<span style="color: #f8f8f2">Environment</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">LD_PRELOAD</span><span style="color: #f92672">=/</span><span style="color: #f8f8f2">usr</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">lib</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">aarch64</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">linux</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gnu</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">libgomp.so.1</span>
-<span style="color: #f8f8f2">Type</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">simple</span>
-<span style="color: #f8f8f2">User</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">jetson</span>
-<span style="color: #f8f8f2">ExecStart</span><span style="color: #f92672">=/</span><span style="color: #f8f8f2">bin</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">sh</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">c</span> <span style="color: #e6db74">&quot;jupyter lab --ip=0.0.0.0 --no-browser&quot;</span>
-<span style="color: #f8f8f2">WorkingDirectory</span><span style="color: #f92672">=/</span><span style="color: #f8f8f2">home</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">jetson</span>
-<span style="color: #f8f8f2">Restart</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">always</span>
-
-<span style="color: #f8f8f2">[Install]</span>
-<span style="color: #f8f8f2">WantedBy</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">multi</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">user.target</span>
-</code></pre></div>
-</td></tr></table>
-<p>再起動
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">sudo reboot</span>
-</code></pre></div>
-</td></tr></table></p>
+<p>これで、JetRacerで使用するI2C Bus番号が8に更新されます。</p>
                 
               
               
@@ -821,7 +778,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../04.wifi/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../05.jetcard/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -830,19 +787,19 @@
               <span class="md-footer__direction">
                 前
               </span>
-              Wi-Fiの設定
+              JetCardのインストール
             </div>
           </div>
         </a>
       
       
-        <a href="../06.nx/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../01.jetpack44/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              NXへの対応
+              JetPack4.4
             </div>
           </div>
           <div class="md-footer__button md-icon">

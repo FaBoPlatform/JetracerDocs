@@ -14,7 +14,7 @@
     
     
       
-        <title>NXへの対応 - FaBo JetRacer Docs</title>
+        <title>SDカードの焼込 - FaBo JetRacer Docs</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#nx" class="md-skip">
+        <a href="#sd" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              NXへの対応
+              SDカードの焼込
             
           </span>
         </div>
@@ -368,11 +368,51 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../02.jetpack46/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SDカードの焼込
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         SDカードの焼込
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jetpack46sd" class="md-nav__link">
+    JetPack4.6ベースでのSDカードの作成
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -416,58 +456,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          NXへの対応
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../06.nx/" class="md-nav__link">
         NXへの対応
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#nx_1" class="md-nav__link">
-    NXでの修正箇所
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adafruit_blinka" class="md-nav__link">
-    Adafruit_Blinkaの更新
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -483,7 +476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01.sd/" class="md-nav__link">
+      <a href="../01.jetpack44/" class="md-nav__link">
         JetPack4.4
       </a>
     </li>
@@ -714,15 +707,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#nx_1" class="md-nav__link">
-    NXでの修正箇所
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adafruit_blinka" class="md-nav__link">
-    Adafruit_Blinkaの更新
+  <a href="#jetpack46sd" class="md-nav__link">
+    JetPack4.6ベースでのSDカードの作成
   </a>
   
 </li>
@@ -740,26 +726,23 @@
               
                 
                 
-                <h1 id="nx">NXへの対応</h1>
-<div class="admonition warrning">
-<p class="admonition-title">Warrning</p>
-<p>NXは現在非公式サポートです。</p>
+                <h1 id="sd">SDカードの作成</h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>FaBo Storeより、JetRacerを購入の方は、付属SDカードにJetPack4.6を焼き込み済みです。</p>
 </div>
-<h2 id="nx_1">NXでの修正箇所</h2>
-<p>Jetson Nanoでは、I2C Bus番号が1を使用し、NXでは、I2C Bus番号が8を使用しています。この差分を修正する必要があります。</p>
-<p>JetCardのインストールが問題なくできた場合は、下記更新を実施する事で、JetRacerを動かせるようになると思われます。</p>
-<h2 id="adafruit_blinka">Adafruit_Blinkaの更新</h2>
-<p>JetRacerではI2C経由での制御チップ(PCA9685)へのアクセスには、Adafruit_Blinkaを使用しています。最新版のAdafruit_BlinkaではJetson Xavier NX も認識できるようになったので、最新版に更新します。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">cd $HOME</span>
-<span style="color: #66d9ef">git clone https://github.com/adafruit/Adafruit_Blinka</span>
-<span style="color: #66d9ef">cd Adafruit_Blinka</span>
-<span style="color: #66d9ef">python3 setup.py install</span>
-</code></pre></div>
-</td></tr></table>
-<p>これで、JetRacerで使用するI2C Bus番号が8に更新されます。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>本ドキュメントはJetson Nano 4GBのみ対応しています</p>
+</div>
+<h2 id="jetpack46sd">JetPack4.6ベースでのSDカードの作成</h2>
+<p>NVIDIA社の<a href="https://developer.nvidia.com/embedded/jetpack">JETPACK SDK</a>のページよりJetPack4.6イメージをダウンロードし、SDカードに焼き込みます。</p>
+<p>SDカードは64GBをおすすめします。</p>
+<p>SDカードのイメージは、<a href="https://www.balena.io/etcher/">Etcher</a>を用いて、SDカードに焼き込みます。</p>
+<p><img alt="" src="../img/sd001.png" /></p>
+<p><img alt="" src="../img/sd003.png" /></p>
+<p><img alt="" src="../img/sd004.png" /></p>
+<p><img alt="" src="../img/sd005.png" /></p>
                 
               
               
@@ -778,7 +761,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="フッター">
       
-        <a href="../05.jetcard/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../../01.%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6/01.build2/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -787,19 +770,19 @@
               <span class="md-footer__direction">
                 前
               </span>
-              JetCardのインストール
+              旧式
             </div>
           </div>
         </a>
       
       
-        <a href="../01.sd/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../03.setting/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              JetPack4.4
+              初期設定
             </div>
           </div>
           <div class="md-footer__button md-icon">
