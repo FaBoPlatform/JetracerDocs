@@ -1,13 +1,6 @@
-
-.bom_listsize {
-    width: 420px;
-    height: 300px;
-}
-
 body {
     font-family: "Noto Sans JP";
 }
-
 
 .md-typeset pre {
   color: #f8f8f2;
@@ -24,4 +17,8 @@ body {
   background-color: #222 !important;
   color: #aaa !important;
   margin: 0;
+}
+.bom_listsize {
+    width: 420px;
+    height: 300px;
 }
