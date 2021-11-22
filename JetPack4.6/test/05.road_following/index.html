@@ -757,12 +757,27 @@
 <p><img alt="" src="../img/tt02_live.jpg" /></p>
 <h2 id="_2">カメラの終了</h2>
 <p>下記処理をNotebookに追加して、必ず実行してください。実行しないと、interactive_regressionでカメラの読み込み時に、エラーが発生します。</p>
-<p> <pre><code class>camera.running = False
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>camera.running = False
 camera.cap.release()
-</code></pre></p>
+</code></pre></div>
+</td></tr></table>
 <h2 id="road_following">road_following</h2>
 <p>road_followingは初期のjetracerから提供されている走行用のnotebookです。TensorRTに変換された学習済みモデルにカメラ映像を流し込み、steeringの角度を推論します。各種値は、<code>STEERING_GAIN</code>,<code>STEERING_BIAS</code>等で調整します。<code>car.throttle = 0.20</code>が、速度です。この値が小さいと発進しませんので、適切な値に調整して走行させます。</p>
-<p> <pre><code class>from utils import preprocess
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>from utils import preprocess
 import numpy as np
 
 STEERING_GAIN = 0.70
@@ -776,12 +791,15 @@ while True:
     output = model_trt(image).detach().cpu().numpy().flatten()
     x = float(output[0])
     car.steering = x * STEERING_GAIN + STEERING_BIAS
-</code></pre></p>
+</code></pre></div>
+</td></tr></table>
 <h2 id="_3">カメラの終了</h2>
 <p>下記処理をNotebookに追加して、必ず実行してください。実行しないと、interactive_regressionでカメラの読み込み時に、エラーが発生します。</p>
-<p> <pre><code class>camera.running = False
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>camera.running = False
 camera.cap.release()
-</code></pre></p>
+</code></pre></div>
+</td></tr></table>
                 
               
               

@@ -696,16 +696,41 @@
 <p>本ドキュメントはJetson Nano 4GBのみ対応しています</p>
 </div>
 <h2 id="jetcard_1">JetCardのインストール</h2>
-<p> <pre><code class>cd $HOME
+<p>作業ディレクトリに移動します。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>cd $HOME
 git clone https://github.com/NVIDIA-AI-IOT/jetcard
 cd jetcard
-cat install.sh | sed 's/sudo -H python3 setup.py install --plugins/sudo -H python3 setup.py install/g' &gt; install_batch.sh
-chmod 755 install_batch.sh
-./install_batch.sh
-</code></pre></p>
+</code></pre></div>
+</td></tr></table>
+<p>install.shを修正し、install_batch.shという名称で保存します。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>cat install.sh | sed &#39;s/sudo -H python3 setup.py install --plugins/sudo -H python3 setup.py install/g&#39; &gt; install_batch.sh
+</code></pre></div>
+</td></tr></table>
+<p>install_batch.shのパーミッションを変更します。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>chmod 755 install_batch.sh
+</code></pre></div>
+</td></tr></table>
+<p>インストールの実行。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>./install_batch.sh
+</code></pre></div>
+</td></tr></table>
 <h2 id="jetcard_jupyterservice">jetcard_jupyter.serviceの修正</h2>
 <p><code>/etc/systemd/system/jetcard_jupyter.service</code>に、Environmentの項目を追加</p>
-<p> <pre><code class>[Unit]
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>[Unit]
 Description=Jupyter Notebook Service
 
 [Service]
@@ -718,10 +743,12 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
-</code></pre></p>
-<p>再起動</p>
-<p> <pre><code class>sudo reboot
-</code></pre></p>
+</code></pre></div>
+</td></tr></table>
+<p>再起動
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>sudo reboot
+</code></pre></div>
+</td></tr></table></p>
                 
               
               

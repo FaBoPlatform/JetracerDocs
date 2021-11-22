@@ -636,49 +636,91 @@
 <h2 id="spi-led_1">SPI-LEDの説明</h2>
 <p>FaBo JetRacer #612では、フルカラーLEDのAPA102とSPIで接続可能です。</p>
 <p>レインボーのサンプル</p>
-<p> <pre><code class=c>#include &quot;SPI.h&quot;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #75715e">#include</span> <span style="color: #75715e">&quot;SPI.h&quot;</span>
 
-void startBit() {
-  byte start = 0x00;
-  SPI.transfer(start);
-  SPI.transfer(start);
-  SPI.transfer(start);
-  SPI.transfer(start);
-}
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">startBit</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">byte</span> <span style="color: #f8f8f2">start</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0x00</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">SPI.transfer(start);</span>
+  <span style="color: #f8f8f2">SPI.transfer(start);</span>
+  <span style="color: #f8f8f2">SPI.transfer(start);</span>
+  <span style="color: #f8f8f2">SPI.transfer(start);</span>
+<span style="color: #f8f8f2">}</span>
 
-void endBit() {
-  byte end = 0x11;
-  SPI.transfer(end);
-  SPI.transfer(end);
-  SPI.transfer(end);
-  SPI.transfer(end);
-}
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">endBit</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">byte</span> <span style="color: #f8f8f2">end</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0x11</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">SPI.transfer(end);</span>
+  <span style="color: #f8f8f2">SPI.transfer(end);</span>
+  <span style="color: #f8f8f2">SPI.transfer(end);</span>
+  <span style="color: #f8f8f2">SPI.transfer(end);</span>
+<span style="color: #f8f8f2">}</span>
 
-void setRGB(short r, short g, short b) {
-  SPI.transfer(0xEF);
-  SPI.transfer(r);
-  SPI.transfer(g);
-  SPI.transfer(b);
-}
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">setRGB</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">short</span> <span style="color: #f8f8f2">r,</span> <span style="color: #66d9ef">short</span> <span style="color: #f8f8f2">g,</span> <span style="color: #66d9ef">short</span> <span style="color: #f8f8f2">b)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">SPI.transfer(</span><span style="color: #ae81ff">0xEF</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">SPI.transfer(r);</span>
+  <span style="color: #f8f8f2">SPI.transfer(g);</span>
+  <span style="color: #f8f8f2">SPI.transfer(b);</span>
+<span style="color: #f8f8f2">}</span>
 
-void setup() {
-  SPI.begin();
-}
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">setup</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #f8f8f2">SPI.begin();</span>
+<span style="color: #f8f8f2">}</span>
 
-void loop() {
-  for(int i = 0; i &lt; 255; i++) {
-    startBit();
-    setRGB(255,   i,   0);
-    setRGB(255,   i, 255);
-    setRGB(255, 255,   i);
-    setRGB(255,   0,   i); 
-    setRGB(i,   255,   0);
-    setRGB(i,   255,   255);
-    endBit();
-    delay(100);
-  }
-}
-</code></pre></p>
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">loop</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">for</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">255</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">startBit();</span>
+    <span style="color: #f8f8f2">setRGB(</span><span style="color: #ae81ff">255</span><span style="color: #f8f8f2">,</span>   <span style="color: #f8f8f2">i,</span>   <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #f8f8f2">setRGB(</span><span style="color: #ae81ff">255</span><span style="color: #f8f8f2">,</span>   <span style="color: #f8f8f2">i,</span> <span style="color: #ae81ff">255</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #f8f8f2">setRGB(</span><span style="color: #ae81ff">255</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">255</span><span style="color: #f8f8f2">,</span>   <span style="color: #f8f8f2">i);</span>
+    <span style="color: #f8f8f2">setRGB(</span><span style="color: #ae81ff">255</span><span style="color: #f8f8f2">,</span>   <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span>   <span style="color: #f8f8f2">i);</span> 
+    <span style="color: #f8f8f2">setRGB(i,</span>   <span style="color: #ae81ff">255</span><span style="color: #f8f8f2">,</span>   <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #f8f8f2">setRGB(i,</span>   <span style="color: #ae81ff">255</span><span style="color: #f8f8f2">,</span>   <span style="color: #ae81ff">255</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #f8f8f2">endBit();</span>
+    <span style="color: #f8f8f2">delay(</span><span style="color: #ae81ff">100</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+</td></tr></table>
                 
               
               

@@ -684,20 +684,33 @@
 <h2 id="_3">転送の手順</h2>
 <p>Arduino UNOにFaBo #604を差し込み、TAG-Connectを接続します。</p>
 <p>Arduinoで下記サンプルコードを作成します。</p>
-<p> <pre><code class=c>void setup(){
-  pinMode(3, OUTPUT);
-  pinMode(4, OUTPUT);
-}
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">void</span> <span style="color: #a6e22e">setup</span><span style="color: #f8f8f2">(){</span>
+  <span style="color: #f8f8f2">pinMode(</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">OUTPUT);</span>
+  <span style="color: #f8f8f2">pinMode(</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">OUTPUT);</span>
+<span style="color: #f8f8f2">}</span>
 
-void loop(){
-  digitalWrite(3, HIGH);
-  digitalWrite(4, LOW);
-  delay(1000);
-  digitalWrite(3, LOW);
-  digitalWrite(4, HIGH);
-  delay(1000);  
-}
-</code></pre></p>
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">loop</span><span style="color: #f8f8f2">(){</span>
+  <span style="color: #f8f8f2">digitalWrite(</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">HIGH);</span>
+  <span style="color: #f8f8f2">digitalWrite(</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">LOW);</span>
+  <span style="color: #f8f8f2">delay(</span><span style="color: #ae81ff">1000</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">digitalWrite(</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">LOW);</span>
+  <span style="color: #f8f8f2">digitalWrite(</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">HIGH);</span>
+  <span style="color: #f8f8f2">delay(</span><span style="color: #ae81ff">1000</span><span style="color: #f8f8f2">);</span>  
+<span style="color: #f8f8f2">}</span>
+</code></pre></div>
+</td></tr></table>
 <p><img alt="" src="../img/isp005.png" /></p>
 <p><img alt="" src="../img/isp006.png" /></p>
 <p><img alt="" src="../img/isp007.png" /></p>
