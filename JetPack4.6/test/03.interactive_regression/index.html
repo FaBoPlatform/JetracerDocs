@@ -779,8 +779,8 @@
 <h2 id="_5">カメラの終了</h2>
 <p>下記処理をNotebookに追加して、必ず実行してください。実行しないと、road_following_liveでカメラの読み込み時に、エラーが発生します。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>camera.running = False
-camera.cap.release()
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">camera</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">running</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">False</span>
+<span style="color: #f8f8f2">camera</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">cap</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">release()</span>
 </code></pre></div>
 </td></tr></table>
                 

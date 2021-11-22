@@ -693,15 +693,15 @@
 <h2 id="optimize_model">optimize_model</h2>
 <p>interactive_regressionで保存した学習済みモデルをTensorRTのフォーマットに変換します。</p>
 <p>2つめのcellが、学習済みモデルの読み込みになるので、保存した名前に合わせて書き換えます。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>model.load_state_dict(torch.load(&#39;model_08-06.pth&#39;))
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">model</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">load_state_dict(torch</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">load(</span><span style="color: #e6db74">&#39;model_08-06.pth&#39;</span><span style="color: #f8f8f2">))</span>
 </code></pre></div>
 </td></tr></table>
 <p>例えば<code>model_11-13.pth</code>という名前で保存した場合は、下記のように書き換えます。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>model.load_state_dict(torch.load(&#39;model_11-13.pth&#39;))
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">model</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">load_state_dict(torch</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">load(</span><span style="color: #e6db74">&#39;model_11-13.pth&#39;</span><span style="color: #f8f8f2">))</span>
 </code></pre></div>
 </td></tr></table>
 <p>4つめのcellが、TensorRTフォーマットで出力するTensorRTフォーマットの学習済みモデルになっていますので、必要に応じて書き直します。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>torch.save(model_trt.state_dict(), &#39;model_08-06_trt.pth&#39;)
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">torch</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">save(model_trt</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">state_dict(),</span> <span style="color: #e6db74">&#39;model_08-06_trt.pth&#39;</span><span style="color: #f8f8f2">)</span>
 </code></pre></div>
 </td></tr></table>
                 

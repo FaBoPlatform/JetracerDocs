@@ -772,8 +772,8 @@
 <h2 id="_2">カメラの終了</h2>
 <p>下記処理をNotebookに追加して、必ず実行してください。実行しないと、interactive_regressionでカメラの読み込み時に、エラーが発生します。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>camera.running = False
-camera.cap.release()
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">camera</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">running</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">False</span>
+<span style="color: #f8f8f2">camera</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">cap</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">release()</span>
 </code></pre></div>
 </td></tr></table>
 <h2 id="road_following">road_following</h2>
@@ -791,27 +791,27 @@ camera.cap.release()
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>from utils import preprocess
-import numpy as np
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #f92672">from</span> <span style="color: #f8f8f2">utils</span> <span style="color: #f92672">import</span> <span style="color: #f8f8f2">preprocess</span>
+<span style="color: #f92672">import</span> <span style="color: #f8f8f2">numpy</span> <span style="color: #66d9ef">as</span> <span style="color: #f8f8f2">np</span>
 
-STEERING_GAIN = 0.70
-STEERING_BIAS = -0.1
+<span style="color: #f8f8f2">STEERING_GAIN</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0.70</span>
+<span style="color: #f8f8f2">STEERING_BIAS</span> <span style="color: #f92672">=</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">0.1</span>
 
-car.throttle = 0.20
+<span style="color: #f8f8f2">car</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">throttle</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0.20</span>
 
-while True:
-    image = camera.read()
-    image = preprocess(image).half()
-    output = model_trt(image).detach().cpu().numpy().flatten()
-    x = float(output[0])
-    car.steering = x * STEERING_GAIN + STEERING_BIAS
+<span style="color: #66d9ef">while</span> <span style="color: #66d9ef">True</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #f8f8f2">image</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">camera</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">read()</span>
+    <span style="color: #f8f8f2">image</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">preprocess(image)</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">half()</span>
+    <span style="color: #f8f8f2">output</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">model_trt(image)</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">detach()</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">cpu()</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">numpy()</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">flatten()</span>
+    <span style="color: #f8f8f2">x</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">float(output[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">])</span>
+    <span style="color: #f8f8f2">car</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">steering</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">STEERING_GAIN</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">STEERING_BIAS</span>
 </code></pre></div>
 </td></tr></table>
 <h2 id="_3">カメラの終了</h2>
 <p>下記処理をNotebookに追加して、必ず実行してください。実行しないと、interactive_regressionでカメラの読み込み時に、エラーが発生します。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>camera.running = False
-camera.cap.release()
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">camera</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">running</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">False</span>
+<span style="color: #f8f8f2">camera</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">cap</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">release()</span>
 </code></pre></div>
 </td></tr></table>
                 
