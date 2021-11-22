@@ -776,7 +776,7 @@
 <span style="color: #f8f8f2">Description</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">Jupyter</span> <span style="color: #f8f8f2">Notebook</span> <span style="color: #f8f8f2">Service</span>
 
 <span style="color: #f8f8f2">[Service]</span>
-<span style="color: #f8f8f2">Environment</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1&quot;</span>
+<span style="color: #f8f8f2">Environment</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">LD_PRELOAD</span><span style="color: #f92672">=/</span><span style="color: #f8f8f2">usr</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">lib</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">aarch64</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">linux</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gnu</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">libgomp.so.1</span>
 <span style="color: #f8f8f2">Type</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">simple</span>
 <span style="color: #f8f8f2">User</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">jetson</span>
 <span style="color: #f8f8f2">ExecStart</span><span style="color: #f92672">=/</span><span style="color: #f8f8f2">bin</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">sh</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">c</span> <span style="color: #e6db74">&quot;jupyter lab --ip=0.0.0.0 --no-browser&quot;</span>
