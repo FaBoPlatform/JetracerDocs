@@ -605,6 +605,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#jetson-xavier-nx" class="md-nav__link">
+    Jetson Xavier NX使用者の確認
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -753,6 +760,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#jetson-xavier-nx" class="md-nav__link">
+    Jetson Xavier NX使用者の確認
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -775,6 +789,11 @@
 </td></tr></table>
 <p>CSIカメラ(imx219)の認識確認</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">dmesg | grep imx219</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="jetson-xavier-nx">Jetson Xavier NX使用者の確認</h2>
+<p>I2Cのアドレス確認を8にして確認</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">sudo i2cdetect -r -y 8</span>
 </code></pre></div>
 </td></tr></table>
                 
