@@ -446,6 +446,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#jupyterlabbuild" class="md-nav__link">
+    JupyterLabを再Build
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#jetcard_jupyterservice" class="md-nav__link">
     jetcard_jupyter.serviceの修正
   </a>
@@ -763,6 +770,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#jupyterlabbuild" class="md-nav__link">
+    JupyterLabを再Build
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#jetcard_jupyterservice" class="md-nav__link">
     jetcard_jupyter.serviceの修正
   </a>
@@ -812,6 +826,10 @@
 <p class="admonition-title">Warning</p>
 <p>JetCardのインストールには1時間〜3時間程度時間がかかります。</p>
 </div>
+<h2 id="jupyterlabbuild">JupyterLabを再Build</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code>sudo -H jupyter lab build
+</code></pre></div>
+</td></tr></table>
 <h2 id="jetcard_jupyterservice">jetcard_jupyter.serviceの修正</h2>
 <p><code>/etc/systemd/system/jetcard_jupyter.service</code>に、Environmentの項目を追加。また、ユーザ名が<code>jetson</code>ではない場合、<code>User=jetson</code>の箇所も自分のユーザー名の修正。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
