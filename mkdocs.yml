@@ -11,13 +11,64 @@ extra:
         language: 'jp'
 markdown_extensions:
   - fontawesome_markdown
-  - codehilite:
+  - pymdownx.highlight:
+      use_pygments: true
+      noclasses: true
+      pygments_style: monokai
       linenums: true
+  - pymdownx.superfences
   - admonition
   - pymdownx.keys
-  - markdown_fenced_code_tabs
   - attr_list
 extra_css:
+  - "https://fonts.googleapis.com/earlyaccess/notosansjp.css"
+  - "https://fonts.googleapis.com/css?family=Open+Sans:600,800"
   - "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
   - 'stylesheets/extra.css'
   - "css/custom.css"
+nav:
+  - Home: "index.md"
+  - BOM:
+    - JR1_S_C_C: "01.組み立て/carbon_edition/JR1_S_C_C/07.bom_CarbonEdition_C.md"
+    - JR1_S_C_B: "01.組み立て/carbon_edition/JR1_S_C_B/07.bom_CarbonEdition_B.md"
+    - JR1_S_C: "01.組み立て/carbon_edition/JR1_S_C/05.bom_CarbonEdition.md"
+    - 旧式: "01.組み立て/00.bom.md"
+  - 組立:
+    - JR1_S_C_C: "01.組み立て/carbon_edition/JR1_S_C_C/08.build_Carbon_C.md"
+    - JR1_S_C_B: "01.組み立て/carbon_edition/JR1_S_C_B/08.build_Carbon_B.md"
+    - JR1_S_C: "01.組み立て/carbon_edition/JR1_S_C/06.build_Carbon.md"
+    - 旧式: "01.組み立て/01.build2.md"
+  - SDカード:
+    - JetPack4.6:
+      -  SDカードの焼込: "sd/02.jetpack46.md"
+      -  初期設定: "sd/03.setting.md"
+      -  Wi-Fiの設定: "sd/04.wifi.md"
+      -  JetCardのインストール: "sd/05.jetcard.md"
+      -  NXへの対応: "sd/06.nx.md"
+    - JetPack4.4: "sd/01.jetpack44.md"
+  - ネットワーク:
+    - ネットワーク構成: "network/00.layout.md"
+    - 拡張ルーターの設定: "network/01.router.md"
+    - 割振られたIPの確認: "network/02.ifconfig.md"
+    - 8265経由で接続: "network/03.8265.md"
+    - 拡張ルーター経由で接続: "network/04.connect.md"
+  - ハードウェアの認識:
+    - ハードウェアの認識確認: "hardware/01.check.md"
+  - 学習と走行:
+    - 使用するNotebook: "test/01.notebooks.md"
+    - 動作確認: "test/02.basic_motion.md"
+    - データセットの作成/学習: "test/03.interactive_regression.md"
+    - TensorRTへの変換: "test/04.optimize_model.md"
+    - 走行: "test/05.road_following.md"
+    - 再学習: "test/06.retrain.md"
+extra_css:
+  - css/version-select.css
+  - css/extra.css
+  - css/custom.css
+  - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css
+extra_javascript:
+  - javascripts/version-select.js
+  - javascripts/extra.js
+plugins:
+  - macros
