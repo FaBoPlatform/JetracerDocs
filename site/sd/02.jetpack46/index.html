@@ -689,7 +689,7 @@
               
                 
                 
-                <h1 id="sd">SDカードの作成</h1>
+                <h1 id="sd">SDカードの焼込</h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>FaBo Storeより、JetRacer Kitをご購入の方は、付属SDカードにJetPack4.6及びJetCardを焼き込み済みです。</p>
@@ -701,9 +701,9 @@
 <h1 id="sd_1">SDカードの作成</h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>FaBo Storeより、JetRacer Kitをご購入の方は、ダウンロード不要です。</p>
+<p>FaBo Storeより、JetRacer Kitをご購入の方は、ダウンロード不要です。（一部のモデルを除く）</p>
 </div>
-<p>もし、SDイメージをダウンロードしたい方は、こちらからダウンロードお願いいたします。</p>
+<p>もし、SDカードイメージをダウンロードしたい方は、こちらからダウンロードお願いいたします。</p>
 <table>
 <thead>
 <tr>
@@ -720,19 +720,33 @@
 </tr>
 </tbody>
 </table>
-<p>※SDカードのサイズは、６４GBを推奨します。</p>
+<p>※SDカードのサイズは、６４GBかつ高速なものを推奨します。</p>
+<p>ダウンロード後は、ZIPファイルを解凍して、<a href="https://www.balena.io/etcher/">barenaEtcher</a>を使用しイメージファイルをSDカードに焼きます。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>上記のダウンロードからSDカードを焼き込んだ場合は、JetPack4.6はインストール済みですので、以下ののダウンロードおよびインストールは不要です。</p>
+</div>
 <h2 id="jetpack46sd">JetPack4.6ベースでのSDカードの作成</h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>FaBo Storeより、JetRacer Kitをご購入の方は、SDカード作成不要です。</p>
+<p>ここからは、JetPack SDK 4.6をダウンロードし、JetCardのインストール作業になります。付属のSDカードをご使用の方、及び上記でSDカードをダウンロードし作成済みの方は作業不要です。</p>
 </div>
-<p>NVIDIA社の<a href="https://developer.nvidia.com/embedded/jetpack">JETPACK SDK</a>のページよりJetPack4.6イメージをダウンロードし、SDカードに焼き込みます。</p>
-<p>SDカードは64GBをおすすめします。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>FaBo Storeより、JetRacer Kitをご購入の方は、SDカード作成不要です。（一部のモデルを除く）</p>
+</div>
+<p>NVIDIA社の<a href="https://developer.nvidia.com/embedded/jetpack">JETPACK SDK</a>のページよりJetPack4.6イメージ（For Jetson Nano Developer Kit）をダウンロードし、解凍します。そのイメージファイルをSDカードに焼き込みます。</p>
+<p>※SDカードは64GBをおすすめします。</p>
+<p>※ダウンロードファイルは、JETSON XAVIER NX,Jetson 2GBとお間違えのないようにご確認ください。</p>
 <p>SDカードのイメージは、<a href="https://www.balena.io/etcher/">Etcher</a>を用いて、SDカードに焼き込みます。</p>
-<p><img alt="" src="../img/sd001.png" /></p>
-<p><img alt="" src="../img/sd003.png" /></p>
-<p><img alt="" src="../img/sd004.png" /></p>
-<p><img alt="" src="../img/sd005.png" /></p>
+<p>Select Image をクリックし、ダウンロードしたファイルを選択します。
+<img alt="" src="../img/sd001.png" /></p>
+<p>Select driveをクリックします。
+<img alt="" src="../img/sd003.png" /></p>
+<p>書き込みたいSDカードが挿入されているドライブを選択します。
+<img alt="" src="../img/sd004.png" /></p>
+<p>Flashをクリックすると焼き込みが始ります。
+<img alt="" src="../img/sd005.png" /></p>
                 
                   
                 
