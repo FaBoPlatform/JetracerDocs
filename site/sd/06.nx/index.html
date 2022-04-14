@@ -912,14 +912,30 @@
 <p>Jetson Nanoでは、I2C Bus番号が1を使用し、NXでは、I2C Bus番号が8を使用しています。この差分を修正する必要があります。</p>
 <p>JetCardのインストールが問題なくできた場合は、下記更新を実施する事で、JetRacerを動かせるようになると思われます。</p>
 <h2 id="adafruit_blinka">Adafruit_Blinkaの更新</h2>
-<p>JetRacerではI2C経由での制御チップ(PCA9685)へのアクセスには、Adafruit_Blinkaを使用しています。最新版のAdafruit_BlinkaではJetson Xavier NX も認識できるようになったので、最新版に更新します。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">cd $HOME</span>
-<span style="color: #66d9ef">git clone https://github.com/adafruit/Adafruit_Blinka</span>
-<span style="color: #66d9ef">cd Adafruit_Blinka</span>
-<span style="color: #66d9ef">sudo python3 setup.py install</span>
+<p>JetRacerではI2C経由での制御チップ(PCA9685)へのアクセスには、Adafruit_Blinkaを使用しています。最新版のAdafruit_BlinkaではJetson Xavier NX も認識できるようになったので、更新します。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span></pre></div></td><td class="code"><div class="highlight" style="background: #272822"><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">sudo pip3 install -U \</span>
+<span style="color: #66d9ef">adafruit-circuitpython-busdevice==5.1.2 \</span>
+<span style="color: #66d9ef">adafruit-circuitpython-motor==3.3.5 \</span>
+<span style="color: #66d9ef">adafruit-circuitpython-pca9685==3.4.1 \</span>
+<span style="color: #66d9ef">adafruit-circuitpython-register==1.9.8 \</span>
+<span style="color: #66d9ef">adafruit-circuitpython-servokit==1.3.8 \</span>
+<span style="color: #66d9ef">Adafruit-Blinka==6.11.1 \</span>
+<span style="color: #66d9ef">Adafruit-GPIO==1.0.3 \</span>
+<span style="color: #66d9ef">Adafruit-MotorHAT==1.4.0 \</span>
+<span style="color: #66d9ef">Adafruit-PlatformDetect==3.19.6 \</span>
+<span style="color: #66d9ef">Adafruit-PureIO==1.1.9 \</span>
+<span style="color: #66d9ef">Adafruit-SSD1306==1.6.2</span>
 </code></pre></div>
 </td></tr></table>
 <p>これで、JetRacerで使用するI2C Bus番号が8に更新されます。</p>
