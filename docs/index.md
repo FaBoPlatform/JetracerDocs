@@ -14,7 +14,7 @@ JetRacer Docsは、FaBo JetRacerの学習用ドキュメントです。
 
 ## 修正依頼等
 
-GithubのRepoに[Issues](https://github.com/FaBoPlatform/JetracerDocs/issues)をあげる。
+GithubのRepoに[Issues](https://github.com/FaBoPlatform/JetracerDocs/issues)を投稿お願いいたします。
 
 ## 購入先(FaBo Store)
 - [FaBo Store](https://www.fabo.store)
