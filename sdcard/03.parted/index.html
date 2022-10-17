@@ -991,33 +991,33 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>########################################
-# Jetson イメージを圧縮する
-########################################
-# やり方：
-# https://softwarebakery.com/shrinking-images-on-linux
-# loop0は作成されたloop番号にすること
-sudo modprobe loop
-sudo losetup -f
-sudo losetup /dev/loop0 myimage.img
-sudo partprobe /dev/loop0
-sudo gparted /dev/loop0
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #f92672; font-weight: bold"># </span>Jetson イメージを圧縮する
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #f92672; font-weight: bold"># </span>やり方：
+<span style="color: #f92672; font-weight: bold"># </span>https://softwarebakery.com/shrinking-images-on-linux
+<span style="color: #f92672; font-weight: bold"># </span>loop0は作成されたloop番号にすること
+<span style="color: #66d9ef">sudo modprobe loop</span>
+<span style="color: #66d9ef">sudo losetup -f</span>
+<span style="color: #66d9ef">sudo losetup /dev/loop0 myimage.img</span>
+<span style="color: #66d9ef">sudo partprobe /dev/loop0</span>
+<span style="color: #66d9ef">sudo gparted /dev/loop0</span>
 
-# gpartedで空き領域を削除する
-sudo losetup -d /dev/loop0
-fdisk -l myimage.img
+<span style="color: #f92672; font-weight: bold"># </span>gpartedで空き領域を削除する
+<span style="color: #66d9ef">sudo losetup -d /dev/loop0</span>
+<span style="color: #66d9ef">fdisk -l myimage.img</span>
 
-####################
-Disk myimage.img: 6144 MB, 6144000000 bytes, 12000000 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disk identifier: 0x000ea37d
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">###################</span>
+<span style="color: #66d9ef">Disk myimage.img: 6144 MB, 6144000000 bytes, 12000000 sectors</span>
+<span style="color: #66d9ef">Units = sectors of 1 * 512 = 512 bytes</span>
+<span style="color: #66d9ef">Sector size (logical/physical): 512 bytes / 512 bytes</span>
+<span style="color: #66d9ef">I/O size (minimum/optimal): 512 bytes / 512 bytes</span>
+<span style="color: #66d9ef">Disk identifier: 0x000ea37d</span>
 
-      Device Boot      Start         End      Blocks   Id  System
-myimage.img1            2048     9181183     4589568    b  W95 FAT32
-####################
-sudo truncate --size=$[(9181183+1)*512] myimage.img
+<span style="color: #66d9ef">      Device Boot      Start         End      Blocks   Id  System</span>
+<span style="color: #66d9ef">myimage.img1            2048     9181183     4589568    b  W95 FAT32</span>
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">###################</span>
+<span style="color: #66d9ef">sudo truncate --size=$[(9181183+1)*512] myimage.img</span>
 </code></pre></div></td></tr></table></div>
 
 

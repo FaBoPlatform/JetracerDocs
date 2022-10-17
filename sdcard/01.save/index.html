@@ -1039,81 +1039,81 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">72</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">73</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">74</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">75</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>########################################
-# ユーザhistoryを削除する
-########################################
-history -c
-HISTIGNORE=*;history -d `history|awk &#39;{a=$1;}END{print a;}&#39;`
-rm -rf ~/.bash_history
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">75</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #f92672; font-weight: bold"># </span>ユーザhistoryを削除する
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #66d9ef">history -c</span>
+<span style="color: #66d9ef">HISTIGNORE=*;history -d `history|awk &#39;{a=$1;}END{print a;}&#39;`</span>
+<span style="color: #66d9ef">rm -rf ~/.bash_history</span>
 
 
-########################################
-# rootユーザになる
-########################################
-sudo su
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #f92672; font-weight: bold"># </span>rootユーザになる
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #66d9ef">sudo su</span>
 
 
-########################################
-# apt-getのキャッシュを削除する
-########################################
-#ダウンロード済みのアーカイブファイルの場所：/var/cache/apt/archives
-#apt-get autoremove：使っていないインストールされているパッケージの削除
-#apt-get autoclean：使っていないダウンロード済みのアーカイブファイルの削除
-#apt-get clean：ダウンロード済みのアーカイブファイルの削除
-sudo apt-get autoremove -y
-sudo apt-get clean
-sudo rm -rf /var/lib/apt/lists/*
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #f92672; font-weight: bold"># </span>apt-getのキャッシュを削除する
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #f92672; font-weight: bold">#</span>ダウンロード済みのアーカイブファイルの場所：/var/cache/apt/archives
+<span style="color: #f92672; font-weight: bold">#</span>apt-get autoremove：使っていないインストールされているパッケージの削除
+<span style="color: #f92672; font-weight: bold">#</span>apt-get autoclean：使っていないダウンロード済みのアーカイブファイルの削除
+<span style="color: #f92672; font-weight: bold">#</span>apt-get clean：ダウンロード済みのアーカイブファイルの削除
+<span style="color: #66d9ef">sudo apt-get autoremove -y</span>
+<span style="color: #66d9ef">sudo apt-get clean</span>
+<span style="color: #66d9ef">sudo rm -rf /var/lib/apt/lists/*</span>
 
 
-########################################
-# Jupyterログを削除する
-########################################
-rm -rf ~/.ipynb_checkpoints/
-rm -rf ~/.ipython/
-rm -rf ~/.python_history
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #f92672; font-weight: bold"># </span>Jupyterログを削除する
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #66d9ef">rm -rf ~/.ipynb_checkpoints/</span>
+<span style="color: #66d9ef">rm -rf ~/.ipython/</span>
+<span style="color: #66d9ef">rm -rf ~/.python_history</span>
 
 
-########################################
-# lastログを削除する
-########################################
-########################################
-# Jetson Nano 4GB JetPack 4.6の場合
-########################################
-rm /var/log/alternatives.log*
-rm /var/log/auth.log*
-rm /var/log/btmp*
-rm /var/log/dpkg.log*
-rm /var/log/kern.log*
-rm /var/log/lastlog*
-rm /var/log/oem-config.log*
-rm /var/log/syslog*
-rm /var/log/tallylog*
-rm /var/log/wtmp*
-rm /var/log/Xorg.0.log*
-touch /var/log/alternatives.log
-touch /var/log/auth.log
-touch /var/log/btmp
-touch /var/log/dpkg.log
-touch /var/log/kern.log
-touch /var/log/lastlog
-touch /var/log/oem-config.log
-touch /var/log/syslog
-touch /var/log/tallylog
-touch /var/log/wtmp
-touch /var/log/Xorg.0.log
-chown syslog:adm /var/log/auth.log
-chown root:utmp /var/log/btmp
-chown syslog:adm /var/log/kern.log
-chown root:utmp /var/log/lastlog
-chown syslog:adm /var/log/syslog
-chown root:utmp /var/log/wtmp
-chown root:root /var/log/Xorg.0.log
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #f92672; font-weight: bold"># </span>lastログを削除する
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #f92672; font-weight: bold"># </span>Jetson Nano 4GB JetPack <span style="color: #ae81ff">4</span>.6の場合
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #66d9ef">rm /var/log/alternatives.log*</span>
+<span style="color: #66d9ef">rm /var/log/auth.log*</span>
+<span style="color: #66d9ef">rm /var/log/btmp*</span>
+<span style="color: #66d9ef">rm /var/log/dpkg.log*</span>
+<span style="color: #66d9ef">rm /var/log/kern.log*</span>
+<span style="color: #66d9ef">rm /var/log/lastlog*</span>
+<span style="color: #66d9ef">rm /var/log/oem-config.log*</span>
+<span style="color: #66d9ef">rm /var/log/syslog*</span>
+<span style="color: #66d9ef">rm /var/log/tallylog*</span>
+<span style="color: #66d9ef">rm /var/log/wtmp*</span>
+<span style="color: #66d9ef">rm /var/log/Xorg.0.log*</span>
+<span style="color: #66d9ef">touch /var/log/alternatives.log</span>
+<span style="color: #66d9ef">touch /var/log/auth.log</span>
+<span style="color: #66d9ef">touch /var/log/btmp</span>
+<span style="color: #66d9ef">touch /var/log/dpkg.log</span>
+<span style="color: #66d9ef">touch /var/log/kern.log</span>
+<span style="color: #66d9ef">touch /var/log/lastlog</span>
+<span style="color: #66d9ef">touch /var/log/oem-config.log</span>
+<span style="color: #66d9ef">touch /var/log/syslog</span>
+<span style="color: #66d9ef">touch /var/log/tallylog</span>
+<span style="color: #66d9ef">touch /var/log/wtmp</span>
+<span style="color: #66d9ef">touch /var/log/Xorg.0.log</span>
+<span style="color: #66d9ef">chown syslog:adm /var/log/auth.log</span>
+<span style="color: #66d9ef">chown root:utmp /var/log/btmp</span>
+<span style="color: #66d9ef">chown syslog:adm /var/log/kern.log</span>
+<span style="color: #66d9ef">chown root:utmp /var/log/lastlog</span>
+<span style="color: #66d9ef">chown syslog:adm /var/log/syslog</span>
+<span style="color: #66d9ef">chown root:utmp /var/log/wtmp</span>
+<span style="color: #66d9ef">chown root:root /var/log/Xorg.0.log</span>
 
-# さらに残ったファイルを空ファイルにする
-for CLEAN in $(find /var/log/ -type f)
-do
-    cp /dev/null  $CLEAN
-done
+<span style="color: #f92672; font-weight: bold"># </span>さらに残ったファイルを空ファイルにする
+<span style="color: #66d9ef">for CLEAN in $(find /var/log/ -type f)</span>
+<span style="color: #66d9ef">do</span>
+<span style="color: #66d9ef">    cp /dev/null  $CLEAN</span>
+<span style="color: #66d9ef">done</span>
 </code></pre></div></td></tr></table></div>
 
 

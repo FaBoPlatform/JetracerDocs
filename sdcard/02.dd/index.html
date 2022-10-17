@@ -964,20 +964,20 @@
 
 <h1 id="sd">SDカードの保存</h1>
 <h2 id="sd_1">SDカードイメージの抜き出し</h2>
-<p>ddコマンドを使いSDカードイメージを抜き出します。</p>
+<p>Ubuntu上で下記を実行します。ddコマンドを使いSDカードイメージを抜き出します。</p>
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">7</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>########################################
-# Jetson sdcard image抽出
-########################################
-sudo su
-fdisk -l
-umount /dev/sda1
-dd bs=4M if=/dev/sda of=jetbot-nano-4gb-jp46.img status=progress
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">7</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #f92672; font-weight: bold"># </span>Jetson sdcard image抽出
+<span style="color: #f92672; font-weight: bold">#</span><span style="color: #75715e">#######################################</span>
+<span style="color: #66d9ef">sudo su</span>
+<span style="color: #66d9ef">fdisk -l</span>
+<span style="color: #66d9ef">umount /dev/sda1</span>
+<span style="color: #66d9ef">dd bs=4M if=/dev/sda of=jetbot-nano-4gb-jp46.img status=progress</span>
 </code></pre></div></td></tr></table></div>
 
 
