@@ -63,6 +63,10 @@ nav:
     - TensorRTへの変換: "test/04.optimize_model.md"
     - 走行: "test/05.road_following.md"
     - 再学習: "test/06.retrain.md"
+  - SDイメージの作成:
+    - 事前処理: "sdcard/01.save.md"
+    - SDカードの保存: "sdcard/02.dd.md"
+    - SDカード用圧縮イメージ: "sdcard/03.parted.md"
 extra_css:
   - css/version-select.css
   - css/extra.css
