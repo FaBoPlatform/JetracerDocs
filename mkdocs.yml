@@ -41,13 +41,8 @@ nav:
     - JR1_S_C: "01.組み立て/carbon_edition/JR1_S_C/06.build_Carbon.md"
     - 旧式: "01.組み立て/01.build2.md"
   - SDカード:
-    - JetPack4.6:
-      -  SDカードの焼込: "sd/02.jetpack46.md"
-      -  初期設定: "sd/03.setting.md"
-      -  Wi-Fiの設定: "sd/04.wifi.md"
-      -  JetCardのインストール: "sd/05.jetcard.md"
-      -  NXへの対応: "sd/06.nx.md"
-    - JetPack4.4: "sd/01.jetpack44.md"
+    -  SDカードの焼込: "sd_fabo/01.image.md"
+    -  Wi-Fiの設定: "sd_fabo/02.wifi.md"
   - ネットワーク:
     - ネットワーク構成: "network/00.layout.md"
     - 拡張ルーターの設定: "network/01.router.md"
@@ -63,10 +58,18 @@ nav:
     - TensorRTへの変換: "test/04.optimize_model.md"
     - 走行: "test/05.road_following.md"
     - 再学習: "test/06.retrain.md"
+  - SDカードの作成:
+    -  SDカードの焼込: "sd_new/01.jetpack46.md"
+    -  初期設定: "sd_new/02.setting.md"
+    -  Wi-Fiの設定: "sd_new/03.wifi.md"
+    -  JetCardのインストール: "sd_new/04.jetcard.md"
+    -  NXへの対応: "sd_new/05.nx.md"
   - SDイメージの作成:
-    - 事前処理: "sdcard/01.save.md"
-    - SDカードの保存: "sdcard/02.dd.md"
-    - SDカード用圧縮イメージ: "sdcard/03.parted.md"
+    - 事前処理: "sd_write/01.save.md"
+    - SDカードの保存: "sd_write/02.dd.md"
+    - SDカード用圧縮イメージ: "sd_write/03.parted.md"
+  - TIPS:
+    - 各種Tips: "tips/01.tips.md"
 extra_css:
   - css/version-select.css
   - css/extra.css
