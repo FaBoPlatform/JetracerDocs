@@ -4,6 +4,10 @@
 
 **FaBo JetRacer Kit JR1-S-P**
 
+![](./img/GR862.JPG)
+
+**FaBo JetRacer Kit JR1-S-C-D　(GR86レッド完成イメージ)**
+
 ## JetRacer Docsについて
 
 JetRacer Docsは、FaBo JetRacerの学習用ドキュメントです。
