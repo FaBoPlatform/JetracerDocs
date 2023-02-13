@@ -1,6 +1,6 @@
 # JetRacer Docs
 
-![](./img/JetRacerSide1400.jpg)
+![](./img/jetracer1.jpg)
 
 **FaBo JetRacer Kit JR1-S-P**
 
@@ -25,6 +25,7 @@ GithubのRepoに[Issues](https://github.com/FaBoPlatform/JetracerDocs/issues)を
 
 ## 本ドキュメントでのセミナーの実施
 
+- 2022年11月30日 [大分県立情報科学技術高校で授業](https://www.youtube.com/watch?v=gQoNHvtPwLw&t=1s)
 - 2019年12月5日 JetRacerハンズオン(主催 NTTコムエンジニアリング)(35台)
 - 2019年12月17日 JetRacerハンズオン(主催 NTTコムエンジニアリング)(35台)
 - 2019年12月24日 JetRacerハンズオン(主催 NTTコムエンジニアリング)(35台)
@@ -34,7 +35,7 @@ GithubのRepoに[Issues](https://github.com/FaBoPlatform/JetracerDocs/issues)を
 - [誰もが童心に帰って楽しくAIを習得できるJetRacerハンズオン](https://blogs.nvidia.co.jp/2020/02/21/nttceng-jetbot-jetracer/)
 - [NTTコムエンジが社員のAI学習教材に Jetson Nano搭載「JetRacer」を採用　深層学習とAI推論を体験　マクニカらが提供](https://robotstart.info/2019/12/27/nttcom-eng-jetracer.html)
 
-## FaBo AI 教材
+## FaBo AI Hardware教材
 - [JetRacer Docs](https://faboplatform.github.io/JetracerDocs/)
 - [JetBot Docs](https://faboplatform.github.io/JetbotDocs/)
 - [DonkeyCar Docs](https://faboplatform.github.io/DonkeyDocs/)

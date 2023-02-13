@@ -28,49 +28,54 @@ extra_css:
   - "css/custom.css"
 nav:
   - Home: "index.md"
-  - BOM:
-    - JR1_S_C_E: "01.組み立て/carbon_edition/JR1_S_C_E/07.bom_CarbonEdition_E.md"
-    - JR1_S_C_D: "01.組み立て/carbon_edition/JR1_S_C_D/07.bom_CarbonEdition_D.md"
-    - JR1_S_C_C: "01.組み立て/carbon_edition/JR1_S_C_C/07.bom_CarbonEdition_C.md"
-    - JR1_S_C_B: "01.組み立て/carbon_edition/JR1_S_C_B/07.bom_CarbonEdition_B.md"
-    - JR1_S_C: "01.組み立て/carbon_edition/JR1_S_C/05.bom_CarbonEdition.md"
-    - 旧式: "01.組み立て/00.bom.md"
-  - 組立:
-    - JR1_S_C_E: "01.組み立て/carbon_edition/JR1_S_C_E/08.build_Carbon_E.md"
-    - JR1_S_C_D: "01.組み立て/carbon_edition/JR1_S_C_D/08.build_Carbon_D.md"
-    - JR1_S_C_C: "01.組み立て/carbon_edition/JR1_S_C_C/08.build_Carbon_C.md"
-    - JR1_S_C_B: "01.組み立て/carbon_edition/JR1_S_C_B/08.build_Carbon_B.md"
-    - JR1_S_C: "01.組み立て/carbon_edition/JR1_S_C/06.build_Carbon.md"
-    - 旧式: "01.組み立て/01.build2.md"
-  - SDカード:
-    -  SDカードの焼込: "sd_fabo/01.image.md"
-    -  Wi-Fiの設定: "sd_fabo/02.wifi.md"
-  - ネットワーク:
+  - 1.はじめに: "00.はじめに/start.md"
+  - 2.組立:
+    - 型番の確認: "01.組み立て/01.check.md"
+    - JR1_S_C_E: 
+      - 部品リスト: "01.組み立て/carbon_edition/JR1_S_C_E/07.bom_CarbonEdition_E.md"
+      - 組立手順: "01.組み立て/carbon_edition/JR1_S_C_E/08.build_Carbon_E.md"
+    - JR1_S_C_D: 
+      - 部品リスト: "01.組み立て/carbon_edition/JR1_S_C_D/07.bom_CarbonEdition_D.md"
+      - 組立手順: "01.組み立て/carbon_edition/JR1_S_C_D/08.build_Carbon_D.md"
+    - JR1_S_C_C: 
+      - 部品リスト: "01.組み立て/carbon_edition/JR1_S_C_C/07.bom_CarbonEdition_C.md"
+      - 組立手順: "01.組み立て/carbon_edition/JR1_S_C_C/08.build_Carbon_C.md"
+    - JR1_S_C_B: 
+      - 部品リスト: "01.組み立て/carbon_edition/JR1_S_C_B/07.bom_CarbonEdition_B.md"
+      - 組立手順: "01.組み立て/carbon_edition/JR1_S_C_B/08.build_Carbon_B.md"
+    - JR1_S_C: 
+      - 部品リスト: "01.組み立て/carbon_edition/JR1_S_C/05.bom_CarbonEdition.md"
+      - 組立手順: "01.組み立て/carbon_edition/JR1_S_C/06.build_Carbon.md"
+    - 旧式: 
+      - 部品リスト: "01.組み立て/old/00.bom.md"
+      - 組立手順: "01.組み立て/old/01.build2.md"
+  - 3.設定:
+    - Wi-Fiの設定: "sd_fabo/02.wifi.md"
     - ネットワーク構成: "network/00.layout.md"
-    - 拡張ルーターの設定: "network/01.router.md"
     - 割振られたIPの確認: "network/02.ifconfig.md"
     - 8265経由で接続: "network/03.8265.md"
-    - 拡張ルーター経由で接続: "network/04.connect.md"
-  - ハードウェアの認識:
     - ハードウェアの認識確認: "hardware/01.check.md"
-  - 学習と走行:
-    - 使用するNotebook: "test/01.notebooks.md"
-    - 動作確認: "test/02.basic_motion.md"
-    - データセットの作成/学習: "test/03.interactive_regression.md"
-    - TensorRTへの変換: "test/04.optimize_model.md"
-    - 走行: "test/05.road_following.md"
-    - 再学習: "test/06.retrain.md"
-  - SDカードの作成:
-    -  SDカードの焼込: "sd_new/01.jetpack46.md"
-    -  初期設定: "sd_new/02.setting.md"
-    -  Wi-Fiの設定: "sd_new/03.wifi.md"
-    -  JetCardのインストール: "sd_new/04.jetcard.md"
-    -  NXへの対応: "sd_new/05.nx.md"
-  - SDイメージの作成:
-    - 事前処理: "sd_write/01.save.md"
-    - SDカードの保存: "sd_write/02.dd.md"
-    - SDカード用圧縮イメージ: "sd_write/03.parted.md"
-  - TIPS:
+  - 4.学習と走行:
+    - 使用するNotebook: "04.学習/01.notebooks.md"
+    - PWMの設定: "04.学習/02.pwm.md"
+    - アノテーションと学習: "04.学習/03.interactive_regression.md"
+    - TensorRTへの変換: "04.学習/04.optimize_model.md"
+    - 自動走行: "04.学習/05.run.md"
+  - 5.その他:
+    - SDカードの焼込: "sd_fabo/01.image.md"
+    - SDカードの新規作成:
+      - SDカードの焼込: "sd_new/01.jetpack46.md"
+      - 初期設定: "sd_new/02.setting.md"
+      - Wi-Fiの設定: "sd_new/03.wifi.md"
+      - パッケージの作成: "sd_new/04.jetcard.md"
+      - NXへの対応: "sd_new/05.nx.md"
+    - イメージの作成:
+      - 事前処理: "sd_write/01.save.md"
+      - SDカードからイメージ抜出し: "sd_write/02.dd.md"
+      - SDカード用圧縮イメージ: "sd_write/03.parted.md"
+    - 拡張ルーター(旧式):
+      - 設定: "network/01.router.md"
+      - 接続: "network/04.connect.md"
     - 各種Tips: "tips/01.tips.md"
 extra_css:
   - css/version-select.css
