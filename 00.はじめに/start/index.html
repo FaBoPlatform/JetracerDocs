@@ -13,7 +13,7 @@
     
     
       
-        <title>Firmwareの開発 - FaBo JetRacer Docs</title>
+        <title>FaBo JetRacer Kit - FaBo JetRacer Docs</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#firmware" class="md-skip">
+        <a href="#fabo-jetracer-kit" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Firmwareの開発
+              FaBo JetRacer Kit
             
           </span>
         </div>
@@ -998,35 +998,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    必要な部材
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    焼き込み環境の準備
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    転送の手順
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1039,73 +1010,25 @@
                 
 
 
-<h1 id="firmware">Firmwareの開発</h1>
-<h2 id="_1">必要な部材</h2>
-<table>
-<thead>
-<tr>
-<th align="left">名称</th>
-<th align="left">用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Arduino UNO</td>
-<td align="left">Firmware転送用</td>
-</tr>
-<tr>
-<td align="left">FaBo #604</td>
-<td align="left">ROM Writer Sheild</td>
-</tr>
-<tr>
-<td align="left">Tag-Connect</td>
-<td align="left">Firmware焼き込み</td>
-</tr>
-<tr>
-<td align="left">FaBo JetRacer #612</td>
-<td align="left">マルチクレスタを含む制御用途</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_2">焼き込み環境の準備</h2>
-<p>Arduino UNOとPCをつなぎ、ArduinoISPのソースをBuildし、Arduinoに焼き込みます。</p>
-<p><img alt="" src="../img/pc001.png" /></p>
-<p><img alt="" src="../img/isp001.png" /></p>
-<p><img alt="" src="../img/isp002.png" /></p>
-<p><img alt="" src="../img/isp003.png" /></p>
-<p><img alt="" src="../img/isp004.png" /></p>
-<h2 id="_3">転送の手順</h2>
-<p>Arduino UNOにFaBo #604を差し込み、TAG-Connectを接続します。</p>
-<p>Arduinoで下記サンプルコードを作成します。</p>
-<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">void</span><span style="color: #f8f8f2"> </span><span style="color: #a6e22e">setup</span><span style="color: #f8f8f2">(){</span>
-<span style="color: #f8f8f2">  pinMode(</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">, OUTPUT);</span>
-<span style="color: #f8f8f2">  pinMode(</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">, OUTPUT);</span>
-<span style="color: #f8f8f2">}</span>
-
-<span style="color: #66d9ef">void</span><span style="color: #f8f8f2"> </span><span style="color: #a6e22e">loop</span><span style="color: #f8f8f2">(){</span>
-<span style="color: #f8f8f2">  digitalWrite(</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">, HIGH);</span>
-<span style="color: #f8f8f2">  digitalWrite(</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">, LOW);</span>
-<span style="color: #f8f8f2">  delay(</span><span style="color: #ae81ff">1000</span><span style="color: #f8f8f2">);</span>
-<span style="color: #f8f8f2">  digitalWrite(</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">, LOW);</span>
-<span style="color: #f8f8f2">  digitalWrite(</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">, HIGH);</span>
-<span style="color: #f8f8f2">  delay(</span><span style="color: #ae81ff">1000</span><span style="color: #f8f8f2">);  </span>
-<span style="color: #f8f8f2">}</span>
-</code></pre></div></td></tr></table></div>
-<p><img alt="" src="../img/isp005.png" /></p>
-<p><img alt="" src="../img/isp006.png" /></p>
-<p><img alt="" src="../img/isp007.png" /></p>
+<h1 id="fabo-jetracer-kit">FaBo JetRacer Kit</h1>
+<p>動作までの流れは以下の通りです。</p>
+<ul>
+<li>
+<ol>
+<li>組み立て</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>設定</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>アノテーションと学習と走行</li>
+</ol>
+</li>
+</ul>
 
 
 
