@@ -12,7 +12,7 @@
 動作までの流れは以下の通りです。
 
 - [2.組立](https://faboplatform.github.io/JetracerDocs/01.%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6/01.check/)
-- 3.設定
+- [3.設定](https://faboplatform.github.io/JetracerDocs/03.%E8%A8%AD%E5%AE%9A/01.intro/)
 - [4.学習と走行](https://faboplatform.github.io/JetracerDocs/04.%E5%AD%A6%E7%BF%92/01.notebooks/)
 
 

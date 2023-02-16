@@ -50,11 +50,7 @@ nav:
       - 部品リスト: "01.組み立て/old/00.bom.md"
       - 組立手順: "01.組み立て/old/01.build2.md"
   - 3.設定:
-    - Wi-Fiの設定: "sd_fabo/02.wifi.md"
-    - ネットワーク構成: "network/00.layout.md"
-    - 割振られたIPの確認: "network/02.ifconfig.md"
-    - 8265経由で接続: "network/03.8265.md"
-    - ハードウェアの認識確認: "hardware/01.check.md"
+    - Wi-Fiの設定: "03.設定/01.intro.md"
   - 4.学習と走行:
     - 使用するNotebook: "04.学習/01.notebooks.md"
     - PWMの設定: "04.学習/02.pwm.md"
@@ -76,6 +72,11 @@ nav:
     - 拡張ルーター(旧式):
       - 設定: "network/01.router.md"
       - 接続: "network/04.connect.md"
+    - Wi-Fi関連:
+      - Wi-Fiの設定: "sd_fabo/02.wifi.md"
+      - ネットワーク構成: "network/00.layout.md"
+      - 割振られたIPの確認: "network/02.ifconfig.md"
+      - 8265経由で接続: "network/03.8265.md"
     - 各種Tips: "tips/01.tips.md"
 extra_css:
   - css/version-select.css
