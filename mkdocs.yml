@@ -31,22 +31,22 @@ nav:
   - 1.はじめに: "00.はじめに/start.md"
   - 2.組立:
     - 型番の確認: "01.組み立て/01.check.md"
-    - JR1_S_C_E: 
+    - JR1_S_C_E:
       - 部品リスト: "01.組み立て/carbon_edition/JR1_S_C_E/07.bom_CarbonEdition_E.md"
       - 組立手順: "01.組み立て/carbon_edition/JR1_S_C_E/08.build_Carbon_E.md"
-    - JR1_S_C_D: 
+    - JR1_S_C_D:
       - 部品リスト: "01.組み立て/carbon_edition/JR1_S_C_D/07.bom_CarbonEdition_D.md"
       - 組立手順: "01.組み立て/carbon_edition/JR1_S_C_D/08.build_Carbon_D.md"
-    - JR1_S_C_C: 
+    - JR1_S_C_C:
       - 部品リスト: "01.組み立て/carbon_edition/JR1_S_C_C/07.bom_CarbonEdition_C.md"
       - 組立手順: "01.組み立て/carbon_edition/JR1_S_C_C/08.build_Carbon_C.md"
-    - JR1_S_C_B: 
+    - JR1_S_C_B:
       - 部品リスト: "01.組み立て/carbon_edition/JR1_S_C_B/07.bom_CarbonEdition_B.md"
       - 組立手順: "01.組み立て/carbon_edition/JR1_S_C_B/08.build_Carbon_B.md"
-    - JR1_S_C: 
+    - JR1_S_C:
       - 部品リスト: "01.組み立て/carbon_edition/JR1_S_C/05.bom_CarbonEdition.md"
       - 組立手順: "01.組み立て/carbon_edition/JR1_S_C/06.build_Carbon.md"
-    - 旧式: 
+    - 旧式:
       - 部品リスト: "01.組み立て/old/00.bom.md"
       - 組立手順: "01.組み立て/old/01.build2.md"
   - 3.設定:
@@ -57,6 +57,7 @@ nav:
     - アノテーションと学習: "04.学習/03.interactive_regression.md"
     - TensorRTへの変換: "04.学習/04.optimize_model.md"
     - 自動走行: "04.学習/05.run.md"
+    - 再アノテーション: "04.学習/07.remark.md"
   - 5.その他:
     - SDカードの焼込: "sd_fabo/01.image.md"
     - SDカードの新規作成:
