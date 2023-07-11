@@ -761,40 +761,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          再アノテーション
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         再アノテーション
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    再学習の方法
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1217,21 +1186,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    再学習の方法
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1246,9 +1200,8 @@
 
 
 <h1 id="remark">再アノテーション（remark)</h1>
-<h2 id="_1">再学習の方法</h2>
 <p>road_following_liveおよび、road_followingの自動走行でうまくいかない場合は、再度、interactive_regressionでデータセットの追加と転移学習を実施する方法がございますが、
-remarkは、作成済みのモデルに推論させ録画済みのデータやアノテーションした画像データを一枚一枚精査し、アノテーションを変更、追加、スキップできます。</p>
+remarkは、作成済みのモデルに推論させ録画済みのデータやアノテーションした画像データを一枚一枚検証し、アノテーションを変更、追加、スキップできます。追加修正した画像で一から学習します。</p>
 <p>まず、12_remark.ipynbを開いてセルを全て実行すると、下の画面が現れます。</p>
 <p>road_followingやrecord_cameraで録画した画像を呼び出します。</p>
 <p>record_cameraで録画しcameraフォルダを指定した場合は、taskをcamera、datasetはフォルダ名を選択します。</p>
