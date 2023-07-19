@@ -58,6 +58,7 @@ nav:
     - TensorRTへの変換: "04.学習/04.optimize_model.md"
     - 自動走行: "04.学習/05.run.md"
     - アノテーション: "04.学習/07.remark.md"
+    - クラウドによる学習: "04.学習/08.googleColab.md"
   - 5.その他:
     - SDカードの焼込: "sd_fabo/01.image.md"
     - SDカードの新規作成:
