@@ -13,7 +13,7 @@
     
     
       
-        <title>各種Tips - FaBo JetRacer Docs</title>
+        <title>クラウドによる学習 - FaBo JetRacer Docs</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tips" class="md-skip">
+        <a href="#google-colaboratory" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              各種Tips
+              クラウドによる学習
             
           </span>
         </div>
@@ -652,12 +652,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -680,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/01.notebooks/" class="md-nav__link">
+      <a href="../01.notebooks/" class="md-nav__link">
         使用するNotebook
       </a>
     </li>
@@ -694,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/02.pwm/" class="md-nav__link">
+      <a href="../02.pwm/" class="md-nav__link">
         PWMの設定
       </a>
     </li>
@@ -708,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/03.interactive_regression/" class="md-nav__link">
+      <a href="../03.interactive_regression/" class="md-nav__link">
         アノテーションと学習
       </a>
     </li>
@@ -722,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/04.optimize_model/" class="md-nav__link">
+      <a href="../04.optimize_model/" class="md-nav__link">
         TensorRTへの変換
       </a>
     </li>
@@ -736,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/05.run/" class="md-nav__link">
+      <a href="../05.run/" class="md-nav__link">
         自動走行
       </a>
     </li>
@@ -750,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/07.remark/" class="md-nav__link">
+      <a href="../07.remark/" class="md-nav__link">
         アノテーション
       </a>
     </li>
@@ -762,11 +764,93 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/08.googleColab/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          クラウドによる学習
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         クラウドによる学習
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ai86-version-200" class="md-nav__link">
+    AI86 Version 2.0.0
+  </a>
+  
+    <nav class="md-nav" aria-label="AI86 Version 2.0.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zip" class="md-nav__link">
+    データセットをzipファイルにする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google" class="md-nav__link">
+    Googleのマイドライブへデータセットをアップロードする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    学習や動画検証を実行するPythonコードをアップロード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    データセットのファイルのパス
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    動画検証によるモデルの評価
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -784,14 +868,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
@@ -1154,66 +1236,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          各種Tips
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../tips/01.tips/" class="md-nav__link">
         各種Tips
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#wifi" class="md-nav__link">
-    WiFiに接続
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#i2c" class="md-nav__link">
-    I2Cのアドレス確認
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    カメラの認識確認
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1252,22 +1279,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#wifi" class="md-nav__link">
-    WiFiに接続
+  <a href="#ai86-version-200" class="md-nav__link">
+    AI86 Version 2.0.0
+  </a>
+  
+    <nav class="md-nav" aria-label="AI86 Version 2.0.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zip" class="md-nav__link">
+    データセットをzipファイルにする
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#i2c" class="md-nav__link">
-    I2Cのアドレス確認
+        
+          <li class="md-nav__item">
+  <a href="#google" class="md-nav__link">
+    Googleのマイドライブへデータセットをアップロードする
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    学習や動画検証を実行するPythonコードをアップロード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    カメラの認識確認
+    データセットのファイルのパス
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    動画検証によるモデルの評価
   </a>
   
 </li>
@@ -1287,20 +1341,47 @@
                   
 
 
-<h1 id="tips">Tips</h1>
-<h2 id="wifi">WiFiに接続</h2>
-<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">sudo nmcli device wifi connect &#39;MySSID&#39; password &#39;MyPassword&#39; ifname wlan0</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="i2c">I2Cのアドレス確認</h2>
-<p>Jetson Nano</p>
-<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">sudo i2cdetect -r -y 1</span>
-</code></pre></div></td></tr></table></div>
-<p>Jetson NX</p>
-<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">sudo i2cdetect -r -y 8</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="_1">カメラの認識確認</h2>
-<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">dmesg | grep imx219</span>
-</code></pre></div></td></tr></table></div>
+<h1 id="google-colaboratory">Google Colaboratoryを使った学習(工事中)</h1>
+<h2 id="ai86-version-200">AI86 Version 2.0.0</h2>
+<p>Jetson Nanoだけでもエッジでの学習はできますが、インターネット環境があればクラウドでも学習はできます。</p>
+<p>Google Colaboratory(Google Colab)を使用することでGPUなどのハードウェアなしで使うことができます。
+Jupyter NoteBookは初めから用意されており、学習時間を短縮、画像枚数もより多く扱うことが容易になります。
+（※ただし、無料でのご使用の場合は、使用時間の制限を受けます。）</p>
+<h3 id="zip">データセットをzipファイルにする</h3>
+<p>収集したデータセットをクラウドへアップします。12_download_data.ipynbを開いて</p>
+<p>一つのzipファイルにしてGoogle Colaboratoryアップできるようにします。</p>
+<p>画像ファイル枚数によって終了時間が異なります。８番が出るまで待ちましょう。</p>
+<h3 id="google">Googleのマイドライブへデータセットをアップロードする</h3>
+<p>作成したzipファイルは、zipフォルダにあります。ダウンロードしたいファイルを右クリックDownloadを選択します。</p>
+<p>パソコンにダウンロードされます。</p>
+<p>Google Colaboratoryを使用する前に、事前にGoogleアカウントが必要です。Googleにログインします。</p>
+<p>事前に、Googleドライブ内にJetRacer_WorkSpeaceという名前の専用のフォルダを作りましょう。</p>
+<h3 id="python">学習や動画検証を実行するPythonコードをアップロード</h3>
+<p>マイドライブにJetRacerCloud.ipynbをアップロードします。</p>
+<p>データセットのファイルのパスは、"/content/drive/MyDrive/workspace_jetracer/dataset/・・・・・"</p>
+<h3 id="_1">データセットのファイルのパス</h3>
+<p>Googleのマイドライブではなく、ファイルGoogle Colaboratoryのディレクトリにアクセスの場合は、</p>
+<p>"drive/MyDrive/workspace_jetracer/dataset/......."</p>
+<p>モデルの出力先</p>
+<p>"drive/MyDrive/workspace_jetracer/model/......."</p>
+<p>ZipファイルをGoogleのマイドライブへアップロードします。</p>
+<p>右クリックしてzipエクストラクタを使って、zipファイルを解凍します。</p>
+<p>解凍が終了したのならGoogle Colaboratoryにアクセスします。</p>
+<p>Google Colaboratoryにようこそ
+https://colab.research.google.com/?hl=ja</p>
+<p>ファイルをクリックし、ノートブックを開くを選択します。</p>
+<p>Zipファイルをドラックアンドドロップかファイル選択してGoogle Colaboratoryへアップロードします。</p>
+<p>Googleのマイドライブへアクセスするため、ユーザーの許可が必要となります。</p>
+<p>GPUを有効にします。</p>
+<p>lossが低くなるように任意のエポック数に変えて、学習させます。（無料でのご使用の場合は、時間制限があります。ご注意ください。）</p>
+<p>学習（エポック）が終了したのなら、出来たモデルをGoogleドライブに保存します。</p>
+<h2 id="_2">動画検証によるモデルの評価</h2>
+<p>出来たモデルの評価を撮影済みの画像を使って評価します。結果が芳しくなかった場合は、データセットを増やしたり、エポック数を増やして再び学習し調整します。</p>
+<p>評価したいモデルのパス</p>
+<p>評価に使う画像のパス</p>
+<p>動画ファイルが生成され動画が映し出されます。青い丸が推論した座標になります。ダウンロード、再生速度が設定出来ます。</p>
+<p>保存した学習済みモデルをダウンロードしてそのファイルをJetson Nanoのmodelディレクトリへアップロードします。</p>
+<p>その後は、03_optimize_model.ipynbにてTensorRTにてモデルの最適化し、04_road_following.ipynbにて自動走行します。</p>
 
 
 
@@ -1321,7 +1402,7 @@
     <nav class="md-footer__inner md-grid" aria-label="フッター" >
       
         
-        <a href="../../network/03.8265/" class="md-footer__link md-footer__link--prev" aria-label="前: 8265経由で接続" rel="prev">
+        <a href="../07.remark/" class="md-footer__link md-footer__link--prev" aria-label="前: アノテーション" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1330,11 +1411,26 @@
               <span class="md-footer__direction">
                 前
               </span>
-              8265経由で接続
+              アノテーション
             </div>
           </div>
         </a>
       
+      
+        
+        <a href="../../sd_fabo/01.image/" class="md-footer__link md-footer__link--next" aria-label="次: SDカードの焼込" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              SDカードの焼込
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
