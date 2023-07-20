@@ -57,8 +57,11 @@ nav:
     - アノテーションと学習: "04.学習/03.interactive_regression.md"
     - TensorRTへの変換: "04.学習/04.optimize_model.md"
     - 自動走行: "04.学習/05.run.md"
-    - アノテーション: "04.学習/07.remark.md"
     - クラウドによる学習: "04.学習/08.googleColab.md"
+    - 受信機信号計測: "04.学習/10.transmitterSignal.md"
+    - 走行録画: "04.学習/09.recordCamera.md"
+    - 検証動画作成: "04.学習/11.makeMovie.md"
+    - アノテーション: "04.学習/07.remark.md"
   - 5.その他:
     - SDカードの焼込: "sd_fabo/01.image.md"
     - SDカードの新規作成:

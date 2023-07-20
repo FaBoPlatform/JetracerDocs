@@ -13,7 +13,7 @@
     
     
       
-        <title>8265経由でのJetRacerへの接続 - FaBo JetRacer Docs</title>
+        <title>検証動画作成 - FaBo JetRacer Docs</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#8265jetracer" class="md-skip">
+        <a href="#_1" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              8265経由でのJetRacerへの接続
+              検証動画作成
             
           </span>
         </div>
@@ -652,12 +652,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -680,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/01.notebooks/" class="md-nav__link">
+      <a href="../01.notebooks/" class="md-nav__link">
         使用するNotebook
       </a>
     </li>
@@ -694,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/02.pwm/" class="md-nav__link">
+      <a href="../02.pwm/" class="md-nav__link">
         PWMの設定
       </a>
     </li>
@@ -708,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/03.interactive_regression/" class="md-nav__link">
+      <a href="../03.interactive_regression/" class="md-nav__link">
         アノテーションと学習
       </a>
     </li>
@@ -722,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/04.optimize_model/" class="md-nav__link">
+      <a href="../04.optimize_model/" class="md-nav__link">
         TensorRTへの変換
       </a>
     </li>
@@ -736,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/05.run/" class="md-nav__link">
+      <a href="../05.run/" class="md-nav__link">
         自動走行
       </a>
     </li>
@@ -750,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/08.googleColab/" class="md-nav__link">
+      <a href="../08.googleColab/" class="md-nav__link">
         クラウドによる学習
       </a>
     </li>
@@ -764,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/10.transmitterSignal/" class="md-nav__link">
+      <a href="../10.transmitterSignal/" class="md-nav__link">
         受信機信号計測
       </a>
     </li>
@@ -778,7 +780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/09.recordCamera/" class="md-nav__link">
+      <a href="../09.recordCamera/" class="md-nav__link">
         走行録画
       </a>
     </li>
@@ -790,11 +792,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/11.makeMovie/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         検証動画作成
       </a>
+      
     </li>
   
 
@@ -806,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04.%E5%AD%A6%E7%BF%92/07.remark/" class="md-nav__link">
+      <a href="../07.remark/" class="md-nav__link">
         アノテーション
       </a>
     </li>
@@ -1230,35 +1242,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#ip" class="md-nav__link">
-    IPの割り振り
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jetson-nanoip" class="md-nav__link">
-    Jetson NanoのIPアドレス
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jetracerjupyter" class="md-nav__link">
-    JetRacerのJupyterへの接続
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1272,17 +1255,20 @@
                   
 
 
-<h1 id="8265jetracer">8265経由でのJetRacerへの接続</h1>
-<p><img alt="" src="../img/net02.jpg" /></p>
-<h2 id="ip">IPの割り振り</h2>
-<p>Jetson Nanoには、アクセスポイントルーターよりDNSでIPアドレスが(例 <code>192.168.#.###</code>)割振られていると思います。</p>
-<h2 id="jetson-nanoip">Jetson NanoのIPアドレス</h2>
-<p>Jetson NanoのTerminal上もしくは、SSHでログインし、下記コマンドで<code>wlan0</code>のIPアドレスを確認します。</p>
-<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #66d9ef">ifconfig -a</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="jetracerjupyter">JetRacerのJupyterへの接続</h2>
-<p>DNSで割り振れれたIPアドレスに8888番ポート経由で接続します(例 <code>192.168.#.###:8888</code>)。</p>
-<p><img alt="" src="../img/8265.png" /></p>
+<h1 id="_1">動画の作成(工事中)</h1>
+<div style="text-align:right;">
+<img src="./../img/signatureboardAI86V2.png">
+<img src="./../img/signatureboardAI86V1.png">
+</div>
+
+<p>録画した一枚一枚の撮影した写真を動画にします。出来上がったモデルを動画で検証できるので便利です。</p>
+<p>13_make_movie.ipynbを開きます。</p>
+<p>動画にしたい画像データを選択します。</p>
+<p>動画に名前を付けます。</p>
+<p>TensorRTのモデルを選び画像に対して推論させます。</p>
+<p>しばらくするとmp4ファイルができあがります。</p>
+<p>出来上がったファイルはvideoフォルダに記憶されます。</p>
+<p>右クリック、Downloadでパソコンにダウンロードして動画を確認します。</p>
 
 
 
@@ -1298,6 +1284,42 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="フッター" >
+      
+        
+        <a href="../09.recordCamera/" class="md-footer__link md-footer__link--prev" aria-label="前: 走行録画" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              走行録画
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../07.remark/" class="md-footer__link md-footer__link--next" aria-label="次: アノテーション" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              アノテーション
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
