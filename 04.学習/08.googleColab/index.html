@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.2.13">
     
     
       
@@ -17,18 +17,16 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
           
           
           <meta name="theme-color" content="#4cae4f">
         
       
-      
-
     
     
     
@@ -51,11 +49,10 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -1378,11 +1375,10 @@
               </div>
             
           
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
                 
-                  
 
 
 <h1 id="google-colaboratory">Google Colaboratoryを使ったクラウド学習(工事中)</h1>
@@ -1419,15 +1415,19 @@ https://colab.research.google.com/?hl=ja</p>
 <p>右クリックしてアプリでもファイル解凍できますが、ファイル数が多くなると時間がかかるのでGoogle Colaboratoryで解凍します。</p>
 <p>Googleドライブの新規ボタンを押して、その他を選択、Google Colaboratoryをクリックします。</p>
 <p>保存先がGoolgeドライブのマイドライブの場合はGoogle Colaboratoryからアクセス権限を与えます。</p>
-<p>下記のマウントするコードを実行します。</p>
+<p>下記のマウントするコードを実行するか、フォルダの左側にあるアイコンをクリックします。</p>
 <p><div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f92672">from</span> <span style="color: #f8f8f2">google.colab</span> <span style="color: #f92672">import</span> <span style="color: #f8f8f2">drive</span>
 <span style="color: #f8f8f2">drive</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">mount(</span><span style="color: #e6db74">&#39;/content/drive&#39;</span><span style="color: #f8f8f2">)</span>
 </code></pre></div></td></tr></table></div>
 Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンドが実行できます。</p>
-<p>展開先を指定し、任意のディレクトリに解凍させます。</p>
-<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #960050; background-color: #1e0010">!</span><span style="color: #f8f8f2">unzip</span> <span style="color: #f92672">/</span><span style="color: #f8f8f2">content</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">drive</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">MyDrive</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">workspace_jetracer</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">dataset</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">xxxxxxxxxx</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">zip</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">d</span> <span style="color: #f92672">/</span><span style="color: #f8f8f2">content</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">drive</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">MyDrive</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">workspace_jetracer</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">dataset</span><span style="color: #f92672">/</span>
+<p>MyDriveでないcontent以下に展開先を指定し、任意のディレクトリに解凍させます。</p>
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #960050; background-color: #1e0010">!</span><span style="color: #f8f8f2">unzip</span> <span style="color: #f92672">/</span><span style="color: #f8f8f2">content</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">drive</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">MyDrive</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">workspace_jetracer</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">dataset</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">xxxxxxxxxx</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">zip</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">d</span> <span style="color: #f92672">/</span><span style="color: #f8f8f2">content</span><span style="color: #f92672">/</span>
 </code></pre></div></td></tr></table></div>
+<div class="admonition note warn">
+<p class="admonition-title">Note</p>
+</div>
+<p>Myドライブ（/content/drive/MyDrive/）の大量の数のファイルは、処理が途中で止まることがありますのでその以外のディレクトリに展開させます。</p>
 <p>解凍が終了すると画面一番下のバーに完了時間が表示されます。</p>
 <h3 id="google-colaboratory_2">Google Colaboratoryによる学習</h3>
 <p>ファイルをクリックし、ノートブックを開くを選択します。</p>
@@ -1445,9 +1445,12 @@ Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンド
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">SAVE_MODEL</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;xxxxxxxxxxxxx.pth&quot;</span>
 <span style="color: #f8f8f2">torch</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">save(model</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">state_dict(),</span> <span style="color: #f8f8f2">SAVE_MODEL)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="_3">動画検証によるモデルの評価</h3>
 <p>出来たモデルの評価を撮影済みの画像を使って評価します。結果が芳しくなかった場合は、データセットを増やしたり、エポック数を増やして再び学習し調整します。</p>
 <p>コードのエポック数のデフォルト値は120です。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<p>Google Colaboratoryでの無料でお使いの場合は、GPUの使用時間制限がございます。時間制限以内に終了できるようにデータセット枚数とエポック数を調整しましょう。</p>
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
@@ -1464,29 +1467,23 @@ Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンド
     <span style="color: #66d9ef">global</span> <span style="color: #f8f8f2">model</span>
     <span style="color: #f8f8f2">dataset</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">XYDataset(LOAD_DATA_PATH,</span> <span style="color: #f8f8f2">SAVE_CATEGORIES,</span> <span style="color: #f8f8f2">TRANSFORMS,</span> <span style="color: #f8f8f2">random_hflip</span><span style="color: #f92672">=</span><span style="color: #66d9ef">True</span><span style="color: #f8f8f2">)</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="_3">動画検証によるモデルの評価</h3>
 <p>評価したいモデルのパス</p>
 <p>評価に使う画像のパス</p>
 <p>動画ファイルが生成され動画が映し出されます。青い丸が推論した座標になります。ダウンロード、再生速度が設定出来ます。</p>
 <p>保存した学習済みモデルをダウンロードしてそのファイルをJetson Nanoのmodelディレクトリへアップロードします。</p>
 <p>その後は、03_optimize_model.ipynbにてTensorRTにてモデルの最適化し、04_road_following.ipynbにて自動走行します。</p>
 
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
+              
+            </article>
+          </div>
         </div>
         
       </main>
       
         <footer class="md-footer">
   
-    
-    <nav class="md-footer__inner md-grid" aria-label="フッター" >
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
       
         
         <a href="../05.run/" class="md-footer__link md-footer__link--prev" aria-label="前: 自動走行" rel="prev">
@@ -1541,11 +1538,10 @@ Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンド
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}}</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}}</script>
     
-    
-      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
         <script src="../../javascripts/version-select.js"></script>
       
