@@ -7,6 +7,7 @@ theme:
       primary: 'green'
       accent: 'black'
     logo: 'logo.png'
+    favicon: 'favicon.png'
 extra:
     search:
         language: 'jp'
