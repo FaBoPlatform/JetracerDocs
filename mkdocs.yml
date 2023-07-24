@@ -6,6 +6,7 @@ theme:
     palette:
       primary: 'green'
       accent: 'black'
+    logo: 'logo.png'
 extra:
     search:
         language: 'jp'
