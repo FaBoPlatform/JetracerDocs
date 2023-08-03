@@ -14,6 +14,8 @@ JetRacer Docsは、FaBo JetRacerの学習用ドキュメントです。
 
 ## サポート Discord
 
+JetRacerに関するお問い合わせ、ご質問、トラブルなど
+
 [https://discord.gg/StJ84Hb](https://discord.gg/StJ84Hb)
 
 ## 修正依頼等
