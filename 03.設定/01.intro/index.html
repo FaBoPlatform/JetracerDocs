@@ -1319,11 +1319,20 @@
 <h2 id="intel-wifiax200">Intel WiFiモジュールAX200付属の場合</h2>
 <p><img alt="AX200" class="bom_listsize" src="../../01.%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6/img/img_bom/AX200DesktopKit.JPG" /></p>
 <p>AX200の場合は、初期設定が必要になります。ドライバーをインストールするためには、有線LAN等のインターネット環境が必要となります。</p>
-<p>付属のSDカードをJetsonNanoに挿入し、電源ON。有線LANでJetsonNanoをネットワークに繋いで
+<p>付属のSDカードをJetsonNanoに挿入し、Jetson Nanoの電源を繋いでJetson Nanoを起動させます。有線LANでJetsonNanoをネットワークに繋いで
 有機ELディスプレイに表示されるIPアドレス:8888またはUSBマイクロ接続の場合、192.168.55.1:8888をGoogle Chromeのアドレスバーに入力しパソコンからJetsonNanoにアクセスします。
 ＋をクリックして新しいランチャーを開き、ターミナルを起動します。以下のコマンドを実行しドライバーをインストールします。</p>
-<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">sudo</span> <span style="color: #f8f8f2">add</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">apt</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">repository</span> <span style="color: #f8f8f2">ppa:canonical</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">hwe</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">team</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">backport</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">iwlwifi</span>
+<p>SDカード挿入</p>
+<p><img alt="" class="bom_listsize" src="../img/sdcardInsert.JPG" /></p>
+<p>DCプラグをDCジャックに刺します。</p>
+<p><img alt="" class="bom_listsize" src="../img/powerPlug.JPG" /></p>
+<p>マイクロUSBでパソコンとつなぎインターネットに接続された有線LANを繋ぐ。</p>
+<p><img alt="" class="bom_listsize" src="../img/wireLan16001200.JPG" /></p>
+<p>chromeブラウザを起動し192.168.55.1:8888と入力する。terminalを選択する。</p>
+<p><img alt="" class="bom_listsize" src="../img/terminal.png" /></p>
+<p><div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">sudo</span> <span style="color: #f8f8f2">add</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">apt</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">repository</span> <span style="color: #f8f8f2">ppa:canonical</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">hwe</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">team</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">backport</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">iwlwifi</span>
 </code></pre></div></td></tr></table></div>
+デフォルトのパスワードはjetsonになります。</p>
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">sudo</span> <span style="color: #f8f8f2">apt</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">get</span> <span style="color: #f8f8f2">update</span>
 </code></pre></div></td></tr></table></div>
 <p><div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">sudo</span> <span style="color: #f8f8f2">apt</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">get</span> <span style="color: #f8f8f2">install</span> <span style="color: #f8f8f2">backport</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">iwlwifi</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">dkms</span>
