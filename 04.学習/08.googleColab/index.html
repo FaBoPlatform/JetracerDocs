@@ -1395,19 +1395,29 @@ Jupyter NoteBookは初めから用意されており、学習時間を短縮、�
 <h3 id="zip">データセットをzipファイルにまとめる</h3>
 <p>収集したデータセットをクラウドへアップします。JetsonNanoの12_download_data.ipynbを開いて</p>
 <p>データセット（画像データ）を一つのzipファイルにしてGoogle Colaboratoryへのファイルアップロードできるようにします。</p>
-<p>画像ファイル枚数によって終了時間が異なります。処理完了の８番が出るまで待ちましょう。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/select14.png" /></p>
+<p>ディレクトリ（タスク）をドロップダウンリストから選んで、圧縮したいデータセットフォルダを選択します。</p>
+<p>ZIPボタンを押すと圧縮が始まり、圧縮が完了するとログに処理終了が表示されZIPフォルダが生成されます。</p>
+<p>ZIPフォルダに圧縮されたファイルがあり、このファイルをGoogleドライブにアップロードします。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/selectDirectroy.png" /></p>
+<p>画像ファイル枚数によって終了時間が異なります。処理完了が出るまで待ちましょう。</p>
 <h3 id="google">Googleのマイドライブへデータセットをアップロードする</h3>
 <p>作成したzipファイルは、zipフォルダにあります。ダウンロードしたいファイルを右クリックDownloadを選択します。</p>
 <p>一旦、お使いのパソコンにダウンロードします。</p>
-<p>右クリックでダウンロード</p>
-<h3 id="google-colaboratory_1">Google Colaboratory　を使うための準備</h3>
+<p>右クリックでダウンロードします。</p>
 <p>Google Colaboratoryを使用する前に、事前にGoogleアカウントが必要です。Googleにログインします。</p>
 <p>事前に、Googleドライブ内にJetRacer_WorkSpeaceという名前の専用のフォルダを作りましょう。</p>
+<p>zipファイルをGoogleドライブにアップロードします。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/GoogleDrive.png" /></p>
+<p>新規ボタンをクリックして、作業フォルダ（etRacer_WorkSpeace/dataset/）を作り、そのフォルダ内にzipファイルをアップロードします。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/FileUpload.png" /></p>
 <p>（例）保存先のディレクトリ
 JetRacer_WorkSpeace/dataset/</p>
+<h3 id="google-colaboratory_1">Google Colaboratory　を使うための準備</h3>
 <p>Google Colaboratoryにアクセスします。</p>
+<p><a href="https://colab.research.google.com/?hl=ja">https://colab.research.google.com/?hl=ja</a></p>
 <p>Google Colaboratoryにようこそ</p>
-<p>https://colab.research.google.com/?hl=ja</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/welcomtocolabo.png" /></p>
 <h3 id="_1">データセットのファイルのパス</h3>
 <p>Googleのマイドライブではなく、ファイルGoogle Colaboratoryのディレクトリにアクセスの場合は、</p>
 <p>"drive/MyDrive/workspace_jetracer/dataset/......."</p>
