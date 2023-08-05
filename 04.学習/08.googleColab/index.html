@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#google-colaboratory" class="md-skip">
+        <a href="#google-colaboratoryalpha" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -798,7 +798,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#google-colaboratory_1" class="md-nav__link">
+  <a href="#google-colaboratory" class="md-nav__link">
     Google Colaboratory　を使うための準備
   </a>
   
@@ -812,21 +812,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    データセットの解凍
+  <a href="#zip_1" class="md-nav__link">
+    データセットのzip解凍
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#google-colaboratory_2" class="md-nav__link">
+  <a href="#google-colaboratory_1" class="md-nav__link">
     Google Colaboratoryによる学習
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     動画検証によるモデルの評価
   </a>
   
@@ -1334,7 +1334,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#google-colaboratory_1" class="md-nav__link">
+  <a href="#google-colaboratory" class="md-nav__link">
     Google Colaboratory　を使うための準備
   </a>
   
@@ -1348,21 +1348,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    データセットの解凍
+  <a href="#zip_1" class="md-nav__link">
+    データセットのzip解凍
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#google-colaboratory_2" class="md-nav__link">
+  <a href="#google-colaboratory_1" class="md-nav__link">
     Google Colaboratoryによる学習
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     動画検証によるモデルの評価
   </a>
   
@@ -1383,7 +1383,7 @@
                   
 
 
-<h1 id="google-colaboratory">Google Colaboratoryを使ったクラウド学習(工事中)</h1>
+<h1 id="google-colaboratoryalpha">Google Colaboratoryを使ったクラウド学習(alpha版)</h1>
 <div style="text-align:right;">
 <img src="./../img/signatureboardAI86V2.png">
 </div>
@@ -1413,7 +1413,7 @@ Jupyter NoteBookは初めから用意されており、学習時間を短縮、�
 <p><img alt="" class="bom_listsize" src="../img/colabo/FileUpload.png" /></p>
 <p>（例）保存先のディレクトリ
 JetRacer_WorkSpeace/dataset/</p>
-<h3 id="google-colaboratory_1">Google Colaboratory　を使うための準備</h3>
+<h3 id="google-colaboratory">Google Colaboratory　を使うための準備</h3>
 <p>Google Colaboratoryにアクセスします。</p>
 <p><a href="https://colab.research.google.com/?hl=ja">https://colab.research.google.com/?hl=ja</a></p>
 <p>Google Colaboratoryにようこそ</p>
@@ -1421,14 +1421,18 @@ JetRacer_WorkSpeace/dataset/</p>
 <h3 id="_1">データセットのファイルのパス</h3>
 <p>Googleのマイドライブではなく、ファイルGoogle Colaboratoryのディレクトリにアクセスの場合は、</p>
 <p>"drive/MyDrive/workspace_jetracer/dataset/......."</p>
-<p>モデルの出力先</p>
+<p>モデルの出力先は、modelディレクトリを作成しておきましょう。</p>
 <p>"drive/MyDrive/workspace_jetracer/model/......."</p>
 <p>ZipファイルをGoogleのマイドライブへアップロードします。</p>
-<h3 id="_2">データセットの解凍</h3>
+<h3 id="zip_1">データセットのzip解凍</h3>
 <p>右クリックしてアプリでもファイル解凍できますが、ファイル数が多くなると時間がかかるのでGoogle Colaboratoryで解凍します。</p>
 <p>Googleドライブの新規ボタンを押して、その他を選択、Google Colaboratoryをクリックします。</p>
 <p>保存先がGoolgeドライブのマイドライブの場合はGoogle Colaboratoryからアクセス権限を与えます。</p>
 <p>下記のマウントするコードを実行するか、フォルダの左側にあるアイコンをクリックします。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/Untitiled.png" /></p>
+<p>グーグルドライブをマウントします。</p>
+<p>セル内に以下のコードをコピーアンドペーストして実行します。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/permitMount.png" /></p>
 <p><div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f92672">from</span> <span style="color: #f8f8f2">google.colab</span> <span style="color: #f92672">import</span> <span style="color: #f8f8f2">drive</span>
 <span style="color: #f8f8f2">drive</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">mount(</span><span style="color: #e6db74">&#39;/content/drive&#39;</span><span style="color: #f8f8f2">)</span>
@@ -1437,18 +1441,35 @@ Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンド
 <p>MyDriveでないcontent以下に展開先を指定し、任意のディレクトリに解凍させます。</p>
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #960050; background-color: #1e0010">!</span><span style="color: #f8f8f2">unzip</span> <span style="color: #f92672">/</span><span style="color: #f8f8f2">content</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">drive</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">MyDrive</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">workspace_jetracer</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">dataset</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">xxxxxxxxxx</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">zip</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">d</span> <span style="color: #f92672">/</span><span style="color: #f8f8f2">content</span><span style="color: #f92672">/</span>
 </code></pre></div></td></tr></table></div>
+<p><img alt="" class="bom_listsize" src="../img/colabo/unzip.png" /></p>
+<p>①　＋コードクリック（セルを追加）</p>
+<p>②　上記コードをコピーアンドペーストして実行</p>
+<p>③　解凍先を確認</p>
 <div class="admonition note warn">
 <p class="admonition-title">Note</p>
 </div>
-<p>Myドライブ（/content/drive/MyDrive/）の大量の数のファイルは、処理が途中で止まることがありますのでその以外のディレクトリに展開させます。</p>
+<p>Myドライブ（/content/drive/MyDrive/）の大量の数のファイルは、処理が途中で止まることがありますのでMyDrive以外のディレクトリに展開させます。
+※ここでは/content/の直下に解凍しています。</p>
 <p>解凍が終了すると画面一番下のバーに完了時間が表示されます。</p>
-<h3 id="google-colaboratory_2">Google Colaboratoryによる学習</h3>
+<h3 id="google-colaboratory_1">Google Colaboratoryによる学習</h3>
 <p>ファイルをクリックし、ノートブックを開くを選択します。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/googleColaboStart.png" /></p>
 <p>Zipファイルをドラックアンドドロップかファイル選択してGoogle Colaboratoryへアップロードします。</p>
 <p><a href="../python/JetRacerCloudBeta000.ipynb">JetRacerCloudBeta000.ipynb</a>をダウンロードします。</p>
 <p>マイドライブにJetRacerCloudBeta000.ipynbをアップロードします。</p>
-<p>データセットのファイルのパスは、"/content/drive/MyDrive/workspace_jetracer/dataset/・・・・・"</p>
-<p>ダウンロードしたファイルを実行していきます。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabofileupload.png" /></p>
+<p>Googleドライブにあるデータセットのファイルのパスは、例　：　"/content/drive/MyDrive/workspace_jetracer/dataset/{フォルダ名}"</p>
+<p>Colaboのドライブにあるデータセットのファイルのパスは、例　：　"/content/{フォルダ名}"</p>
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>LOAD_DATA_PATH = &quot;/content/drive/MyDrive/workspace_jetracer/dataset/DirectryName&quot;
+</code></pre></div></td></tr></table></div>
+<p>ダウンロードしたファイルを上から実行していきます。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/FileDataSetDefine.png" /></p>
+<p>JetRacerのコードをダウンロード</p>
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #960050; background-color: #1e0010">!</span><span style="color: #f8f8f2">wget</span> <span style="color: #f8f8f2">https:</span><span style="color: #f92672">//</span><span style="color: #f8f8f2">raw</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">githubusercontent</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">com</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">NVIDIA</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">AI</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">IOT</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">jetracer</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">master</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">notebooks</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">utils</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">py</span>
+<span style="color: #960050; background-color: #1e0010">!</span><span style="color: #f8f8f2">wget</span> <span style="color: #f8f8f2">https:</span><span style="color: #f92672">//</span><span style="color: #f8f8f2">raw</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">githubusercontent</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">com</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">NVIDIA</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">AI</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">IOT</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">jetracer</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">master</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">notebooks</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">xy_dataset</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">py</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="" class="bom_listsize" src="../img/colabo/JetRacerInstall.png" /></p>
 <p>GPUを有効にします。ダイヤログが出ることがありますが利用できるGPUを使用します。</p>
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">device</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">torch</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">device(</span><span style="color: #e6db74">&#39;cuda&#39;</span><span style="color: #f8f8f2">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1480,9 +1501,17 @@ Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンド
     <span style="color: #66d9ef">global</span> <span style="color: #f8f8f2">model</span>
     <span style="color: #f8f8f2">dataset</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">XYDataset(LOAD_DATA_PATH,</span> <span style="color: #f8f8f2">SAVE_CATEGORIES,</span> <span style="color: #f8f8f2">TRANSFORMS,</span> <span style="color: #f8f8f2">random_hflip</span><span style="color: #f92672">=</span><span style="color: #66d9ef">True</span><span style="color: #f8f8f2">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="_3">動画検証によるモデルの評価</h3>
-<p>評価したいモデルのパス</p>
-<p>評価に使う画像のパス</p>
+<div class="admonition note warn">
+<p class="admonition-title">Note</p>
+</div>
+<p>データセットの枚数が大きいとログが表示されるまで数十分以上時間がかかることがあります。</p>
+<h3 id="_2">動画検証によるモデルの評価</h3>
+<p>評価したいモデルのパスに変更します。</p>
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>model_name = &quot;/content/model.pth&quot;
+</code></pre></div></td></tr></table></div>
+<p>評価に使う画像のパスに変更します。</p>
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>CAMERA_PATH = &#39;/content/drive/MyDrive/workspace_jetracer/dataset/{ファイル名}&#39;
+</code></pre></div></td></tr></table></div>
 <p>動画ファイルが生成され動画が映し出されます。青い丸が推論した座標になります。ダウンロード、再生速度が設定出来ます。</p>
 <p>保存した学習済みモデルをダウンロードしてそのファイルをJetson Nanoのmodelディレクトリへアップロードします。</p>
 <p>その後は、03_optimize_model.ipynbにてTensorRTにてモデルの最適化し、04_road_following.ipynbにて自動走行します。</p>
