@@ -1354,7 +1354,7 @@
 <h2 id="_3">計測方法</h2>
 <p>制御信号を計測しているのは、JetsonNanoではなく、コントロール基板のマイコンが受信機からの制御信号を計測しています。I2Cのデバイスアドレスは0x08になります。</p>
 <p><img alt="" src="../img/findraw/i2cMaster.png" /></p>
-<p>事前にRCモードでトリム調整した走行が良い状態を維持し、ステアリングトリム、スロットルトリム、リバーススイッチは動かさないようにしてください。</p>
+<p>事前にRCモードでトリム調整した走行が良い状態を維持し、設定後は、ステアリングトリム、スロットルトリム、リバーススイッチはなるべくß動かさないようにしてください。</p>
 <p><img alt="" class="bom_listsize" src="../img/findraw/propo.JPG" /></p>
 <p><strong>必ずJetRacerを作業台に設置し</strong>、プロポの後ろのボタンによりRCカーモード（赤色）に切り替えます。</p>
 <p><img alt="" class="bom_listsize" src="../img/findraw/propo3ch.JPG" /></p>
@@ -1380,13 +1380,13 @@
 <h2 id="_5">スロットル信号を計測</h2>
 <p><img alt="" src="../img/findraw/ForwardBackForwardMeasure.png" /></p>
 <p>プロポのレバーを引いて前進状態にして計測します。</p>
-<p><img alt="" class="bom_listsize" src="../img/findraw/propobackforward.JPG" /></p>
+<p><img alt="" class="bom_listsize" src="../img/findraw/propoforward.JPG" /></p>
 <p>Setボタンをクリックします。</p>
 <p>プロポのレバーを離します。中立状態にして計測します。</p>
 <p><img alt="" class="bom_listsize" src="../img/findraw/proponutral.JPG" /></p>
 <p>Setボタンをクリックします。</p>
-<p>プロポのレバーを引いて中立状態にして計測します。</p>
-<p><img alt="" class="bom_listsize" src="../img/findraw/propoforward.JPG" /></p>
+<p>プロポのレバーを前に引いて後進状態にして計測します。</p>
+<p><img alt="" class="bom_listsize" src="../img/findraw/propobackforward.JPG" /></p>
 <p>Setボタンをクリックします。</p>
 <p>計測されたデータはraw_params.jsonファイルへ記憶されます。実際、計測された数値が正しいか確認してください。</p>
 <p><img alt="" src="../img/findraw/recognizeJsonFilesData.png" /></p>
