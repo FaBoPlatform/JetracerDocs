@@ -1507,14 +1507,16 @@ Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンド
 <p>データセットの枚数が大きいとログが表示されるまで数十分以上時間がかかることがあります。</p>
 <h3 id="_2">動画検証によるモデルの評価</h3>
 <p>評価したいモデルのパスに変更します。</p>
-<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>model_name = &quot;/content/model.pth&quot;
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">model_name</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;/content/model.pth&quot;</span>
 </code></pre></div></td></tr></table></div>
 <p>評価に使う画像のパスに変更します。</p>
-<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>CAMERA_PATH = &#39;/content/drive/MyDrive/workspace_jetracer/dataset/{ファイル名}&#39;
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">CAMERA_PATH</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;/content/drive/MyDrive/workspace_jetracer/dataset/{ファイル名}&#39;</span>
 </code></pre></div></td></tr></table></div>
-<p>動画ファイルが生成され動画が映し出されます。青い丸が推論した座標になります。ダウンロード、再生速度が設定出来ます。</p>
-<p>保存した学習済みモデルをダウンロードしてそのファイルをJetson Nanoのmodelディレクトリへアップロードします。</p>
-<p>その後は、03_optimize_model.ipynbにてTensorRTにてモデルの最適化し、04_road_following.ipynbにて自動走行します。</p>
+<p>動画ファイルが生成され動画が映し出されます。青い丸が推論結果の座標になります。ダウンロード、再生速度が設定出来ます。</p>
+<p>保存した学習済みモデルをダウンロードしてそのファイルをJetson Nanoのmodelディレクトリ(/home/jetson/jetracer/notebooks/model)へアップロードします。</p>
+<p>Jetson NanoのJupyter labのアップロードボタンをクリックして、モデルpthファイルをアップロードし03_optimize_model.ipynbにてTensorRTにてモデルの最適化し、
+04_road_following.ipynbにて自動走行します。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/uploadFile.png" /></p>
 
 
 
