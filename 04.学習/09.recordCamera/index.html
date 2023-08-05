@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.2.13">
     
     
       
@@ -17,18 +17,16 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
           
           
           <meta name="theme-color" content="#4cae4f">
         
       
-      
-
     
     
     
@@ -51,11 +49,10 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -1246,14 +1243,13 @@
               </div>
             
           
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
                 
-                  
 
 
-<h1 id="_1">走行録画(工事中)</h1>
+<h1 id="_1">走行録画(アルファ版)</h1>
 <div style="text-align:right;">
 <img src="./../img/signatureboardAI86V2.png">
 <img src="./../img/signatureboardAI86V1.png">※
@@ -1261,10 +1257,11 @@
 
 <p>走行を一定間隔で写真撮影します。オプションでプロポ信号を計測し自動でアノテーションをする機能があります。</p>
 <p>11_record_camera.ipynbを開きます。</p>
+<p><img alt="" class="bom_listsize" src="../img/rec/firstPreview.png" /></p>
 <p><span style="font-size: 70%;">
 ※AI86 version1のお使いの方は、第5セル５１行目のtime.sleep(0.100)を削除するか、コメントアウトしてください。
 </span></p>
-<p>下記のコードが示す通り、FPSは３０になっています。</p>
+<p>下記のコードが示す通り、縦横224ドットFPSは３０での撮影になっています。</p>
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
@@ -1273,30 +1270,40 @@
 
 <span style="color: #f8f8f2">camera</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">CSICamera(width</span><span style="color: #f92672">=</span><span style="color: #ae81ff">224</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">height</span><span style="color: #f92672">=</span><span style="color: #ae81ff">224</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">capture_fps</span><span style="color: #f92672">=</span><span style="color: #ae81ff">30</span><span style="color: #f8f8f2">)</span>
 </code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
 <p>オートアノテーションを実行する場合は、10_find_raw.ipynbで事前にプロポ信号の計測が必要になります。</p>
-<p>切り替え信号をRCモードにしてプロポを使って任意の時間、走行します。</p>
+<p>切り替え信号をRCモードにしてプロポを使って任意の時間、走行します。オートアノテーションを実行する場合は、Auto Anotationにチェックを付けます。
+チェックを付けない場合は、アノテーションのデータは付加されず後でアノテーション付けを手作業でします。(12_remark.ipynb,AI86 version2は、14_remark.ipynb)</p>
+<p>folderは./で/home/jetson/jetracer/notebooks/</p>
+<p>taskはデフォルトではcameraになります。データセットは任意の名前をつけます。Recordボタンをクリックすると録画が開始されます。</p>
+<p><img alt="" class="bom_listsize" src="../img/rec/AutoAnotationCheak.png" /></p>
+<p>ストップボタンを押すと、録画が停止されます。</p>
+<p><img alt="" class="bom_listsize" src="../img/rec/recStop.png" /></p>
 <p>データがcameraフォルダへ蓄積されます。</p>
-<p>保存したファイルはステアリングのフォルダとスロットルのフォルダにそれぞれ保存されます。</p>
-<p>ファイル名の一部がデータになります。</p>
+<p><img alt="" class="bom_listsize" src="../img/rec/cameraFolderMaking.png" /></p>
+<p>保存したファイルはステアリングのフォルダ(xy)とスロットルのフォルダ(speed)にそれぞれ保存されます。</p>
+<p>ファイル名の一部がアノテーションデータになります。</p>
+<p><img alt="" class="bom_listsize" src="../img/rec/fileview.png" /></p>
+<p>X座標データ、Y座標データ、連番.jpg ファイル</p>
 <p>撮影が終了し、ファイルを閉じる場合はカメラも終了して、カーネルも終了してください。</p>
+<p><img alt="" class="bom_listsize" src="../img/rec/cameraStop.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<p>カメラの終了処理を実行しないで終了すると、カメラが再起動できずJetsonNanoごと再起動が必要となります。</p>
 
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
+              
+            </article>
+          </div>
         </div>
         
       </main>
       
         <footer class="md-footer">
   
-    
-    <nav class="md-footer__inner md-grid" aria-label="フッター" >
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
       
         
         <a href="../10.transmitterSignal/" class="md-footer__link md-footer__link--prev" aria-label="前: 受信機信号計測" rel="prev">
@@ -1351,11 +1358,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}}</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}}</script>
     
-    
-      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
         <script src="../../javascripts/version-select.js"></script>
       
