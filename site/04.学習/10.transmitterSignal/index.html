@@ -773,9 +773,61 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          受信機信号計測
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         受信機信号計測
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    概要
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    計測方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    ステアリング信号を計測
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    スロットル信号を計測
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1240,6 +1292,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    概要
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    計測方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    ステアリング信号を計測
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    スロットル信号を計測
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1253,26 +1341,57 @@
                   
 
 
-<h1 id="_1">受信機信号計測(工事中)</h1>
+<h1 id="_1">受信機信号計測(アルファ版)</h1>
 <div style="text-align:right;">
 <img src="./../img/signatureboardAI86V2.png">
 <img src="./../img/signatureboardAI86V1.png">
 </div>
 
-<p>RCカーは、プロポ（送信機）から受信機で信号を受信し、受信されたステアリング信号とスロットル信号でRCカー制御していますが、その受信機から出ている２つのPWM信号を計測します。
-信号の周期は約６０Hz、波長は、おおよそ１０００μ秒〜２０００μ秒になります。
-計測した信号をもとに自動でアノテーション作業を実行するようにします。（11_record_camera.ipynb）</p>
-<p>01_find_pwm.ipynbでツマミ調整した状態を維持し、ステアリングトリム、スロットルトリムは動かさないようにしてください。</p>
-<p>JetRacerを作業台に設置し、RCカーモードに切り替えます。</p>
+<h2 id="_2">概要</h2>
+<p>実際のRCカー受信機の信号をもとに自動でアノテーション作業を実行するようにします。（11_record_camera.ipynb）</p>
+<p>RCカーは、プロポ（送信機）から受信機で信号を受信し、ステアリング信号（ST)とスロットル信号（TH)でRCカー制御していますが、その受信機から出ている２つのPWM信号を計測します。
+信号の周期は約６０Hz、波長は、おおよそ１０００μ秒〜２０００μ秒になります。</p>
+<h2 id="_3">計測方法</h2>
+<p>制御信号を計測しているのは、JetsonNanoではなく、コントロール基板のマイコンが受信機からの制御信号を計測しています。I2Cのデバイスアドレスは0x08になります。</p>
+<p><img alt="" src="../img/findraw/i2cMaster.png" /></p>
+<p>事前にRCモードでトリム調整した走行が良い状態を維持し、ステアリングトリム、スロットルトリム、リバーススイッチは動かさないようにしてください。</p>
+<p><img alt="" class="bom_listsize" src="../img/findraw/propo.JPG" /></p>
+<p><strong>必ずJetRacerを作業台に設置し</strong>、プロポの後ろのボタンによりRCカーモード（赤色）に切り替えます。</p>
+<p><img alt="" class="bom_listsize" src="../img/findraw/propo3ch.JPG" /></p>
 <p>10_find_raw.ipynbを開ます。</p>
-<p>ステアリング信号を計測します。</p>
+<p><img alt="" src="../img/findraw/firstView.png" /></p>
+<h2 id="_4">ステアリング信号を計測</h2>
+<p>RCカー電源をONにして、プロポの電源もONにします。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<p>ピーピーと音が聞こえる場合は、ESC（アンプ）が制御信号を受信できてない時に音が鳴ります。</p>
+<p><img alt="" src="../img/findraw/StreeingMeasure.png" /></p>
+<p>Connectボタンをクリックします。</p>
 <p>プロポのステアリングを左にいっぱいに切り、計測します。</p>
+<p><img alt="" class="bom_listsize" src="../img/findraw/propoleftdirection.JPG" /></p>
+<p>Setボタンをクリックします。</p>
 <p>プロポのステアリングを中立にし、計測します。</p>
+<p><img alt="" class="bom_listsize" src="../img/findraw/proponutral.JPG" /></p>
+<p>Setボタンをクリックします。</p>
 <p>プロポのステアリングをを右にいっぱいに切り、計測します。</p>
+<p><img alt="" class="bom_listsize" src="../img/findraw/proporightdirection.JPG" /></p>
+<p>Setボタンをクリックします。</p>
+<h2 id="_5">スロットル信号を計測</h2>
+<p><img alt="" src="../img/findraw/ForwardBackForwardMeasure.png" /></p>
 <p>プロポのレバーを引いて前進状態にして計測します。</p>
+<p><img alt="" class="bom_listsize" src="../img/findraw/propobackforward.JPG" /></p>
+<p>Setボタンをクリックします。</p>
 <p>プロポのレバーを離します。中立状態にして計測します。</p>
+<p><img alt="" class="bom_listsize" src="../img/findraw/proponutral.JPG" /></p>
+<p>Setボタンをクリックします。</p>
 <p>プロポのレバーを引いて中立状態にして計測します。</p>
-<p>計測されたデータはraw_params.jsonファイルへ記憶されます。</p>
+<p><img alt="" class="bom_listsize" src="../img/findraw/propoforward.JPG" /></p>
+<p>Setボタンをクリックします。</p>
+<p>計測されたデータはraw_params.jsonファイルへ記憶されます。実際、計測された数値が正しいか確認してください。</p>
+<p><img alt="" src="../img/findraw/recognizeJsonFilesData.png" /></p>
+<p>/home/jetson/jetracer/notebooksにraw_params.jsonファイルが生成されます。</p>
+<p><img alt="" src="../img/findraw/makejson.png" /></p>
 
 
 
