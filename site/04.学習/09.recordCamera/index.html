@@ -1253,7 +1253,7 @@
                   
 
 
-<h1 id="_1">走行録画(工事中)</h1>
+<h1 id="_1">走行録画(アルファ版)</h1>
 <div style="text-align:right;">
 <img src="./../img/signatureboardAI86V2.png">
 <img src="./../img/signatureboardAI86V1.png">※
@@ -1261,10 +1261,11 @@
 
 <p>走行を一定間隔で写真撮影します。オプションでプロポ信号を計測し自動でアノテーションをする機能があります。</p>
 <p>11_record_camera.ipynbを開きます。</p>
+<p><img alt="" class="bom_listsize" src="../img/rec/firstPreview.png" /></p>
 <p><span style="font-size: 70%;">
 ※AI86 version1のお使いの方は、第5セル５１行目のtime.sleep(0.100)を削除するか、コメントアウトしてください。
 </span></p>
-<p>下記のコードが示す通り、FPSは３０になっています。</p>
+<p>下記のコードが示す通り、縦横224ドットFPSは３０での撮影になっています。</p>
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
@@ -1273,12 +1274,29 @@
 
 <span style="color: #f8f8f2">camera</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">CSICamera(width</span><span style="color: #f92672">=</span><span style="color: #ae81ff">224</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">height</span><span style="color: #f92672">=</span><span style="color: #ae81ff">224</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">capture_fps</span><span style="color: #f92672">=</span><span style="color: #ae81ff">30</span><span style="color: #f8f8f2">)</span>
 </code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
 <p>オートアノテーションを実行する場合は、10_find_raw.ipynbで事前にプロポ信号の計測が必要になります。</p>
-<p>切り替え信号をRCモードにしてプロポを使って任意の時間、走行します。</p>
+<p>切り替え信号をRCモードにしてプロポを使って任意の時間、走行します。オートアノテーションを実行する場合は、Auto Anotationにチェックを付けます。
+チェックを付けない場合は、アノテーションのデータは付加されず後でアノテーション付けを手作業でします。(12_remark.ipynb,AI86 version2は、14_remark.ipynb)</p>
+<p>folderは./で/home/jetson/jetracer/notebooks/</p>
+<p>taskはデフォルトではcameraになります。データセットは任意の名前をつけます。Recordボタンをクリックすると録画が開始されます。</p>
+<p><img alt="" class="bom_listsize" src="../img/rec/AutoAnotationCheak.png" /></p>
+<p>ストップボタンを押すと、録画が停止されます。</p>
+<p><img alt="" class="bom_listsize" src="../img/rec/recStop.png" /></p>
 <p>データがcameraフォルダへ蓄積されます。</p>
-<p>保存したファイルはステアリングのフォルダとスロットルのフォルダにそれぞれ保存されます。</p>
-<p>ファイル名の一部がデータになります。</p>
+<p><img alt="" class="bom_listsize" src="../img/rec/cameraFolderMaking.png" /></p>
+<p>保存したファイルはステアリングのフォルダ(xy)とスロットルのフォルダ(speed)にそれぞれ保存されます。</p>
+<p>ファイル名の一部がアノテーションデータになります。</p>
+<p><img alt="" class="bom_listsize" src="../img/rec/fileview.png" /></p>
+<p>X座標データ、Y座標データ、連番.jpg ファイル</p>
 <p>撮影が終了し、ファイルを閉じる場合はカメラも終了して、カーネルも終了してください。</p>
+<p><img alt="" class="bom_listsize" src="../img/rec/cameraStop.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<p>カメラの終了処理を実行しないで終了すると、カメラが再起動できずJetsonNanoごと再起動が必要となります。</p>
 
 
 

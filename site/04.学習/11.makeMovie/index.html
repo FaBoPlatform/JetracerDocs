@@ -1253,7 +1253,7 @@
                   
 
 
-<h1 id="_1">動画の作成(工事中)</h1>
+<h1 id="_1">動画の作成(アルファ版)</h1>
 <div style="text-align:right;">
 <img src="./../img/signatureboardAI86V2.png">
 <img src="./../img/signatureboardAI86V1.png">
@@ -1261,12 +1261,18 @@
 
 <p>録画した一枚一枚の撮影した写真を動画にします。出来上がったモデルを動画で検証できるので便利です。</p>
 <p>13_make_movie.ipynbを開きます。</p>
-<p>動画にしたい画像データを選択します。</p>
-<p>動画に名前を付けます。</p>
-<p>TensorRTのモデルを選び画像に対して推論させます。</p>
-<p>しばらくするとmp4ファイルができあがります。</p>
-<p>出来上がったファイルはvideoフォルダに記憶されます。</p>
-<p>右クリック、Downloadでパソコンにダウンロードして動画を確認します。</p>
+<p><img alt="" class="bom_listsize" src="../img/videoMaking/first_Preview.png" /></p>
+<p>TensorRTのモデルを選び画像をLoadボタンをクリックして読み込みます。</p>
+<p><img alt="" class="bom_listsize" src="../img/videoMaking/Model_Load.png" /></p>
+<p>動画にしたい画像データを選択します。taskはcameraかrunを選びます。cameraは、11_record_camera.ipynbで録画したファイル群、runは04_road_following.ipynbで録画したファイル群になります。</p>
+<p><img alt="" class="bom_listsize" src="../img/videoMaking/CameraRun.png" /></p>
+<p>動画名に名前を付けます。</p>
+<p><img alt="" class="bom_listsize" src="../img/videoMaking/movieName.png" /></p>
+<p>Make Movieボタンをクリックします。Videoディレクトリが生成されmp4ファイルができあがります。</p>
+<p><img alt="" class="bom_listsize" src="../img/videoMaking/videoMaking.png" /></p>
+<p>ファイルを右クリックしてお使いのパソコンにダウンロードし、動画を確認します。</p>
+<p><img alt="" class="bom_listsize" src="../img/videoMaking/mp4download.png" /></p>
+<p>青は推論結果、緑はアノテーションになります。</p>
 
 
 
