@@ -1390,7 +1390,7 @@
 
 <p>Jetson Nanoだけでもエッジでの学習はできますが、インターネット環境があればクラウドでも学習はできます。</p>
 <p>Google Colaboratory(Google Colab)を使用することでGPUなどのハードウェアなしで使うことができます。
-Jupyter NoteBookは初めから用意されており、学習時間を短縮、画像枚数もより多く扱うことが容易になります。
+Jupyter NoteBookは初めから用意されており、リッチな環境により学習時間を短縮、画像枚数もより多く扱うことが容易になります。
 （※ただし、Goole Colaboratoryを無料でのご使用の場合は、使用するGPUや使用時間の制限を受けます。別：時間切れになりそうなときは、学習を保存する方法（工事中））</p>
 <h3 id="zip">データセットをzipファイルにまとめる</h3>
 <p>収集したデータセットをクラウドへアップします。JetsonNanoの12_download_data.ipynbを開いて</p>
@@ -1460,7 +1460,7 @@ Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンド
 <p><img alt="" class="bom_listsize" src="../img/colabo/colabofileupload.png" /></p>
 <p>Googleドライブにあるデータセットのファイルのパスは、例　：　"/content/drive/MyDrive/workspace_jetracer/dataset/{フォルダ名}"</p>
 <p>Colaboのドライブにあるデータセットのファイルのパスは、例　：　"/content/{フォルダ名}"</p>
-<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>LOAD_DATA_PATH = &quot;/content/drive/MyDrive/workspace_jetracer/dataset/DirectryName&quot;
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">LOAD_DATA_PATH</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;/content/drive/MyDrive/workspace_jetracer/dataset/DirectryName&quot;</span>
 </code></pre></div></td></tr></table></div>
 <p>ダウンロードしたファイルを上から実行していきます。</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/FileDataSetDefine.png" /></p>
@@ -1484,7 +1484,7 @@ Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンド
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 </div>
-<p>Google Colaboratoryでの無料でお使いの場合は、GPUの使用時間制限がございます。時間制限以内に終了できるようにデータセット枚数とエポック数を調整しましょう。</p>
+<p>Google Colaboratoryでの無料でお使いの場合は、GPUの使用時間制限がございます。データセット枚数とエポック数を調整しましょう。</p>
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
@@ -1504,7 +1504,7 @@ Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンド
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 </div>
-<p>データセットの枚数が大きいとログが表示されるまで数十分以上時間がかかることがあります。</p>
+<p>データセットの枚数が大きいとログが表示されるまで数十分以上〜数時間かかることがあります。</p>
 <h3 id="_2">動画検証によるモデルの評価</h3>
 <p>評価したいモデルのパスに変更します。</p>
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">model_name</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;/content/model.pth&quot;</span>
@@ -1514,7 +1514,7 @@ Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンド
 </code></pre></div></td></tr></table></div>
 <p>動画ファイルが生成され動画が映し出されます。青い丸が推論結果の座標になります。ダウンロード、再生速度が設定出来ます。</p>
 <p>保存した学習済みモデルをダウンロードしてそのファイルをJetson Nanoのmodelディレクトリ(/home/jetson/jetracer/notebooks/model)へアップロードします。</p>
-<p>Jetson NanoのJupyter labのアップロードボタンをクリックして、モデルpthファイルをアップロードし03_optimize_model.ipynbにてTensorRTにてモデルの最適化し、
+<p>Jetson NanoのJupyter labのアップロードボタンをクリックして、モデルpthファイルを/home/jetson/notebooks/model/へアップロードし03_optimize_model.ipynbにてTensorRTにてモデルの最適化し、
 04_road_following.ipynbにて自動走行します。</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/uploadFile.png" /></p>
 
