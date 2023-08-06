@@ -1391,7 +1391,7 @@
 <p>Jetson Nanoだけでもエッジでの学習はできますが、インターネット環境があればクラウドでも学習はできます。</p>
 <p>Google Colaboratory(Google Colab)を使用することでGPUなどのハードウェアなしで使うことができます。
 Jupyter NoteBookは初めから用意されており、学習時間を短縮、画像枚数もより多く扱うことが容易になります。
-（※ただし、Goole Colaboratoryを無料でのご使用の場合は、使用するGPUや使用時間の制限を受けます。）</p>
+（※ただし、Goole Colaboratoryを無料でのご使用の場合は、使用するGPUや使用時間の制限を受けます。別：時間切れになりそうなときは、学習を保存する方法（工事中））</p>
 <h3 id="zip">データセットをzipファイルにまとめる</h3>
 <p>収集したデータセットをクラウドへアップします。JetsonNanoの12_download_data.ipynbを開いて</p>
 <p>データセット（画像データ）を一つのzipファイルにしてGoogle Colaboratoryへのファイルアップロードできるようにします。</p>
@@ -1445,11 +1445,11 @@ Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンド
 <p>①　＋コードクリック（セルを追加）</p>
 <p>②　上記コードをコピーアンドペーストして実行</p>
 <p>③　解凍先を確認</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Myドライブ（/content/drive/MyDrive/）の大量の数のファイルは、処理が途中で止まることがありますのでMyDrive以外のディレクトリに展開させます。</p>
 </div>
-<p>Myドライブ（/content/drive/MyDrive/）の大量の数のファイルは、処理が途中で止まることがありますのでMyDrive以外のディレクトリに展開させます。
-※ここでは/content/の直下に解凍しています。</p>
+<p>※ここでは/content/の直下に解凍しています。</p>
 <p>解凍が終了すると画面一番下のバーに完了時間が表示されます。</p>
 <h3 id="google-colaboratory_2">Google Colaboratoryによる学習</h3>
 <p>ファイルをクリックし、ノートブックを開くを選択します。</p>
@@ -1481,8 +1481,8 @@ Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンド
 </code></pre></div></td></tr></table></div>
 <p>出来たモデルの評価を撮影済みの画像を使って評価します。結果が芳しくなかった場合は、データセットを増やしたり、エポック数を増やして再び学習し調整します。</p>
 <p>コードのエポック数のデフォルト値は120です。</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 </div>
 <p>Google Colaboratoryでの無料でお使いの場合は、GPUの使用時間制限がございます。時間制限以内に終了できるようにデータセット枚数とエポック数を調整しましょう。</p>
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
@@ -1501,8 +1501,8 @@ Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンド
     <span style="color: #66d9ef">global</span> <span style="color: #f8f8f2">model</span>
     <span style="color: #f8f8f2">dataset</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">XYDataset(LOAD_DATA_PATH,</span> <span style="color: #f8f8f2">SAVE_CATEGORIES,</span> <span style="color: #f8f8f2">TRANSFORMS,</span> <span style="color: #f8f8f2">random_hflip</span><span style="color: #f92672">=</span><span style="color: #66d9ef">True</span><span style="color: #f8f8f2">)</span>
 </code></pre></div></td></tr></table></div>
-<div class="admonition note warn">
-<p class="admonition-title">Note</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 </div>
 <p>データセットの枚数が大きいとログが表示されるまで数十分以上時間がかかることがあります。</p>
 <h3 id="_2">動画検証によるモデルの評価</h3>
