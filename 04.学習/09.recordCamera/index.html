@@ -1262,10 +1262,15 @@
 <p>走行を一定間隔で写真撮影します。オプションでプロポ信号を計測し自動でアノテーションをする機能があります。</p>
 <p>11_record_camera.ipynbを開きます。</p>
 <p><img alt="" class="bom_listsize" src="../img/rec/firstPreview.png" /></p>
-<p><span style="font-size: 70%;">
-※AI86 version1のお使いの方は、第5セル５１行目のtime.sleep(0.100)を削除するか、コメントアウトしてください。
-</span></p>
-<p>下記のコードが示す通り、縦横224ドットFPSは３０での撮影になっています。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>AI86 version1のお使いの方は、第5セル５１行目のtime.sleep(0.100)を削除するか、先頭に#をつけて、ßコメントアウトしてください。</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>１コマつづ実際のステアリングやスロットルの動きを再現しますRCのAIモードにすると動き出すので作業台に置いて必ず実行してください。</p>
+</div>
+<p>下記のコードが示す通り、縦横224ドットFPSは３０での撮影するようになっています。状況によって調整してください。</p>
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
@@ -1283,7 +1288,7 @@
 <p>folderは./で/home/jetson/jetracer/notebooks/</p>
 <p>taskはデフォルトではcameraになります。データセットは任意の名前をつけます。Recordボタンをクリックすると録画が開始されます。</p>
 <p><img alt="" class="bom_listsize" src="../img/rec/AutoAnotationCheak.png" /></p>
-<p>ストップボタンを押すと、録画が停止されます。</p>
+<p>ストップボタンを押すと、録画が停止されます。撮影された枚数が表示されます。</p>
 <p><img alt="" class="bom_listsize" src="../img/rec/recStop.png" /></p>
 <p>データがcameraフォルダへ蓄積されます。</p>
 <p><img alt="" class="bom_listsize" src="../img/rec/cameraFolderMaking.png" /></p>
@@ -1296,6 +1301,10 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>カメラの終了処理を実行しないで終了すると、カメラが再起動できずJetsonNanoごと再起動が必要となります。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>画像ファイルが壊れている場合があります。findコマンドでファイルが壊れていないかチェックが必要な場合がございます。</p>
 </div>
 
 
