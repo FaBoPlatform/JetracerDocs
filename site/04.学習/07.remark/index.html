@@ -1347,21 +1347,21 @@
 remarkは、作成済みのモデルに推論させ録画済みのデータやアノテーションした画像データを一枚一枚検証し、アノテーションを変更、追加、スキップできます。アノテーションを追加または修正した画像で一から学習させます。画像データを結合したりできるので便利です。</p>
 <p>まず、12_remark.ipynbを開いて(AI86 version2は、14_remark.ipynb)</p>
 <p><img alt="" src="../img/reanotation/reanotation_001.png" /></p>
-<p>セルを全て実行すると、下の画面が現れます。</p>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>１コマつづ実際のステアリングやスロットルの動きを再現しますRCのAIモードにすると動き出すので作業台に置いて必ず実行してください。</p>
+<p>１コマつづ実際のステアリングやスロットルの動きを実機のRCカーで再現しますRCのAIモードにすると動き出すので作業台に置いて必ず実行してください。使用しないときはRCカーの電源をOFFにするか、RCモードでご使用ください。</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>実行には、01_find_pwm.ipynbで生成したpwm_params.jsonファイルが必要になります。</p>
 </div>
+<p>セルを全て実行すると、下の画面が現れます。</p>
 <p><img alt="" src="../img/reanotation/reanotation_002.png" /></p>
 <h3 id="_1">データセットの入出力</h3>
 <p>road_followingやrecord_cameraで録画した画像を呼び出します。</p>
 <p>record_cameraで録画しcameraフォルダを指定した場合は、loadの項目にあるtaskをcameraを選択、road_followingで録画した場合はrunを選択します。datasetは編集したいフォルダ名を選択します。</p>
 <p><img alt="" src="../img/reanotation/reanotation_002b.png" /></p>
-<p>load imageをボタンを押して画像をロードします。ロードが開始されるとBusyになり、読み込みが完了するどIdleになります。（枚数によっては時間がかかります）</p>
+<p>load imageをボタンを押して画像をロードします。ロードが開始されるとBusyになり、読み込みが完了するどIdleになります。（枚数によっては時間がかかります）時系列で画像が表示されます。</p>
 <p><img alt="" src="../img/reanotation/reanotation_004.png" /></p>
 <p>すでに作成済みモデルがある場合(modelフォルダ内にあるファイル）は、読み込みモデルのドロップダウンリストから選択し、load modelをボタンを押します。画像を推論するためevaluteボタンを押します。（通常、数秒間で実行）</p>
 <p><img alt="" src="../img/reanotation/reanotation_005.png" /></p>
@@ -1389,7 +1389,7 @@ remarkは、作成済みのモデルに推論させ録画済みのデータや�
 <p>任意のepochs（学習数）※のテキストボックスに入力してtrainボタンを押します。</p>
 <p><img alt="" src="../img/reanotation/reanotation_012.png" /></p>
 <p>しばらくすると学習が開始され、progressとlossが表示されます。学習が止まってしまう場合は、画像ファイルが壊れている可能性がございます。</p>
-<p>壊れているファイルを取り除いてください。</p>
+<p>壊れている画像ファイルを取り除いてください。</p>
 <p><a href="https://www.fabo.io/2022/07/jetbot-jetracer.html" title="詳しくはブログをご覧ください。">詳しくはFaBoブログをご覧ください</a></p>
 <p>※lossが十分に低くかつ学習時間がなるべく短くなるようにepochsを決めてください。</p>
 <p>学習が終了したら、任意の保存モデル名に変更しsave_modelボタンを押します。</p>
