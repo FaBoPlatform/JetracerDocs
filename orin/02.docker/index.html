@@ -1463,83 +1463,83 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">74</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">75</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">76</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">77</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>#!/bin/bash
-########################################
-# Rerun the script with root
-########################################
-if [ &quot;$EUID&quot; -ne 0 ]; then
-  sudo &quot;$0&quot; &quot;$@&quot;  # execute script with root
-  exit            # exit this user script
-fi
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">77</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #75715e">#!/bin/bash</span>
+<span style="color: #75715e">########################################</span>
+<span style="color: #75715e"># Rerun the script with root</span>
+<span style="color: #75715e">########################################</span>
+<span style="color: #66d9ef">if</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">[</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$EUID</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2"> </span>-ne<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">]</span><span style="color: #f8f8f2">; </span><span style="color: #66d9ef">then</span>
+<span style="color: #f8f8f2">  </span>sudo<span style="color: #f8f8f2"> </span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$0</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$@</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">  </span><span style="color: #75715e"># execute script with root</span>
+<span style="color: #f8f8f2">  exit            </span><span style="color: #75715e"># exit this user script</span>
+<span style="color: #66d9ef">fi</span>
 
-XSOCK=/tmp/.X11-unix
-XAUTH_FILE=.Xauthority
-HOST_USER=$(getent passwd 1000 | cut -d: -f1)
-HOST_USER_GROUP=$(getent group 1000 | cut -d: -f1)
-HOST_USER_HOME=/home/$HOST_USER
-HOST_USER_XAUTH=$HOST_USER_HOME/$XAUTH_FILE
-HOST_MOUNT_PATH=$HOST_USER_HOME/data
-DOCKER_USER=jetson
-DOCKER_USER_HOME=/home/$DOCKER_USER
-DOCKER_USER_XAUTH=$DOCKER_USER_HOME/$XAUTH_FILE
-DOCKER_MOUNT_PATH=$DOCKER_USER_HOME/data
+<span style="color: #f8f8f2">XSOCK</span><span style="color: #f92672">=</span>/tmp/.X11-unix
+<span style="color: #f8f8f2">XAUTH_FILE</span><span style="color: #f92672">=</span>.Xauthority
+<span style="color: #f8f8f2">HOST_USER</span><span style="color: #f92672">=</span><span style="color: #66d9ef">$(</span>getent<span style="color: #f8f8f2"> </span>passwd<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">1000</span><span style="color: #f8f8f2"> | </span>cut<span style="color: #f8f8f2"> </span>-d:<span style="color: #f8f8f2"> </span>-f1<span style="color: #66d9ef">)</span>
+<span style="color: #f8f8f2">HOST_USER_GROUP</span><span style="color: #f92672">=</span><span style="color: #66d9ef">$(</span>getent<span style="color: #f8f8f2"> </span>group<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">1000</span><span style="color: #f8f8f2"> | </span>cut<span style="color: #f8f8f2"> </span>-d:<span style="color: #f8f8f2"> </span>-f1<span style="color: #66d9ef">)</span>
+<span style="color: #f8f8f2">HOST_USER_HOME</span><span style="color: #f92672">=</span>/home/<span style="color: #f8f8f2">$HOST_USER</span>
+<span style="color: #f8f8f2">HOST_USER_XAUTH</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">$HOST_USER_HOME</span>/<span style="color: #f8f8f2">$XAUTH_FILE</span>
+<span style="color: #f8f8f2">HOST_MOUNT_PATH</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">$HOST_USER_HOME</span>/data
+<span style="color: #f8f8f2">DOCKER_USER</span><span style="color: #f92672">=</span>jetson
+<span style="color: #f8f8f2">DOCKER_USER_HOME</span><span style="color: #f92672">=</span>/home/<span style="color: #f8f8f2">$DOCKER_USER</span>
+<span style="color: #f8f8f2">DOCKER_USER_XAUTH</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">$DOCKER_USER_HOME</span>/<span style="color: #f8f8f2">$XAUTH_FILE</span>
+<span style="color: #f8f8f2">DOCKER_MOUNT_PATH</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">$DOCKER_USER_HOME</span>/data
 
-########################################
-# make .Xauthority
-########################################
-DISPLAY=`echo $DISPLAY`
-if [ -z $DISPLAY ]; then
-    # localhost display
-    # Ubuntu 18.04: :0
-    # Ubuntu 20.04: :0
-    # Ubuntu 22.04: :0
-    DISPLAY=:0
-fi
+<span style="color: #75715e">########################################</span>
+<span style="color: #75715e"># make .Xauthority</span>
+<span style="color: #75715e">########################################</span>
+<span style="color: #f8f8f2">DISPLAY</span><span style="color: #f92672">=</span><span style="color: #e6db74">`</span><span style="color: #f8f8f2">echo $DISPLAY</span><span style="color: #e6db74">`</span>
+<span style="color: #66d9ef">if</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">[</span><span style="color: #f8f8f2"> </span>-z<span style="color: #f8f8f2"> $DISPLAY </span><span style="color: #f92672">]</span><span style="color: #f8f8f2">; </span><span style="color: #66d9ef">then</span>
+<span style="color: #f8f8f2">    </span><span style="color: #75715e"># localhost display</span>
+<span style="color: #f8f8f2">    </span><span style="color: #75715e"># Ubuntu 18.04: :0</span>
+<span style="color: #f8f8f2">    </span><span style="color: #75715e"># Ubuntu 20.04: :0</span>
+<span style="color: #f8f8f2">    </span><span style="color: #75715e"># Ubuntu 22.04: :0</span>
+<span style="color: #f8f8f2">    DISPLAY</span><span style="color: #f92672">=</span>:0
+<span style="color: #66d9ef">fi</span>
 
-if [ ! -f $HOST_USER_HOME/$XAUTH_FILE ]; then
-    touch $HOST_USER_HOME/$XAUTH_FILE
-    chown $HOST_USER:$HOST_USER_GROUP $HOST_USER_HOME/$XAUTH_FILE
-    chmod 600 $HOST_USER_HOME/$XAUTH_FILE
+<span style="color: #66d9ef">if</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">[</span><span style="color: #f8f8f2"> </span>!<span style="color: #f8f8f2"> </span>-f<span style="color: #f8f8f2"> $HOST_USER_HOME</span>/<span style="color: #f8f8f2">$XAUTH_FILE </span><span style="color: #f92672">]</span><span style="color: #f8f8f2">; </span><span style="color: #66d9ef">then</span>
+<span style="color: #f8f8f2">    </span>touch<span style="color: #f8f8f2"> $HOST_USER_HOME</span>/<span style="color: #f8f8f2">$XAUTH_FILE</span>
+<span style="color: #f8f8f2">    </span>chown<span style="color: #f8f8f2"> $HOST_USER</span>:<span style="color: #f8f8f2">$HOST_USER_GROUP $HOST_USER_HOME</span>/<span style="color: #f8f8f2">$XAUTH_FILE</span>
+<span style="color: #f8f8f2">    </span>chmod<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">600</span><span style="color: #f8f8f2"> $HOST_USER_HOME</span>/<span style="color: #f8f8f2">$XAUTH_FILE</span>
 
-    su $HOST_USER -c &quot;xauth generate $DISPLAY . trusted&quot;
-fi
+<span style="color: #f8f8f2">    </span>su<span style="color: #f8f8f2"> $HOST_USER </span>-c<span style="color: #f8f8f2"> </span><span style="color: #e6db74">&quot;xauth generate </span><span style="color: #f8f8f2">$DISPLAY</span><span style="color: #e6db74"> . trusted&quot;</span>
+<span style="color: #66d9ef">fi</span>
 
-########################################
-# make ~/data/ localhost &lt;-&gt; docker shared directory
-########################################
-if [ ! -d &quot;$HOST_MOUNT_PATH&quot; ]; then
-    mkdir $HOST_MOUNT_PATH
-    chown $HOST_USER:$HOST_USER_GROUP $HOST_MOUNT_PATH
-fi
+<span style="color: #75715e">########################################</span>
+<span style="color: #75715e"># make ~/data/ localhost &lt;-&gt; docker shared directory</span>
+<span style="color: #75715e">########################################</span>
+<span style="color: #66d9ef">if</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">[</span><span style="color: #f8f8f2"> </span>!<span style="color: #f8f8f2"> </span>-d<span style="color: #f8f8f2"> </span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$HOST_MOUNT_PATH</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2"> </span><span style="color: #f92672">]</span><span style="color: #f8f8f2">; </span><span style="color: #66d9ef">then</span>
+<span style="color: #f8f8f2">    </span>mkdir<span style="color: #f8f8f2"> $HOST_MOUNT_PATH</span>
+<span style="color: #f8f8f2">    </span>chown<span style="color: #f8f8f2"> $HOST_USER</span>:<span style="color: #f8f8f2">$HOST_USER_GROUP $HOST_MOUNT_PATH</span>
+<span style="color: #66d9ef">fi</span>
 
-########################################
-# docker image
-########################################
-IMG=faborobot/jetson-jp511-aicar
-PORT=8888
+<span style="color: #75715e">########################################</span>
+<span style="color: #75715e"># docker image</span>
+<span style="color: #75715e">########################################</span>
+<span style="color: #f8f8f2">IMG</span><span style="color: #f92672">=</span>faborobot/jetson-jp511-aicar
+<span style="color: #f8f8f2">PORT</span><span style="color: #f92672">=</span><span style="color: #ae81ff">8888</span>
 
-docker run \
-    --runtime=nvidia \
-    --restart=always \
-    -itd \
-    --mount type=bind,source=$XSOCK,target=$XSOCK \
-    --mount type=bind,source=$HOST_USER_XAUTH,target=$DOCKER_USER_XAUTH \
-    --mount type=bind,source=$HOST_MOUNT_PATH,target=$DOCKER_MOUNT_PATH \
-    -e DISPLAY=$DISPLAY \
-    -e OPENBLAS_CORETYPE=ARMV8 \
-    -e QT_GRAPHICSSYSTEM=native \
-    -e QT_X11_NO_MITSHM=1 \
-    -e SHELL=/bin/bash \
-    -v /run/user/1000/:/run/user/1000/:ro \
-    -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket:ro \
-    -v /etc/localtime:/etc/localtime:ro \
-    -v /dev/:/dev/ \
-    -v /tmp/:/tmp/ \
-    -u $DOCKER_USER \
-    --privileged \
-    --network=host \
-$IMG \
-bash -c &quot;source /virtualenv/python3/bin/activate &amp;&amp; jupyter lab --ip=0.0.0.0 --port=$PORT --no-browser --ServerApp.root_dir=/ --LabApp.default_url=/lab?file-browser-path=$HOST_USER_HOME&quot;
+docker<span style="color: #f8f8f2"> </span>run<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>--runtime<span style="color: #f92672">=</span>nvidia<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>--restart<span style="color: #f92672">=</span>always<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>-itd<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>--mount<span style="color: #f8f8f2"> type</span><span style="color: #f92672">=</span>bind,source<span style="color: #f92672">=</span><span style="color: #f8f8f2">$XSOCK</span>,target<span style="color: #f92672">=</span><span style="color: #f8f8f2">$XSOCK </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>--mount<span style="color: #f8f8f2"> type</span><span style="color: #f92672">=</span>bind,source<span style="color: #f92672">=</span><span style="color: #f8f8f2">$HOST_USER_XAUTH</span>,target<span style="color: #f92672">=</span><span style="color: #f8f8f2">$DOCKER_USER_XAUTH </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>--mount<span style="color: #f8f8f2"> type</span><span style="color: #f92672">=</span>bind,source<span style="color: #f92672">=</span><span style="color: #f8f8f2">$HOST_MOUNT_PATH</span>,target<span style="color: #f92672">=</span><span style="color: #f8f8f2">$DOCKER_MOUNT_PATH </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>-e<span style="color: #f8f8f2"> DISPLAY</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">$DISPLAY </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>-e<span style="color: #f8f8f2"> OPENBLAS_CORETYPE</span><span style="color: #f92672">=</span>ARMV8<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>-e<span style="color: #f8f8f2"> QT_GRAPHICSSYSTEM</span><span style="color: #f92672">=</span>native<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>-e<span style="color: #f8f8f2"> QT_X11_NO_MITSHM</span><span style="color: #f92672">=</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>-e<span style="color: #f8f8f2"> SHELL</span><span style="color: #f92672">=</span>/bin/bash<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>-v<span style="color: #f8f8f2"> </span>/run/user/1000/:/run/user/1000/:ro<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>-v<span style="color: #f8f8f2"> </span>/var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket:ro<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>-v<span style="color: #f8f8f2"> </span>/etc/localtime:/etc/localtime:ro<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>-v<span style="color: #f8f8f2"> </span>/dev/:/dev/<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>-v<span style="color: #f8f8f2"> </span>/tmp/:/tmp/<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>-u<span style="color: #f8f8f2"> $DOCKER_USER </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>--privileged<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">    </span>--network<span style="color: #f92672">=</span>host<span style="color: #f8f8f2"> </span><span style="color: #ae81ff">\</span>
+<span style="color: #f8f8f2">$IMG </span><span style="color: #ae81ff">\</span>
+bash<span style="color: #f8f8f2"> </span>-c<span style="color: #f8f8f2"> </span><span style="color: #e6db74">&quot;source /virtualenv/python3/bin/activate &amp;&amp; jupyter lab --ip=0.0.0.0 --port=</span><span style="color: #f8f8f2">$PORT</span><span style="color: #e6db74"> --no-browser --ServerApp.root_dir=/ --LabApp.default_url=/lab?file-browser-path=</span><span style="color: #f8f8f2">$HOST_USER_HOME</span><span style="color: #e6db74">&quot;</span>
 </code></pre></div></td></tr></table></div></p>
 <p>run.shファイルを作成してください。</p>
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
