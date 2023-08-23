@@ -72,6 +72,9 @@ nav:
       - Wi-Fiの設定: "sd_new/03.wifi.md"
       - パッケージの作成: "sd_new/04.jetcard.md"
       - NXへの対応: "sd_new/05.nx.md"
+    - Orinシリーズへの対応:
+      - SDカードの焼込: "orin/01.sd.md"
+      - Dockerの構築: "orin/02.docker.md"
     - イメージの作成:
       - 事前処理: "sd_write/01.save.md"
       - SDカードからイメージ抜出し: "sd_write/02.dd.md"
