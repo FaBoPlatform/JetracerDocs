@@ -87,7 +87,10 @@ nav:
       - ネットワーク構成: "network/00.layout.md"
       - 割振られたIPの確認: "network/02.ifconfig.md"
       - 8265経由で接続: "network/03.8265.md"
-    - 各種Tips: "tips/01.tips.md"
+    - 各種Tips:
+      - Tips: "tips/01.tips.md"
+      - 接続トラブル: "tips/02.wificonectionhadling.md"
+
 extra_css:
   - css/version-select.css
   - css/extra.css
