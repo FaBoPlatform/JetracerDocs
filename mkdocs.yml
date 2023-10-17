@@ -30,7 +30,7 @@ extra_css:
   - "css/custom.css"
 nav:
   - Home: "index.md"
-  - 1.はじめに: "00.はじめに/start.md"
+  - 1.はじめに: "00.はじめに/start.md"
   - 2.組立:
     - 型番の確認: "01.組み立て/01.check.md"
     - JR1_S_C_E:
