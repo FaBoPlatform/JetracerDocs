@@ -13,7 +13,7 @@
     
     
       
-        <title>必要なパッケージ - FaBo JetRacer Docs</title>
+        <title>CPU FAN制御方法 - FaBo JetRacer Docs</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#cpu-fan" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              必要なパッケージ
+              CPU FAN制御方法
             
           </span>
         </div>
@@ -824,12 +824,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -1253,12 +1255,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_7" type="checkbox" id="__nav_6_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_7" type="checkbox" id="__nav_6_7" checked>
       
       
       
@@ -1281,7 +1285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/01.tips/" class="md-nav__link">
+      <a href="../01.tips/" class="md-nav__link">
         Tips
       </a>
     </li>
@@ -1295,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tips/02.wificonectionhadling/" class="md-nav__link">
+      <a href="../02.wificonectionhadling/" class="md-nav__link">
         接続トラブル
       </a>
     </li>
@@ -1307,11 +1311,72 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../tips/03.fancontrol/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CPU FAN制御方法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         CPU FAN制御方法
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    回転数を手動で設定し冷却したい時
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    回転数を自動で設定し冷却したい時
+  </a>
+  
+    <nav class="md-nav" aria-label="回転数を自動で設定し冷却したい時">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    設定を変更
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1357,23 +1422,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jetcam" class="md-nav__link">
-    JetCamのインストール
+  <a href="#_1" class="md-nav__link">
+    回転数を手動で設定し冷却したい時
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#touch2trt" class="md-nav__link">
-    touch2trt
+  <a href="#_2" class="md-nav__link">
+    回転数を自動で設定し冷却したい時
+  </a>
+  
+    <nav class="md-nav" aria-label="回転数を自動で設定し冷却したい時">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    設定を変更
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#jetracer" class="md-nav__link">
-    JetRacer
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1392,34 +1463,53 @@
                   
 
 
-<h1 id="_1">必要なパッケージ</h1>
-<h2 id="jetcam">JetCamのインストール</h2>
-<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>cd $HOME
-git clone https://github.com/NVIDIA-AI-IOT/jetcam
-cd jetcam
-sudo python3 setup.py install
+<h1 id="cpu-fan">CPU FANを制御</h1>
+<p>PWM回転制御のファンの付属の場合は、回転速度を制御できます。回転数を固定して冷却をし続けるか、自動で冷却する方法があります。Jetson　Nanoの内部には、温度センサーが内臓されています。その温度から回転数を制御します。Jetson Nanoをファンで冷却することで安定化します。</p>
+<p>Dockerで起動した場合は、localhostにアクセスする。</p>
+<p>※Dockerでないバージョンは入力不要です。</p>
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">ssh</span> <span style="color: #f8f8f2">localhost</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="touch2trt">touch2trt</h2>
-<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>cd $HOME
-git clone https://github.com/NVIDIA-AI-IOT/torch2trt
-cd torch2trt
-sudo python3 setup.py install
+<h2 id="_1">回転数を手動で設定し冷却したい時</h2>
+<p>0~255の段階でファンを回転させます。</p>
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">sudo</span> <span style="color: #f8f8f2">sh</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">c</span> <span style="color: #e6db74">&#39;echo 255 &gt; /sys/devices/pwm-fan/target_pwm&#39;</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="jetracer">JetRacer</h2>
-<p>FaBo改良版のJetRacerのインストール</p>
+<p>現在のファンの回転速度を取得</p>
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">cat</span> <span style="color: #f92672">/</span><span style="color: #f8f8f2">sys</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">devices</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">pwm</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">fan</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">target_pwm</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_2">回転数を自動で設定し冷却したい時</h2>
+<p><a href="https://github.com/Pyrestone/jetson-fan-ctl">jetson-fan-ctl</a>をインストールします。</p>
+<p>ソースをダウンロード
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">git</span> <span style="color: #f8f8f2">clone</span> <span style="color: #f8f8f2">https:</span><span style="color: #f92672">//</span><span style="color: #f8f8f2">github</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">com</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">Pyrestone</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">jetson</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">fan</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">ctl</span>
+</code></pre></div></td></tr></table></div></p>
+<p>インストールします。</p>
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">cd</span> <span style="color: #f8f8f2">jetson</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">fan</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">ctl</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f92672">./</span><span style="color: #f8f8f2">install</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">sh</span>
+</code></pre></div></td></tr></table></div>
+<p>インターバルは２秒ごとに温度を取得し、回転を制御します。</p>
+<h3 id="_3">設定を変更</h3>
+<p>周辺環境やご使用状況、目的などにより、自分で設定したい場合は以下のように編集、実行します。。</p>
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">sudo</span> <span style="color: #f8f8f2">vi</span> <span style="color: #f92672">/</span><span style="color: #f8f8f2">etc</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">automagic</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">fan</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">json</span>
+</code></pre></div></td></tr></table></div>
+<p>初期設定は以下のようになります。２秒間ごとのインターバルで、温度２０度でFANが停止、温度５０度以上でファンの回転数が最大になるようになっています。
+MAX_PERFを１になっており最大のクロックで実行します。</p>
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>cd $HOME
-git clone https://github.com/FaBoPlatform/jetracer
-cd jetracer
-sudo python3 setup.py install
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">{</span>
+<span style="color: #e6db74">&quot;FAN_OFF_TEMP&quot;</span><span style="color: #f8f8f2">:</span><span style="color: #ae81ff">20</span><span style="color: #f8f8f2">,</span>
+<span style="color: #e6db74">&quot;FAN_MAX_TEMP&quot;</span><span style="color: #f8f8f2">:</span><span style="color: #ae81ff">50</span><span style="color: #f8f8f2">,</span>
+<span style="color: #e6db74">&quot;UPDATE_INTERVAL&quot;</span><span style="color: #f8f8f2">:</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span>
+<span style="color: #e6db74">&quot;MAX_PERF&quot;</span><span style="color: #f8f8f2">:</span><span style="color: #ae81ff">1</span>
+<span style="color: #f8f8f2">}</span>
+</code></pre></div></td></tr></table></div>
+<p>編集した場合、有効化するには、リスタートします。</p>
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">sudo</span> <span style="color: #f8f8f2">service</span> <span style="color: #f8f8f2">automagic</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">fan</span> <span style="color: #f8f8f2">restart</span>
+</code></pre></div></td></tr></table></div>
+<p>再起動します。</p>
+<div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">sudo</span> <span style="color: #f8f8f2">reboot</span>
 </code></pre></div></td></tr></table></div>
 
 
@@ -1436,6 +1526,27 @@ sudo python3 setup.py install
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="フッター" >
+      
+        
+        <a href="../02.wificonectionhadling/" class="md-footer__link md-footer__link--prev" aria-label="前: 接続トラブル" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              接続トラブル
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
