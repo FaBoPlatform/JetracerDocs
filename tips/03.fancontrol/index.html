@@ -1464,7 +1464,8 @@
 
 
 <h1 id="cpu-fan">CPU FANを制御</h1>
-<p>PWM回転制御のファンの付属の場合は、回転速度を制御できます。回転数を固定して冷却をし続けるか、自動で冷却する方法があります。Jetson　Nanoの内部には、温度センサーが内臓されています。その温度から回転数を制御します。Jetson Nanoをファンで冷却することで安定化します。</p>
+<p>PWM回転制御のファンの付属の場合(FAN-402-PWM-5V)
+は、回転速度を制御できます。回転数を固定して冷却をし続けるか、自動で冷却する方法があります。Jetson　Nanoの内部には、温度センサーが内臓されています。その温度から回転数を制御します。Jetson Nanoをファンで冷却することで安定化します。</p>
 <p>Dockerで起動した場合は、localhostにアクセスする。</p>
 <p>※Dockerでないバージョンは入力不要です。</p>
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">ssh</span> <span style="color: #f8f8f2">localhost</span>
@@ -1477,6 +1478,7 @@
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">cat</span> <span style="color: #f92672">/</span><span style="color: #f8f8f2">sys</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">devices</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">pwm</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">fan</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">target_pwm</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="_2">回転数を自動で設定し冷却したい時</h2>
+<p>Jetson Nanoがインターネットに繋がっている状態で</p>
 <p><a href="https://github.com/Pyrestone/jetson-fan-ctl">jetson-fan-ctl</a>をインストールします。</p>
 <p>ソースをダウンロード
 <div class="highlight" style="background: #272822"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #f8f8f2">git</span> <span style="color: #f8f8f2">clone</span> <span style="color: #f8f8f2">https:</span><span style="color: #f92672">//</span><span style="color: #f8f8f2">github</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">com</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">Pyrestone</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">jetson</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">fan</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">ctl</span>
