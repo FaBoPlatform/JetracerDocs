@@ -90,6 +90,7 @@ nav:
     - 各種Tips:
       - Tips: "tips/01.tips.md"
       - 接続トラブル: "tips/02.wificonectionhadling.md"
+      - CPU FAN制御方法: "tips/03.fancontrol.md"
 
 extra_css:
   - css/version-select.css
