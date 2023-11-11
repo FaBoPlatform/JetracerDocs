@@ -15,19 +15,13 @@ markdown_extensions:
   - fontawesome_markdown
   - pymdownx.highlight:
       use_pygments: true
-      noclasses: true
+      noclasses: false
       pygments_style: monokai
       linenums: true
   - pymdownx.superfences
   - admonition
   - pymdownx.keys
   - attr_list
-extra_css:
-  - "https://fonts.googleapis.com/earlyaccess/notosansjp.css"
-  - "https://fonts.googleapis.com/css?family=Open+Sans:600,800"
-  - "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
-  - 'stylesheets/extra.css'
-  - "css/custom.css"
 nav:
   - Home: "index.md"
   - 1.はじめに: "00.はじめに/start.md"
@@ -64,7 +58,10 @@ nav:
     - 走行録画: "04.学習/09.recordCamera.md"
     - 検証動画作成: "04.学習/11.makeMovie.md"
     - アノテーション: "04.学習/07.remark.md"
-  - 5.その他:
+  - 5.Orin Nano:
+    - SDカードの焼込: "orin/01.sd.md"
+    - Dockerの構築: "orin/02.docker.md"
+  - 6.その他:
     - SDカードの焼込: "sd_fabo/01.image.md"
     - SDカードの新規作成:
       - SDカードの焼込: "sd_new/01.jetpack46.md"
@@ -72,9 +69,6 @@ nav:
       - Wi-Fiの設定: "sd_new/03.wifi.md"
       - パッケージの作成: "sd_new/04.jetcard.md"
       - NXへの対応: "sd_new/05.nx.md"
-    - Orinシリーズへの対応:
-      - SDカードの焼込: "orin/01.sd.md"
-      - Dockerの構築: "orin/02.docker.md"
     - イメージの作成:
       - 事前処理: "sd_write/01.save.md"
       - SDカードからイメージ抜出し: "sd_write/02.dd.md"
@@ -91,13 +85,13 @@ nav:
       - Tips: "tips/01.tips.md"
       - 接続トラブル: "tips/02.wificonectionhadling.md"
       - CPU FAN制御方法: "tips/03.fancontrol.md"
-
 extra_css:
-  - css/version-select.css
-  - css/extra.css
-  - css/custom.css
-  - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
-  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css
+#  - "https://fonts.googleapis.com/earlyaccess/notosansjp.css"
+#  - "https://fonts.googleapis.com/css?family=Open+Sans:600,800"
+  - "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+#  - "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css"
+  - "css/version-select.css"
+  - "css/custom.css"
 extra_javascript:
   - javascripts/version-select.js
   - javascripts/extra.js

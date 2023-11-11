@@ -16,3 +16,22 @@ window.onload = function() {
         }
     }
 }
+document.addEventListener("DOMContentLoaded", function() {
+    var codeBlocks = document.querySelectorAll('pre > code');
+    codeBlocks.forEach(function(codeBlock) {
+        var button = document.createElement('button');
+        button.className = 'copy-button';
+        button.title = 'コードをコピー';
+        codeBlock.parentNode.appendChild(button);
+
+        button.addEventListener('click', function() {
+            var range = document.createRange();
+            range.selectNodeContents(codeBlock);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            alert('コードをコピーしました');
+        });
+    });
+});
