@@ -85,6 +85,12 @@ nav:
       - Tips: "tips/01.tips.md"
       - 接続トラブル: "tips/02.wificonectionhadling.md"
       - CPU FAN制御方法: "tips/03.fancontrol.md"
+  - 7.単体パーツ情報:
+    - ControllerBoard:
+      - 612 Jetracer Rev3.0.0,1,2 : "parts/01.jr612030002.md"
+      - XIAO Firmwareの更新 : "parts/Firmware.md"
+
+
 extra_css:
 #  - "https://fonts.googleapis.com/earlyaccess/notosansjp.css"
 #  - "https://fonts.googleapis.com/css?family=Open+Sans:600,800"
