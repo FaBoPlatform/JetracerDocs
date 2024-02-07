@@ -33,7 +33,7 @@ ESP32 Arduinoの最新バージョンをインストールします。
 
 [https://github.com/FaBoPlatform/FaBo/tree/master/0612_jetracer/arduino/firmware/Firmware%20_ESP32S3](https://github.com/FaBoPlatform/FaBo/tree/master/0612_jetracer/arduino/firmware/Firmware%20_ESP32S3)
 
-書き込みが終了しましたら、Jetsonの電源が入っていないかを確認し、XIAOを再びコントロール基板を装着します。
+書き込みが終了しましたら、Jetsonの電源が入っていないかを確認し、XIAOを再びコントロール基板に装着します。
 
 ![](./img/restoreXIAO.jpg)
 
