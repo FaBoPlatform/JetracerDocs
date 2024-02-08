@@ -1647,9 +1647,26 @@
 <img src="./../img/signatureboardAI86V2.png">※
 </div>
 
-<p>※AI86Version2は近日SDカードイメージアップデート予定です。お待ちください。</p>
 <h2 id="_2">フロー</h2>
 <p><img alt="" src="../img/jupyter/jupyterfiles.png" /></p>
+<table>
+<thead>
+<tr>
+<th align="left">コード番号</th>
+<th align="left">Jetsonボード</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">01,10~17</td>
+<td align="left">Jetson Nano Developer Kit B-01,A-02,Jetson Orin Nano</td>
+</tr>
+<tr>
+<td align="left">20~25</td>
+<td align="left">Jetson Orin Nano</td>
+</tr>
+</tbody>
+</table>
 <table>
 <thead>
 <tr>
@@ -1665,44 +1682,109 @@
 <td align="left">RCカー用にPWMの値を設定</td>
 </tr>
 <tr>
-<td align="left">2</td>
+<td align="left">-</td>
 <td align="left">02_interactive_regression.ipynb</td>
-<td align="left">アノテーションと学習</td>
+<td align="left">アノテーションと学習 Version1</td>
 </tr>
 <tr>
-<td align="left">3</td>
+<td align="left">-</td>
 <td align="left">03_optimize_model.ipynb</td>
-<td align="left">軽量化モデル(TensorRT)への変換</td>
+<td align="left">軽量化モデル(TensorRT)への変換 Version1</td>
 </tr>
 <tr>
-<td align="left">4</td>
+<td align="left">-</td>
 <td align="left">04_road_following.ipynb</td>
-<td align="left">自動走行</td>
+<td align="left">自動走行 Version1</td>
 </tr>
 <tr>
-<td align="left">5</td>
-<td align="left">10_find_raw.ipynb</td>
-<td align="left">受信機信号の計測</td>
+<td align="left">-</td>
+<td align="left">05_road_following_live.ipynb</td>
+<td align="left">自動走行（ライブ） Version1</td>
 </tr>
 <tr>
 <td align="left">6</td>
-<td align="left">11_record_camera.ipynb</td>
-<td align="left">走行録画、オートアノテーション</td>
+<td align="left">10_find_raw.ipynb</td>
+<td align="left">PWMの値の吸い上げ　受信機信号計測</td>
 </tr>
 <tr>
 <td align="left">7</td>
-<td align="left">12_download_data.ipynb</td>
-<td align="left">複数の画像データをzipファイルにまとめる</td>
+<td align="left">11_record_camera.ipynb</td>
+<td align="left">走行の録画(データセット用のデータの作成)</td>
 </tr>
 <tr>
 <td align="left">8</td>
-<td align="left">13_make_movie.ipynb</td>
-<td align="left">動画作成して検証する</td>
+<td align="left">12_file_manager.ipynb</td>
+<td align="left">ファイルマネージャー 画像カットなど</td>
 </tr>
 <tr>
 <td align="left">9</td>
-<td align="left">14_remark.ipynb</td>
-<td align="left">再アノテーション</td>
+<td align="left">13_annotation.ipynb</td>
+<td align="left">アノテーション　教師データ入力</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">14_download.ipynb</td>
+<td align="left">ダウンロード　GoogleColaboratory使用のための複数のファイルをZip化、圧縮および解凍</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">15_train.ipynb</td>
+<td align="left">学習　GoogleColaboratoryへのリンクおよびJetsonでの学習し動画で検証</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left">16_convert.ipynb</td>
+<td align="left">TensorRTへの変換と動画で検証</td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">17_run.ipynb</td>
+<td align="left">自動走行、走行録画</td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left">20_detect.ipynb</td>
+<td align="left">環境情報判断　コース場所を検知</td>
+</tr>
+<tr>
+<td align="left">15</td>
+<td align="left">21_convert_detect.ipynb</td>
+<td align="left">環境情報判断　TensorRTへの変換</td>
+</tr>
+<tr>
+<td align="left">16</td>
+<td align="left">22_make_movie.ipynb</td>
+<td align="left">環境情報判断　評価用動画の作成</td>
+</tr>
+<tr>
+<td align="left">17</td>
+<td align="left">23_run_detect.ipynb</td>
+<td align="left">自動走行と環境情報判断　走行検証</td>
+</tr>
+<tr>
+<td align="left">18</td>
+<td align="left">24_make_dual_movie.ipynb</td>
+<td align="left">自動走行と環境情報判断　動画検証</td>
+</tr>
+<tr>
+<td align="left">19</td>
+<td align="left">25_run_dual_detect.ipynb</td>
+<td align="left">自動走行と環境情報判断　条件により走行モデル切替</td>
+</tr>
+<tr>
+<td align="left">20</td>
+<td align="left">30_run_jetformer.ipynb</td>
+<td align="left">-------</td>
+</tr>
+<tr>
+<td align="left">-</td>
+<td align="left">98_setting.ipynb</td>
+<td align="left">JetRacerに必要なライブラリのインストール（実行済み）</td>
+</tr>
+<tr>
+<td align="left">-</td>
+<td align="left">99_tool.ipynb</td>
+<td align="left">Wi-Fi設定、I2C、カメラ認識の確認、電力モード確認、コードのリカバリー</td>
 </tr>
 </tbody>
 </table>
