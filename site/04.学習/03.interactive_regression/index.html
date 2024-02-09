@@ -763,6 +763,34 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../09.recordCamera/" class="md-nav__link">
+        走行録画
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03.filecut/" class="md-nav__link">
+        画像カット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -864,20 +892,6 @@
     <li class="md-nav__item">
       <a href="../10.transmitterSignal/" class="md-nav__link">
         受信機信号計測
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../09.recordCamera/" class="md-nav__link">
-        走行録画
       </a>
     </li>
   
@@ -1590,6 +1604,44 @@
 <p class="admonition-title">Tips</p>
 <p>推論している状態で、走行ラインを確認し上手くできない場所を追加学習行い狙ったラインに走行するように調整すると、さらによく走ります。</p>
 </div>
+<p><br>
+<br></p>
+<div style="text-align:right;">
+<img src="./../img/signatureboardAI86V2.png">
+</div>
+
+<p>11_record_camera.ipynbで走行録画して、その走行画像を12_file_manager.ipynbでアノテーションしやすいように不要画像カットします。</p>
+<p>次に13_anotation.ipynbを実行します。</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>１コマつづ実際のステアリングやスロットルの動きを実機のRCカーで再現しますRCのAIモードにすると動き出すので作業台に置いて必ず実行してください。使用しないときはRCカーの電源をOFFにするか、RCモードでご使用ください。</p>
+</div>
+<p><img alt="" src="../img/anotation/ano0.png" /></p>
+<p>セルを順番に上から実行して、shift + Enterキーまたは、▶️ボタンを押していきます。しばらくすると下のような画面が現れます。</p>
+<p>作成した走行モデルがない場合は、[new]でload modelボタンを押します。</p>
+<p><img alt="" src="../img/anotation/ano1.png" /></p>
+<p>すでに作成した走行モデルがある場合は読み込みモデルを選択してload modelボタンを押して読み込みます。</p>
+<p><img alt="" src="../img/anotation/ano2.png" /></p>
+<p>読み込みのデータセットを選択して読込みボタンを押します。走行録画はcameraフォルダまたはrunフォルダにあります。</p>
+<p><img alt="" src="../img/anotation/ano3.png" /></p>
+<p>新規に保存するデータセットフォルダを作る場合は、Nameにデータセット名をつけてcreate datasetボタンを押して新規フォルダを選択します。（既存にあるデータセットを選択する場合は、taskでフォルダを選んでdatasetを選択します。）</p>
+<p><img alt="" src="../img/anotation/ano4.png" /></p>
+<p>画像１枚１枚に対して教師データを追加していきます。画像の◯はステアリング値、画像の縦棒はスロットル値を表します。</p>
+<p><img alt="" src="../img/anotation/ano12.png" /></p>
+<p>エポック数を入力します。保存モデル名を入力してtrainボタンを押します。しばらくするとlossが表示されます。ephocsがゼロになると学習終了です。終了しましたら、モデル名をつけてsave_modelをボタンを押します。できたモデルはmodelフォルダにあります。</p>
+<p><img alt="" src="../img/anotation/ano6.png" /></p>
+<p>動画を作成します。検証に使う画像は学習に使われていない画像を使います。</p>
+<p><img alt="" src="../img/anotation/ano7.png" /></p>
+<p>生成された動画ファイルはvideoフォルダに保存されます。</p>
+<p><img alt="" src="../img/anotation/ano8.png" /></p>
+<p>動画再生するには、ファイルをマウス右クリックでダウンロードしPCにて再生します。動画結果が悪いと判断した場合は、再びアノテーションをしてデータを追加し、学習をしてモデルを作ります。</p>
+<p><img alt="" src="../img/anotation/ano9.png" /></p>
+<p>終了するには、タブを閉じます。</p>
+<p><img alt="" src="../img/anotation/ano11.png" /></p>
+<p>シャットダウンします。</p>
+<p><img alt="" src="../img/anotation/ano10.png" /></p>
+<p>生成されたモデルは、RC走行では重く遅延が生じます。そこでTensorRTで最適化が必要になります。</p>
+<p>16_convert.ipynbにてモデルの最適化します。</p>
 
 
 
@@ -1610,7 +1662,7 @@
     <nav class="md-footer__inner md-grid" aria-label="フッター" >
       
         
-        <a href="../02.pwm/" class="md-footer__link md-footer__link--prev" aria-label="前: PWMの設定" rel="prev">
+        <a href="../03.filecut/" class="md-footer__link md-footer__link--prev" aria-label="前: 画像カット" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1619,7 +1671,7 @@
               <span class="md-footer__direction">
                 前
               </span>
-              PWMの設定
+              画像カット
             </div>
           </div>
         </a>

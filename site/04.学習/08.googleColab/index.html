@@ -765,6 +765,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../09.recordCamera/" class="md-nav__link">
+        走行録画
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03.filecut/" class="md-nav__link">
+        画像カット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../03.interactive_regression/" class="md-nav__link">
         アノテーションと学習
       </a>
@@ -906,20 +934,6 @@
     <li class="md-nav__item">
       <a href="../10.transmitterSignal/" class="md-nav__link">
         受信機信号計測
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../09.recordCamera/" class="md-nav__link">
-        走行録画
       </a>
     </li>
   
@@ -1658,17 +1672,16 @@
                   
 
 
-<h1 id="google-colaboratory">Google Colaboratoryを使ったクラウド学習(アルファ版)</h1>
+<h1 id="google-colaboratory">Google Colaboratoryを使ったクラウド学習</h1>
 <div style="text-align:right;">
 <img src="./../img/signatureboardAI86V2.png">
 </div>
 
 <p>Jetson Nanoだけでもエッジでの学習はできますが、インターネット環境があればクラウドでも学習はできます。</p>
 <p>Google Colaboratory(Google Colab)を使用することでGPUなどのハードウェアなしで使うことができます。
-Jupyter NoteBookは初めから用意されており、リッチな環境により学習時間を短縮、画像枚数もより多く扱うことが容易になります。
-（※ただし、Goole Colaboratoryを無料でのご使用の場合は、使用するGPUや使用時間の制限を受けます。別：時間切れになりそうなときは、学習を保存する方法（工事中））</p>
+Jupyter NoteBookは初めから用意されており、リッチな環境により学習時間を短縮、画像枚数もより多く扱うことが容易になります。</p>
 <h3 id="zip">データセットをzipファイルにまとめる</h3>
-<p>収集したデータセットをクラウドへアップします。JetsonNanoの12_download_data.ipynbを開いて</p>
+<p>11_record_camera.ipnbで録画した画像データを12_file_manager.ipynbで編集し13_anotation.ipynbで教師データを作り、収集したデータセットをクラウドへアップします。JetsonNanoの14_download_data.ipynbを開いて</p>
 <p>データセット（画像データ）を一つのzipファイルにしてGoogle Colaboratoryへのファイルアップロードできるようにします。</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/select14.png" /></p>
 <p>ディレクトリ（タスク）をドロップダウンリストから選んで、圧縮したいデータセットフォルダを選択します。</p>
