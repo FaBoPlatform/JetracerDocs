@@ -1528,7 +1528,7 @@
                   
 
 
-<h1 id="_1">走行録画(アルファ版)</h1>
+<h1 id="_1">走行録画</h1>
 <div style="text-align:right;">
 <img src="./../img/signatureboardAI86V2.png">
 <img src="./../img/signatureboardAI86V1.png">※
@@ -1537,17 +1537,17 @@
 <p>走行を一定間隔で写真撮影します。オプションでプロポ信号を計測し自動でアノテーションをする機能があります。</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>オートアノテーション機能は、コントロール基板　#6112 JetRacer Rev 2.0.9以降の基板のみ対応  </p>
+<p>オートアノテーション機能は、コントロール基板　#612 JetRacer Rev 2.0.9以降の基板のみ対応 </p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>オートアノテーションは、使用目的によりお使いください。教材としては初めは使用しない。 </p>
 </div>
 <p>11_record_camera.ipynbを開きます。</p>
 <p><img alt="" class="bom_listsize" src="../img/rec/firstPreview.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>AI86 version1のお使いの方は、第5セル５１行目のtime.sleep(0.100)を削除するか、先頭に#をつけて、コメントアウトしてください。</p>
-</div>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>１コマつづ実際のステアリングやスロットルの動きを再現しますRCのAIモードにすると動き出すので作業台に置いて必ず実行してください。</p>
 </div>
 <p>下記のコードが示す通り、縦横224ドットFPSは３０での撮影するようになっています。状況によって調整してください。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -1563,7 +1563,7 @@
 <p>オートアノテーションを実行する場合は、10_find_raw.ipynbで事前にプロポ信号の計測が必要になります。</p>
 </div>
 <p>切り替え信号をRCモードにしてプロポを使って任意の時間、走行します。オートアノテーションを実行する場合は、Auto Anotationにチェックを付けます。
-チェックを付けない場合は、アノテーションのデータは付加されず後でアノテーション付けを手作業でします。(12_remark.ipynb,AI86 version2は、14_remark.ipynb)</p>
+チェックを付けない場合は、アノテーションのデータは付加されず後でアノテーション付けを手作業でします。(AI86 version 1は、12_remark.ipynb,AI86 version2は、13_annotation.ipynb)</p>
 <p>folderは./で/home/jetson/jetracer/notebooks/</p>
 <p>taskはデフォルトではcameraになります。データセットは任意の名前をつけます。Recordボタンをクリックすると録画が開始されます。</p>
 <p><img alt="" class="bom_listsize" src="../img/rec/AutoAnotationCheak.png" /></p>
@@ -1575,8 +1575,14 @@
 <p>ファイル名の一部がアノテーションデータになります。</p>
 <p><img alt="" class="bom_listsize" src="../img/rec/fileview.png" /></p>
 <p>X座標データ、Y座標データ、連番.jpg ファイル</p>
-<p>撮影が終了し、ファイルを閉じる場合はカメラも終了して、カーネルも終了してください。</p>
+<p>撮影が終了し、タブを閉じる場合はカメラを開放して、カーネルも終了してください。</p>
 <p><img alt="" class="bom_listsize" src="../img/rec/cameraStop.png" /></p>
+<div style="text-align:right;">
+<img src="./../img/signatureboardAI86V2.png">
+</div>
+
+<p>AI86 Version2の場合は、Camera開放ボタンを押します。</p>
+<p><img alt="" class="bom_listsize" src="../img/rec/cameraRelease.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>カメラの終了処理を実行しないで終了すると、カメラが再起動できずJetsonNanoごと再起動が必要となります。</p>

@@ -1578,15 +1578,44 @@
 <h2 id="_2">解説動画</h2>
 <div style="text-align:right;">
 <img src="./../img/signatureboardAI86V1.png">
+<img src="./../img/signatureboardAI86V2.png">
 </div>
 
 <p><img alt="YOUTUBE" src="YQ8U5KHhLLA" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>04_road_following.ipynbの場合は、走行録画データはrunフォルダに蓄積されます。</p>
+</div>
+<p><br></p>
 <div style="text-align:right;">
 <img src="./../img/signatureboardAI86V2.png">
 </div>
 
-<p>AI86version2は、スロットルに対しても推論を行い実行をしています。</p>
-<p>Highとlowのスライダーを調整してコーナーを曲がれるようにします。</p>
+<p>AI86 Version2の自動走行では、17_run.ipynbを使います。
+ステアリングだけでなくスロットルに対しても推論を実行することができます。</p>
+<p>セルを順番に上から実行して、shift + Enterキーまたは、▶️ボタンを押していきます。</p>
+<p>しばらく経つと以下の画面が現れます。走行したいモデルを選んでTRTモデル読み込みを押します。呼び出しには数十秒かかります。</p>
+<p><img alt="" src="../img/run/run01.png" /></p>
+<p>ステアリングゲインは、実際の走行し、調整します。（初めは１.０）</p>
+<p><img alt="" src="../img/run/run1dot1.png" /></p>
+<p>スピードゲイン（スロットルのゲイン）は固定値か推論値で選べます。スロットルは一定の場合は、固定値を選びます。こちらも実際走行しよく走るような値を調整します。</p>
+<p><img alt="" src="../img/run/run02.png" /></p>
+<p>スロットルのアノテーションして学習させた場合は、推論値を選びます。</p>
+<p><img alt="" src="../img/run/run03.png" /></p>
+<p>走行を録画したい場合は、録画にチェックを入れ、ファイル名を記入します。</p>
+<p><img alt="" src="../img/run/run04.png" /></p>
+<p>走行開始ボタンを押してしばらく経つと、AIが起動し下記のようなログが現れます。プロポにあるボタンを押してAIモード（ピンク）にします。実際走行が始まり壁などに衝突しそうになりましたら、即座にRCモード（グリーン）に切り替えて衝突を回避するか、停止してください。走行が終了したい場合は、プロポのボタンを押して、RCモード（グリーン）にして車体を停止から停止ボタンを押します。</p>
+<p><img alt="" src="../img/run/run05.png" /></p>
+<p>カメラの開放ボタンを押します。</p>
+<p><img alt="" src="../img/run/run06.png" /></p>
+<p>シャットダウンします。</p>
+<p><img alt="" src="../img/run/run08.png" /></p>
+<p>タブも閉じます。</p>
+<p><img alt="" src="../img/run/run09.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>17_run.ipynbでの走行録画データはcameraフォルダに蓄積されます。こちらのデータを元に教師データを追加して再び学習させます。</p>
+</div>
 
 
 
