@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.2.13">
     
     
       
@@ -17,18 +17,16 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
           
           
           <meta name="theme-color" content="#4cae4f">
         
       
-      
-
     
     
     
@@ -47,11 +45,10 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -833,6 +830,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ai86-version2" class="md-nav__link">
+    AI86 Version2
+  </a>
+  
+    <nav class="md-nav" aria-label="AI86 Version2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    学習が止まってしまう場合は？
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1573,6 +1590,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ai86-version2" class="md-nav__link">
+    AI86 Version2
+  </a>
+  
+    <nav class="md-nav" aria-label="AI86 Version2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    学習が止まってしまう場合は？
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1581,11 +1618,10 @@
               </div>
             
           
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
                 
-                  
 
 
 <h1 id="_1">アノテーションと学習方法</h1>
@@ -1610,6 +1646,7 @@
 <img src="./../img/signatureboardAI86V2.png">
 </div>
 
+<h2 id="ai86-version2">AI86 Version2</h2>
 <p>11_record_camera.ipynbで走行録画して、その走行画像を12_file_manager.ipynbでアノテーションしやすいように不要画像カットします。</p>
 <p>次に13_anotation.ipynbを実行します。</p>
 <div class="admonition danger">
@@ -1622,7 +1659,7 @@
 <p><img alt="" src="../img/anotation/ano1.png" /></p>
 <p>すでに作成した走行モデルがある場合は読み込みモデルを選択してload modelボタンを押して読み込みます。</p>
 <p><img alt="" src="../img/anotation/ano2.png" /></p>
-<p>読み込みのデータセットを選択して読込みボタンを押します。走行録画はcameraフォルダまたはrunフォルダにあります。</p>
+<p>読み込みのデータセットを選択して読込みボタンを押します。走行録画はcameraフォルダまたはrunフォルダにあります。使用メモリはJetsonのRAMメモリです。画像データが多いと不安定になったり止まったりすることがあります。使用メモリの取得ボタンを押して、メモリをチェックしましょう。</p>
 <p><img alt="" src="../img/anotation/ano3.png" /></p>
 <p>新規に保存するデータセットフォルダを作る場合は、Nameにデータセット名をつけてcreate datasetボタンを押して新規フォルダを選択します。（既存にあるデータセットを選択する場合は、taskでフォルダを選んでdatasetを選択します。）</p>
 <p><img alt="" src="../img/anotation/ano4.png" /></p>
@@ -1642,24 +1679,24 @@
 <p><img alt="" src="../img/anotation/ano10.png" /></p>
 <p>生成されたモデルは、RC走行では重く遅延が生じます。そこでTensorRTで最適化が必要になります。</p>
 <p>16_convert.ipynbにてモデルの最適化します。</p>
+<h3 id="_3">学習が止まってしまう場合は？</h3>
+<p>空のファイルを見つける</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo find ./ -empty
+</code></pre></div></td></tr></table></div>
+<p>空のファイルの削除する。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo find ./ -empty -delete
+</code></pre></div></td></tr></table></div>
 
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
+              
+            </article>
+          </div>
         </div>
         
       </main>
       
         <footer class="md-footer">
   
-    
-    <nav class="md-footer__inner md-grid" aria-label="フッター" >
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
       
         
         <a href="../03.filecut/" class="md-footer__link md-footer__link--prev" aria-label="前: 画像カット" rel="prev">
@@ -1714,11 +1751,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}}</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}}</script>
     
-    
-      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
         <script src="../../javascripts/version-select.js"></script>
       
