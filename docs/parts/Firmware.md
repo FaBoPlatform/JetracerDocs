@@ -1,8 +1,8 @@
-# Firmwareの更新
+# XIAO Firmwareの更新
 
 |Board|
 |:--|
-|XAIO ESP32S3|
+|XIAO ESP32S3|
 
 出荷時にXIAOのFirmwareを焼き込み済みですが、アップデートや開発を行う場合は、以下のようにします。
 
