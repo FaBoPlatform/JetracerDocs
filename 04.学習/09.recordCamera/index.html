@@ -1545,7 +1545,7 @@
 <h1 id="_1">走行録画</h1>
 <div style="text-align:right;">
 <img src="./../img/signatureboardAI86V2.png">
-<img src="./../img/signatureboardAI86V1.png">※
+<img src="./../img/signatureboardAI86V1.png">
 </div>
 
 <p>RCカーを実際走行させて録画します。録画したデータを一枚一枚アノテーションして教師データを作成し学習させます。
@@ -1558,27 +1558,18 @@
 <p class="admonition-title">Info</p>
 <p>オートアノテーションは、使用目的によりお使いください。教材としては初めは録画のみとしデータを収集しないことがお勧めです。</p>
 </div>
-<p>11_record_camera.ipynbを開きます。</p>
+<p>11_record_camera.ipynbを開きます。今回は、30fpsで録画します。</p>
 <p><img alt="" class="bom_listsize" src="../img/rec/firstPreview.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>AI86 version1のお使いの方は、第5セル５１行目のtime.sleep(0.100)を削除するか、先頭に#をつけて、コメントアウトしてください。</p>
 </div>
-<p>下記のコードが示す通り、縦横224ドットFPSは３０での撮影するようになっています。状況によって調整してください。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">jetcam.csi_camera</span> <span class="kn">import</span> <span class="n">CSICamera</span>
-<span class="kn">from</span> <span class="nn">jetcam.utils</span> <span class="kn">import</span> <span class="n">bgr8_to_jpeg</span>
-
-<span class="n">camera</span> <span class="o">=</span> <span class="n">CSICamera</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">224</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">224</span><span class="p">,</span> <span class="n">capture_fps</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>オートアノテーションを実行する場合は、10_find_raw.ipynbで事前にプロポ信号の計測が必要になります。</p>
 </div>
 <p>切り替え信号をRCモードにしてプロポを使って任意の時間、走行します。オートアノテーションを実行する場合は、Auto Anotationにチェックを付けます。
-チェックを付けない場合は、アノテーションのデータは付加されず後でアノテーション付けを手作業でします。(AI86 version 1は、12_remark.ipynb,AI86 version2は、13_annotation.ipynb)</p>
+チェックを付けない場合は、アノテーションのデータは付加されず後でアノテーションを手作業でします。(AI86 version 1は、12_remark.ipynb,AI86 version2は、13_annotation.ipynb)</p>
 <p>folderは./で/home/jetson/jetracer/notebooks/</p>
 <p>taskはデフォルトではcameraになります。データセットは任意の名前をつけます。Recordボタンをクリックすると録画が開始されます。</p>
 <p><img alt="" class="bom_listsize" src="../img/rec/AutoAnotationCheak.png" /></p>
@@ -1606,6 +1597,12 @@
 <p class="admonition-title">Warning</p>
 <p>画像ファイルが壊れている場合があります。findコマンドでファイルが壊れていないかチェックが必要な場合がございます。</p>
 </div>
+<p>空のファイルを見つける</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo find ./ -empty
+</code></pre></div></td></tr></table></div>
+<p>空のファイルの削除する。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo find ./ -empty -delete
+</code></pre></div></td></tr></table></div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>レコードライン（理想的な走行ライン）と他に少しコースアウトした画像も録画しましょう。</p>
