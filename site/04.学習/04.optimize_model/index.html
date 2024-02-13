@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.2.13">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.5.3">
     
     
       
@@ -17,16 +17,18 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
           
           
           <meta name="theme-color" content="#4cae4f">
         
       
+      
+
     
     
     
@@ -45,10 +47,11 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -844,6 +847,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ai86-version2" class="md-nav__link">
+    AI86 Version2
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1570,6 +1580,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ai86-version2" class="md-nav__link">
+    AI86 Version2
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1578,10 +1595,11 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="tensorrt">TensorRTへの変換</h1>
@@ -1592,17 +1610,48 @@
 </div>
 
 <p><img alt="YOUTUBE" src="zbNoygm1JSQ" /></p>
+<div style="text-align:right;">
+<img src="./../img/signatureboardAI86V2.png">
+</div>
 
-              
-            </article>
-          </div>
+<h2 id="ai86-version2">AI86 Version2</h2>
+<p>15.train.ipynbまたは13_annotation.ipynbでモデルを完成しましたら、推論の実行速度向上のため、16.convert.ipynbでモデルをTensor RTで変換いたします。</p>
+<p><img alt="" src="../img/convert/convert_001.png" /></p>
+<p>セルを順番に上から実行して、shift + Enterキーまたは、▶️ボタンを押していきます。</p>
+<p><img alt="" src="../img/convert/convert_002.png" /></p>
+<p>しばらくすると、ウェジェットが現れて変換したいモデルを選んで変換後の名前をつけて、TRT Convertボタンを押して変換します。約１分弱ほど変換時間がかかります。</p>
+<p><img alt="" src="../img/convert/convert_003.png" /></p>
+<p>変換が完了後、動画で評価をします。datasetのドロップダウンリストから検証で使いたい画像を選びます（今回は、13_annotation.ipynbでアノテーション済みの画像を選択します。）</p>
+<p><img alt="" src="../img/convert/convert_004.png" /></p>
+<p>推論します。ログより推論時間が少なくなったことが確認できます。</p>
+<p><img alt="" src="../img/convert/convert_005.png" /></p>
+<p>右クリック選択で、videoフォルダからダウンロードしパソコンで動画ファイルを再生し確認します。</p>
+<p><img alt="" src="../img/convert/convert_006.png" /></p>
+<p>タブを閉じます。</p>
+<p><img alt="" src="../img/convert/convert_007.png" /></p>
+<p>シャットダウンします。</p>
+<p><img alt="" src="../img/convert/convert_008.png" /></p>
+<p>変換したモデルはmodel_trtフォルダに保存されます。</p>
+<p><img alt="" src="../img/convert/convert_009.png" /></p>
+<p>いよいよ次は、自動走行です。</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="フッター">
+    
+    <nav class="md-footer__inner md-grid" aria-label="フッター" >
       
         
         <a href="../03.interactive_regression/" class="md-footer__link md-footer__link--prev" aria-label="前: アノテーションと学習" rel="prev">
@@ -1657,10 +1706,11 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
+      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
       
         <script src="../../javascripts/version-select.js"></script>
       
