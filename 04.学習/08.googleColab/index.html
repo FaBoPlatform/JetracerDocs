@@ -869,50 +869,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    準備
+  </a>
+  
+    <nav class="md-nav" aria-label="準備">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#zip" class="md-nav__link">
     データセットをzipファイルにまとめる
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#google" class="md-nav__link">
     Googleのマイドライブへデータセットをアップロードする
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#google-colaboratory_1" class="md-nav__link">
     Google Colaboratory　を使うための準備
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    データセットのファイルのパス
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#zip_1" class="md-nav__link">
-    データセットのzip解凍
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#google-colaboratory_2" class="md-nav__link">
     Google Colaboratoryによる学習
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    動画検証によるモデルの評価
+    動画を作成
   </a>
   
 </li>
@@ -1609,50 +1608,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    準備
+  </a>
+  
+    <nav class="md-nav" aria-label="準備">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#zip" class="md-nav__link">
     データセットをzipファイルにまとめる
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#google" class="md-nav__link">
     Googleのマイドライブへデータセットをアップロードする
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#google-colaboratory_1" class="md-nav__link">
     Google Colaboratory　を使うための準備
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    データセットのファイルのパス
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#zip_1" class="md-nav__link">
-    データセットのzip解凍
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#google-colaboratory_2" class="md-nav__link">
     Google Colaboratoryによる学習
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    動画検証によるモデルの評価
+    動画を作成
   </a>
   
 </li>
@@ -1677,9 +1675,13 @@
 <img src="./../img/signatureboardAI86V2.png">
 </div>
 
+<div align="right"><p><b>FaBo JetRacerCloud Version 2.0.7</b></p></div>
+
 <p>Jetson Nanoだけでもエッジでの学習はできますが、インターネット環境があればクラウドでも学習はできます。</p>
 <p>Google Colaboratory(Google Colab)を使用することでGPUなどのハードウェアなしで使うことができます。
 Jupyter NoteBookは初めから用意されており、リッチな環境により学習時間を短縮、画像枚数もより多く扱うことが容易になります。</p>
+<h2 id="_1">準備</h2>
+<p>13_anotation.ipynbで作成した教師データのsample001と11_record_camera.ipnbで作成した走行画像のsample001をあらかじめ用意しておきます。</p>
 <h3 id="zip">データセットをzipファイルにまとめる</h3>
 <p>11_record_camera.ipnbで録画した画像データを12_file_manager.ipynbで編集し13_anotation.ipynbで教師データを作り、収集したデータセットをクラウドへアップします。JetsonNanoの14_download_data.ipynbを開いて</p>
 <p>データセット（画像データ）を一つのzipファイルにしてGoogle Colaboratoryへのファイルアップロードできるようにします。</p>
@@ -1687,124 +1689,92 @@ Jupyter NoteBookは初めから用意されており、リッチな環境によ�
 <p>ディレクトリ（タスク）をドロップダウンリストから選んで、圧縮したいデータセットフォルダを選択します。</p>
 <p>ZIPボタンを押すと圧縮が始まり、圧縮が完了するとログに処理終了が表示されZIPフォルダが生成されます。</p>
 <p>ZIPフォルダに圧縮されたファイルがあり、このファイルをGoogleドライブにアップロードします。</p>
-<p><img alt="" class="bom_listsize" src="../img/colabo/selectDirectroy.png" /></p>
+<p>学習用のデータ(datasetフォルダのアノテーションで作成されたデータ)を１つのファイルにまとめます。ZIPに圧縮ボタンを押します。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c002.png" /></p>
+<p>続きまして、テスト用データ（cameraフォルダにあるデータ）を１つのファイルにまとめます。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c003.png" /></p>
 <p>画像ファイル枚数によって終了時間が異なります。処理完了が出るまで待ちましょう。</p>
+<p>zip化されたファイル名は、アノテーション済みのdataset、走行録画はcameraがデータセット名に接頭辞がつきます。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c004.png" /></p>
+<p>dataset_sample_001.zipとcamera_sample_001.zipができます。こちら２つのファイルをお使いのPCにダウンロードします。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c005.png" /></p>
 <h3 id="google">Googleのマイドライブへデータセットをアップロードする</h3>
 <p>作成したzipファイルは、zipフォルダにあります。ダウンロードしたいファイルを右クリックDownloadを選択します。</p>
 <p>一旦、お使いのパソコンにダウンロードします。</p>
 <p>右クリックでダウンロードします。</p>
 <p>Google Colaboratoryを使用する前に、事前にGoogleアカウントが必要です。Googleにログインします。</p>
-<p>事前に、Googleドライブ内にJetRacer_WorkSpeaceという名前の専用のフォルダを作りましょう。</p>
+<p>事前に、Googleドライブ内にworkspace_jetracerという名前の専用のフォルダを作りましょう。</p>
 <p>zipファイルをGoogleドライブにアップロードします。</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/GoogleDrive.png" /></p>
-<p>新規ボタンをクリックして、作業フォルダ（etRacer_WorkSpeace/dataset/）を作り、そのフォルダ内にzipファイルをアップロードします。</p>
+<p>新規ボタンをクリックして、作業フォルダ（workspace_jetracer）を作り、そのフォルダ内にzipファイルをアップロードします。</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/FileUpload.png" /></p>
+<p>14_download.ipynbでzipにしたdataset_sample_001.zipとcamera_sample_001.zipをPCからGoogleドライブにアップロードします。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c006.png" /></p>
 <p>（例）保存先のディレクトリ
-JetRacer_WorkSpeace/dataset/</p>
+workspace_jetracer/</p>
 <h3 id="google-colaboratory_1">Google Colaboratory　を使うための準備</h3>
 <p>Google Colaboratoryにアクセスします。</p>
 <p><a href="https://colab.research.google.com/?hl=ja">https://colab.research.google.com/?hl=ja</a></p>
 <p>Google Colaboratoryにようこそ</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/welcomtocolabo.png" /></p>
-<h3 id="_1">データセットのファイルのパス</h3>
-<p>Googleのマイドライブではなく、ファイルGoogle Colaboratoryのディレクトリにアクセスの場合は、</p>
-<p>"drive/MyDrive/workspace_jetracer/dataset/......."</p>
-<p>モデルの出力先は、modelディレクトリを作成しておきましょう。</p>
-<p>"drive/MyDrive/workspace_jetracer/model/......."</p>
-<p>ZipファイルをGoogleのマイドライブへアップロードします。</p>
-<h3 id="zip_1">データセットのzip解凍</h3>
-<p>右クリックしてアプリでもファイル解凍できますが、ファイル数が多くなると時間がかかるのでGoogle Colaboratoryで解凍します。</p>
-<p>Googleドライブの新規ボタンを押して、その他を選択、Google Colaboratoryをクリックします。</p>
-<p>保存先がGoolgeドライブのマイドライブの場合はGoogle Colaboratoryからアクセス権限を与えます。</p>
-<p>下記のマウントするコードを実行するか、フォルダの左側にあるアイコンをクリックします。</p>
-<p><img alt="" class="bom_listsize" src="../img/colabo/Untitiled.png" /></p>
-<p>グーグルドライブをマウントします。</p>
-<p>セル内に以下のコードをコピーアンドペーストして実行します。</p>
-<p><img alt="" class="bom_listsize" src="../img/colabo/permitMount.png" /></p>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-Linuxコマンドの先頭に！をつけるとJupyterNoteBook上でコマンドが実行できます。</p>
-<p>MyDriveでないcontent以下に展開先を指定し、任意のディレクトリに解凍させます。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">!</span><span class="n">unzip</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">workspace_jetracer</span><span class="o">/</span><span class="n">dataset</span><span class="o">/</span><span class="n">xxxxxxxxxx</span><span class="o">.</span><span class="n">zip</span> <span class="o">-</span><span class="n">d</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span>
-</code></pre></div></td></tr></table></div>
-<p><img alt="" class="bom_listsize" src="../img/colabo/unzip.png" /></p>
-<p>①　＋コードクリック（セルを追加）</p>
-<p>②　上記コードをコピーアンドペーストして実行</p>
-<p>③　解凍先を確認</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Myドライブ（/content/drive/MyDrive/）の大量の数のファイルは、処理が途中で止まることがありますのでMyDrive以外のディレクトリに展開させます。</p>
-</div>
-<p>※ここでは/content/の直下に解凍しています。</p>
-<p>解凍が終了すると画面一番下のバーに完了時間が表示されます。</p>
 <h3 id="google-colaboratory_2">Google Colaboratoryによる学習</h3>
-<p>ファイルをクリックし、ノートブックを開くを選択します。</p>
-<p><img alt="" class="bom_listsize" src="../img/colabo/googleColaboStart.png" /></p>
-<p>Zipファイルをドラックアンドドロップかファイル選択してGoogle Colaboratoryへアップロードします。</p>
-<p><a href="../python/JetRacerCloudBeta000.ipynb">JetRacerCloudBeta000.ipynb</a>をダウンロードします。</p>
-<p>マイドライブにJetRacerCloudBeta000.ipynbをアップロードします。</p>
-<p><img alt="" class="bom_listsize" src="../img/colabo/colabofileupload.png" /></p>
-<p>Googleドライブにあるデータセットのファイルのパスは、例　：　"/content/drive/MyDrive/workspace_jetracer/dataset/{フォルダ名}"</p>
-<p>Colaboのドライブにあるデータセットのファイルのパスは、例　：　"/content/{フォルダ名}"</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">LOAD_DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;/content/drive/MyDrive/workspace_jetracer/dataset/DirectryName&quot;</span>
+<p>15_train.ipynbにあるリンク先にアクセスします。</p>
+<p><img alt="" src="../img/colabo/colabo020007/colabo_001.png" /></p>
+<p><a href="https://colab.research.google.com/drive/1GbDrNiosTKSJNOJiCiVgv6V8X-0GDBfW?usp=sharing">https://colab.research.google.com/drive/1GbDrNiosTKSJNOJiCiVgv6V8X-0GDBfW?usp=sharing</a></p>
+<p>下の矢印にあるセルに移動してShift＋Enterを実行します。２つのファイルが/content/にコピーされます。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c008.png" /></p>
+<p>下のコードを実行するとダイアログが表示されます。GoogleDriveへのアクセスを許可します。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c009.png" /></p>
+<p>今回は学習用のデータセットが１つの場合は、矢印のところに、DATA_ZIP = ["dataset_sample_001.zip"]を追記します。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c010.png" /></p>
+<p>また、同じセル内で下の矢印のように</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>DATA_ZIPS = DATA_ZIP
+#DATA_ZIPS = DATA_ZIPS_STRIGHT
 </code></pre></div></td></tr></table></div>
-<p>ダウンロードしたファイルを上から実行していきます。</p>
-<p><img alt="" class="bom_listsize" src="../img/colabo/FileDataSetDefine.png" /></p>
-<p>JetRacerのコードをダウンロード</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">!</span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NVIDIA</span><span class="o">-</span><span class="n">AI</span><span class="o">-</span><span class="n">IOT</span><span class="o">/</span><span class="n">jetracer</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">notebooks</span><span class="o">/</span><span class="n">utils</span><span class="o">.</span><span class="n">py</span>
-<span class="err">!</span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NVIDIA</span><span class="o">-</span><span class="n">AI</span><span class="o">-</span><span class="n">IOT</span><span class="o">/</span><span class="n">jetracer</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">notebooks</span><span class="o">/</span><span class="n">xy_dataset</span><span class="o">.</span><span class="n">py</span>
-</code></pre></div></td></tr></table></div>
-<p><img alt="" class="bom_listsize" src="../img/colabo/JetRacerInstall.png" /></p>
-<p>GPUを有効にします。ダイヤログが出ることがありますが利用できるGPUを使用します。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+と変更する。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c011.png" /></p>
+<p>実行すると/content/ディレクトリにdatasetフォルダに解凍されるはずです。/content/dataset/sample001/ </p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c012.png" /></p>
+<p>ファイルの結合、ファイルの枚数を確認します。</p>
+<p>データ存在確認</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c014.png" /></p>
+<p>データの結合（データが1つしかないので結合はしません。）</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c015.png" /></p>
+<p>学習を実行します。エポック数はデフォルトで１００になっています。状況に合わせて調整してください。３０エポック改善が見られなかった場合は、その時のモデルをベストモデルとして、学習をストップして終了とします。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c017.png" /></p>
+<p>/content/ディレクトリにモデルが保存されます。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c018.png" /></p>
+<p>学習が完了し!cp /content/cloud_best_model.pth {DATA_FOLDER}を実行するとGoogleドライブにモデルがコピーされます。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c019.png" /></p>
+<p>モデルが追加されました。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c020.png" /></p>
+<p>以下を実行されますと作成したモデルがお使いのPCにダウンロードされます。こちらのファイルをJetsonのnotebookアップロードボタンで modelフォルダにアップロードします。</p>
+<p><img alt="" src="../img/colabo/colabo020007/colabo_009.png" /></p>
+<p>log.txt(実行結果)も保存されます。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c021.png" /></p>
 <p>lossが低くなるように任意のエポック数に変えて、学習させます。（無料でのご使用の場合は、時間制限があります。ご注意ください。）</p>
-<p>学習（エポック）が終了したのなら、出来たモデルを名前のつけてGoogleドライブに保存します。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">SAVE_MODEL</span> <span class="o">=</span> <span class="s2">&quot;xxxxxxxxxxxxx.pth&quot;</span>
-<span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">SAVE_MODEL</span><span class="p">)</span>
+<h2 id="_2">動画を作成</h2>
+<p>Googleドライブworkspaceにある画像データ(camaera_sample_001.zip)を使用します。</p>
+<p>以下を変更します。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>CAMERA_DATA_NAME = &quot;camera_sample_001.zip&quot;
 </code></pre></div></td></tr></table></div>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c022.png" /></p>
+<p>Googleドライブからコピーして解凍します。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c023.png" /></p>
+<p>動画を実行するとmp４ファイルが作成され自動でPCにダウンロードされます。動画を再生し検証します。動画ファイルが生成され動画が映し出されます。青い丸が推論結果の座標になります。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c024.png" /></p>
+<p>Googleコラボ上でも確認できます。</p>
+<p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c025.png" /></p>
 <p>出来たモデルの評価を撮影済みの画像を使って評価します。結果が芳しくなかった場合は、データセットを増やしたり、エポック数を増やして再び学習し調整します。</p>
-<p>コードのエポック数のデフォルト値は120です。</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Google Colaboratoryでの無料でお使いの場合は、GPUの使用時間制限がございます。データセット枚数とエポック数を調整しましょう。</p>
 </div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">EPOCH</span> <span class="o">=</span> <span class="mi">120</span>
-
-<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
-
-<span class="k">def</span> <span class="nf">train_eval</span><span class="p">(</span><span class="n">is_training</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">model</span>
-    <span class="n">dataset</span> <span class="o">=</span> <span class="n">XYDataset</span><span class="p">(</span><span class="n">LOAD_DATA_PATH</span><span class="p">,</span> <span class="n">SAVE_CATEGORIES</span><span class="p">,</span> <span class="n">TRANSFORMS</span><span class="p">,</span> <span class="n">random_hflip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>データセットの枚数が大きいとログが表示されるまで数十分以上〜数時間かかることがあります。</p>
-</div>
-<h3 id="_2">動画検証によるモデルの評価</h3>
-<p>評価したいモデルのパスに変更します。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;/content/model.pth&quot;</span>
-</code></pre></div></td></tr></table></div>
-<p>評価に使う画像のパスに変更します。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">CAMERA_PATH</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/workspace_jetracer/dataset/</span><span class="si">{ファイル名}</span><span class="s1">&#39;</span>
-</code></pre></div></td></tr></table></div>
-<p>動画ファイルが生成され動画が映し出されます。青い丸が推論結果の座標になります。ダウンロード、再生速度が設定出来ます。</p>
-<p>保存した学習済みモデルをダウンロードしてそのファイルをJetson Nanoのmodelディレクトリ(/home/jetson/jetracer/notebooks/model)へアップロードします。</p>
+<p>保存した学習済みモデルのファイルをJetson Nanoのmodelディレクトリ(/home/jetson/jetracer/notebooks/model)へアップロードします。</p>
 <p>Jetson NanoのJupyter labのアップロードボタンをクリックして、モデルpthファイルを/home/jetson/notebooks/model/へアップロードし16_convert.ipynb(TensorRT)にてモデルの最適化し、
 17_run.ipynbにて自動走行します。</p>
-<p><img alt="" class="bom_listsize" src="../img/colabo/uploadFile.png" /></p>
+<p><img alt="" src="../img/colabo/colabo020007/colabo_011.png" /></p>
 
 
 
