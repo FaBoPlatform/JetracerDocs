@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.3">
     
     
       
@@ -1686,12 +1686,10 @@ Jupyter NoteBookは初めから用意されており、リッチな環境によ�
 <p>11_record_camera.ipnbで録画した画像データを12_file_manager.ipynbで編集し13_anotation.ipynbで教師データを作り、収集したデータセットをクラウドへアップします。JetsonNanoの14_download_data.ipynbを開いて</p>
 <p>データセット（画像データ）を一つのzipファイルにしてGoogle Colaboratoryへのファイルアップロードできるようにします。</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/select14.png" /></p>
-<p>ディレクトリ（タスク）をドロップダウンリストから選んで、圧縮したいデータセットフォルダを選択します。</p>
-<p>ZIPボタンを押すと圧縮が始まり、圧縮が完了するとログに処理終了が表示されZIPフォルダが生成されます。</p>
-<p>ZIPフォルダに圧縮されたファイルがあり、このファイルをGoogleドライブにアップロードします。</p>
-<p>学習用のデータ(datasetフォルダのアノテーションで作成されたデータ)を１つのファイルにまとめます。ZIPに圧縮ボタンを押します。</p>
+<p>タスク(ディレクトリ)をドロップダウンリストから選んで、圧縮したいデータセットフォルダを選択します。</p>
+<p>学習用のデータsample001(datasetフォルダのアノテーションで作成されたデータ)を１つのファイルにまとめます。ZIPに圧縮ボタンを押します。</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c002.png" /></p>
-<p>続きまして、テスト用データ（cameraフォルダにあるデータ）を１つのファイルにまとめます。</p>
+<p>続きまして、テスト用データsample001（cameraフォルダにあるデータ）を１つのファイルにまとめます。</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c003.png" /></p>
 <p>画像ファイル枚数によって終了時間が異なります。処理完了が出るまで待ちましょう。</p>
 <p>zip化されたファイル名は、アノテーション済みのdataset、走行録画はcameraがデータセット名に接頭辞がつきます。</p>
@@ -1762,7 +1760,7 @@ workspace_jetracer/</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c022.png" /></p>
 <p>Googleドライブからコピーして解凍します。</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c023.png" /></p>
-<p>動画を実行するとmp４ファイルが作成され自動でPCにダウンロードされます。動画を再生し検証します。動画ファイルが生成され動画が映し出されます。青い丸が推論結果の座標になります。</p>
+<p>動画を実行すると作成日時mp４ファイルが作成され自動でPCにダウンロードされます。動画を再生し検証します。動画ファイルが生成され動画が映し出されます。青い丸が推論結果の座標になります。</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c024.png" /></p>
 <p>Googleコラボ上でも確認できます。</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c025.png" /></p>
@@ -1777,7 +1775,11 @@ workspace_jetracer/</p>
 <p><img alt="" src="../img/colabo/colabo020007/colabo_011.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>どんどん画像を結合して全体で学習して精度を上げていきましょう。</p>
+<p>どんどん画像を結合し全体で学習して精度を上げていきましょう。</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>コーナリング中に乱れるような推論を極力無くしていきましょう。</p>
 </div>
 
 
