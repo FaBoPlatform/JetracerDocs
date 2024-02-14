@@ -870,48 +870,42 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    準備
+    データの準備
   </a>
   
-    <nav class="md-nav" aria-label="準備">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#zip" class="md-nav__link">
     データセットをzipファイルにまとめる
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#google" class="md-nav__link">
     Googleのマイドライブへデータセットをアップロードする
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#google-colaboratory_1" class="md-nav__link">
     Google Colaboratory　を使うための準備
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#google-colaboratory_2" class="md-nav__link">
     Google Colaboratoryによる学習
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    動画を作成
+    検証動画を作成
   </a>
   
 </li>
@@ -1609,48 +1603,42 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    準備
+    データの準備
   </a>
   
-    <nav class="md-nav" aria-label="準備">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#zip" class="md-nav__link">
     データセットをzipファイルにまとめる
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#google" class="md-nav__link">
     Googleのマイドライブへデータセットをアップロードする
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#google-colaboratory_1" class="md-nav__link">
     Google Colaboratory　を使うための準備
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#google-colaboratory_2" class="md-nav__link">
     Google Colaboratoryによる学習
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    動画を作成
+    検証動画を作成
   </a>
   
 </li>
@@ -1680,9 +1668,9 @@
 <p>Jetson Nanoだけでもエッジでの学習はできますが、インターネット環境があればクラウドでも学習はできます。</p>
 <p>Google Colaboratory(Google Colab)を使用することでGPUなどのハードウェアなしで使うことができます。
 Jupyter NoteBookは初めから用意されており、リッチな環境により学習時間を短縮、画像枚数もより多く扱うことが容易になります。</p>
-<h2 id="_1">準備</h2>
+<h2 id="_1">データの準備</h2>
 <p>13_anotation.ipynbで作成した教師データのsample001と11_record_camera.ipnbで作成した走行画像のsample001をあらかじめ用意しておきます。</p>
-<h3 id="zip">データセットをzipファイルにまとめる</h3>
+<h2 id="zip">データセットをzipファイルにまとめる</h2>
 <p>11_record_camera.ipnbで録画した画像データを12_file_manager.ipynbで編集し13_anotation.ipynbで教師データを作り、収集したデータセットをクラウドへアップします。JetsonNanoの14_download_data.ipynbを開いて</p>
 <p>データセット（画像データ）を一つのzipファイルにしてGoogle Colaboratoryへのファイルアップロードできるようにします。</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/select14.png" /></p>
@@ -1696,7 +1684,7 @@ Jupyter NoteBookは初めから用意されており、リッチな環境によ�
 <p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c004.png" /></p>
 <p>dataset_sample_001.zipとcamera_sample_001.zipができます。こちら２つのファイルをお使いのPCにダウンロードします。</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c005.png" /></p>
-<h3 id="google">Googleのマイドライブへデータセットをアップロードする</h3>
+<h2 id="google">Googleのマイドライブへデータセットをアップロードする</h2>
 <p>作成したzipファイルは、zipフォルダにあります。ダウンロードしたいファイルを右クリックDownloadを選択します。</p>
 <p>一旦、お使いのパソコンにダウンロードします。</p>
 <p>右クリックでダウンロードします。</p>
@@ -1710,12 +1698,12 @@ Jupyter NoteBookは初めから用意されており、リッチな環境によ�
 <p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c006.png" /></p>
 <p>（例）保存先のディレクトリ
 workspace_jetracer/</p>
-<h3 id="google-colaboratory_1">Google Colaboratory　を使うための準備</h3>
+<h2 id="google-colaboratory_1">Google Colaboratory　を使うための準備</h2>
 <p>Google Colaboratoryにアクセスします。</p>
 <p><a href="https://colab.research.google.com/?hl=ja">https://colab.research.google.com/?hl=ja</a></p>
 <p>Google Colaboratoryにようこそ</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/welcomtocolabo.png" /></p>
-<h3 id="google-colaboratory_2">Google Colaboratoryによる学習</h3>
+<h2 id="google-colaboratory_2">Google Colaboratoryによる学習</h2>
 <p>15_train.ipynbにあるリンク先にアクセスします。</p>
 <p><img alt="" src="../img/colabo/colabo020007/colabo_001.png" /></p>
 <p><a href="https://colab.research.google.com/drive/1GbDrNiosTKSJNOJiCiVgv6V8X-0GDBfW?usp=sharing">https://colab.research.google.com/drive/1GbDrNiosTKSJNOJiCiVgv6V8X-0GDBfW?usp=sharing</a></p>
@@ -1752,7 +1740,7 @@ workspace_jetracer/</p>
 <p>log.txt(実行結果)も保存されます。</p>
 <p><img alt="" class="bom_listsize" src="../img/colabo/colabo020007/retake/c021.png" /></p>
 <p>lossが低くなるように任意のエポック数に変えて、学習させます。（無料でのご使用の場合は、時間制限があります。ご注意ください。）</p>
-<h2 id="_2">動画を作成</h2>
+<h2 id="_2">検証動画を作成</h2>
 <p>Googleドライブworkspaceにある画像データ(camaera_sample_001.zip)を使用します。</p>
 <p>以下を変更します。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>CAMERA_DATA_NAME = &quot;camera_sample_001.zip&quot;
