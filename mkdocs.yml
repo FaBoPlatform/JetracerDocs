@@ -92,6 +92,7 @@ nav:
   - 7.単体パーツ情報:
     - ControllerBoard:
       - 612 Jetracer Rev3.0.0,1,2 : "parts/01.jr612030002.md"
+      - 612 Jetracer Rev2.0.29 : "parts/jr612020029.md"
       - XIAO Firmwareの更新 : "parts/Firmware.md"
 
 
