@@ -50,7 +50,9 @@ nav:
       - 組立手順: "01.組み立て/old/01.build2.md"
   - 3.設定:
     - Wi-Fiの設定: "03.設定/01.intro.md"
-  - 4.学習と走行:
+  - 4.Quick Start:
+    - 基本編: "quick/01.intro.md"
+  - 5.学習と走行:
     - 使用するNotebook: "04.学習/01.notebooks.md"
     - PWMの設定: "04.学習/02.pwm.md"
     - 走行録画: "04.学習/09.recordCamera.md"
@@ -62,10 +64,10 @@ nav:
     - 受信機信号計測: "04.学習/10.transmitterSignal.md"
     - 検証動画作成: "04.学習/11.makeMovie.md"
     - アノテーション: "04.学習/07.remark.md"
-  - 5.Orin Nano:
+  - 6.Orin Nano:
     - SDカードの焼込: "orin/01.sd.md"
     - Dockerの構築: "orin/02.docker.md"
-  - 6.その他:
+  - 7.その他:
     - SDカードの焼込: "sd_fabo/01.image.md"
     - SDカードの新規作成:
       - SDカードの焼込: "sd_new/01.jetpack46.md"
