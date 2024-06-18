@@ -1594,6 +1594,19 @@
     PCA9685の外部水晶発振器について
   </a>
   
+    <nav class="md-nav" aria-label="PCA9685の外部水晶発振器について">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    サンプルコード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1691,6 +1704,19 @@
     PCA9685の外部水晶発振器について
   </a>
   
+    <nav class="md-nav" aria-label="PCA9685の外部水晶発振器について">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    サンプルコード
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1724,7 +1750,10 @@
 </tr>
 </tbody>
 </table>
+<p>※動作環境　Jetson Nano(A-02,B-01) 開発者キットのみ</p>
 <h2 id="_1">名称と役割</h2>
+<p><img alt="JetRacerコントローラーボード表" src="../img/020029/6120229T.jpg" /></p>
+<p><img alt="JetRacerコントローラーボード裏" src="../img/020029/6120229B.jpg" /></p>
 <h2 id="_2">コントロールボード接続例</h2>
 <p>JetsonおよびRCカーの電源を停止して、以下のように接続します。</p>
 <p>コントロール基板をJetsonの４０ピンヘッダーに接続します。前後、左右ともにズレがないことを確認し、奥までしっかり接続します。</p>
@@ -1754,12 +1783,16 @@
 <p><img alt="" src="../img/020029/spiport.png" /></p>
 <p><img alt="" src="../img/020029/020029_SPI.JPG" /></p>
 <p>※SM04B-PASS-TBT(LF)(SN)使用</p>
-<p>ファームウェアの書き換えは、ArduinoのISCPを使用し、Arduino UNOとTag-Connectが必要となります。</p>
+<p>ファームウェアの書き換えは、ArduinoのISCPを使用し、書き込むArduino UNO同等品とTag-Connectが必要となります。</p>
 <p><img alt="" src="../img/020029/020029_ICSP.JPG" /></p>
+<p>参考サイト</p>
+<p><a href="https://faboplatform.github.io/CircuitDocs/0.Arduino%20Bootloader/article0-1/">Arduino Bootloader</a></p>
 <h2 id="pca9685">PCA9685の外部水晶発振器について</h2>
-<p>FaBoのコントロール基板にあるPCA9685のすぐ横に外部の水晶発振器２５MHzがありこちらの発振を使用しますとPCA9685の内部発振器より正確な発振が得られます。</p>
+<p>FaBoのコントロール基板にあるPCA9685のすぐ横に外部の水晶発振器２５MHzがありこちらの発振を使用しますとPCA9685の内部発振器より周囲温度環境に影響を受けにくい正確な発振が得られます。</p>
+<p>このことにより安定した中央値出力が可能になり車体にブレーキ信号からバック信号へ切り替えが容易になります。</p>
 <p>一旦下記のコードを実行すると電源が切れるまで外部発振器が優先され内部発振には設定できません。ご注意ください。</p>
-<p>既存のクラスをオーバーライドして組み込みます。</p>
+<h3 id="_4">サンプルコード</h3>
+<p>abo_PCA9685クラスをオーバーライドして組み込みます。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
