@@ -64,6 +64,7 @@ nav:
     - 受信機信号計測: "04.学習/10.transmitterSignal.md"
     - 検証動画作成: "04.学習/11.makeMovie.md"
     - アノテーション: "04.学習/07.remark.md"
+    - 環境情報判断: "04.学習/12.EnvironmentalJudgment.md"
   - 6.Orin Nano:
     - SDカードの焼込: "orin/01.sd.md"
     - Dockerの構築: "orin/02.docker.md"
