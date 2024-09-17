@@ -1736,7 +1736,16 @@
 </div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>コントロール基板　#6112 JetRacer Rev 2.0.9以降の基板のみ対応    </p>
+<p>コントロール基板　#6112 JetRacer Rev 2.0.9以降の基板のみ対応  </p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Connectボタンを押すと下記のエラーが出る時がございます。</p>
+<p>Traceback (most recent call last):
+File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner</p>
+<p>もし、その場合は本コードにある数字をお願いいたします。以下のコードの８の部分を１２に変更してくださるようお願いいたします。</p>
+<p>data1 = i2c.read_i2c_block_data(addr, 0x01, 8)を</p>
+<p>data1 = i2c.read_i2c_block_data(addr, 0x01, 12)に変更して保存ボタンを押します。</p>
 </div>
 <h2 id="_3">計測方法</h2>
 <p>制御信号を計測しているのは、JetsonNanoではなく、コントロール基板のマイコンが受信機からの制御信号を計測しています。I2Cのデバイスアドレスは0x08になります。</p>
