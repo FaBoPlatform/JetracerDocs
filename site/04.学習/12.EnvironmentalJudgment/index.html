@@ -1643,20 +1643,21 @@
 <p>Jetson Orin Nano環境で行いましょう。</p>
 <p>20_detect.ipynbを開きます。</p>
 <p>もとのコードを以下のようにカテゴリ名を変更します。</p>
-<p>Sector１から９そしてetc</p>
+<p>例：Sector１から９そしてetに変更いたします。</p>
 <p><img alt="" class="bom_listsize" src="../img/EnviromentJugement/codeChange.png" /></p>
 <p>Jetson Orin Nanoをインターネットに繋ぎ、ダウンロードします。</p>
 <p><img alt="" class="bom_listsize" src="../img/EnviromentJugement/DownLoadDataSet.png" /></p>
-<p>モデルはNewを選択して読み込みます。</p>
+<p>モデルはNewを選択して読み込みます。既存のモデルがある場合は、モデルを読み込みます。その場合は、スライダーによって各画像に対しての推論結果が表示されます。</p>
 <p><img alt="" class="bom_listsize" src="../img/EnviromentJugement/ModelRead.png" /></p>
 <p>学習に使用するアノテーション後のデータセットのフォルダ名を設定します。作成したフォルダはdetectフォルダの直下に作成されます。もうすでにデータセットがある場合はdatasetのドロップダウンリストから選択します。</p>
 <p><img alt="" class="bom_listsize" src="../img/EnviromentJugement/DataSetWrite.png" /></p>
-<p>画像が表示され、特定の場所をそれぞれアノテーションしていきます。▶︎ボタンで再生、＞コマ送り、＜コマ戻しになります。アノテーションは、スライダーを１００％に引き上げて追加ボタンを押します。</p>
+<p>画像が表示され、特定の場所をそれぞれアノテーションしていきます。▶︎ボタンで再生、＞コマ送り、＜コマ戻しになります。アノテーションは、追加ボタンを押します。画像を追加した数が表示されます。アノテーションした画像はdetectフォルダ直下の各フォルダへ保存されます。</p>
 <p><img alt="" class="bom_listsize" src="../img/EnviromentJugement/anotation.png" /></p>
 <p>任意のエポック数で学習します。学習が終了しましたら、モデル名をつけて保存します。</p>
 <p><img alt="" class="bom_listsize" src="../img/EnviromentJugement/Epoch.png" /></p>
-<p>できたモデルがうまく推論しているかどうかを確認します。ビデオファイルが作成され、右クリックで動画をダウンロードしてPC上で確認します。</p>
+<p>できたモデルがうまく推論しているかどうかを確認します。ビデオファイルが作成され、右クリックで動画をダウンロードしてPC上で確認します。動画の右上に推論した各確率が表示されます。</p>
 <p><img alt="" class="bom_listsize" src="../img/EnviromentJugement/evalutionMovie.png" /></p>
+<p>学習結果が良ければ、TensorRTへ変換して推論時間を短縮します。20_detect.ipynbを閉じてシャットダウンし21_convert_detect.ipynbへ進みましょう。</p>
 
 
 
