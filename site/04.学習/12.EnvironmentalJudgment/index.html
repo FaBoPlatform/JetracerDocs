@@ -1658,6 +1658,11 @@
 <p>できたモデルがうまく推論しているかどうかを確認します。ビデオファイルが作成され、右クリックで動画をダウンロードしてPC上で確認します。動画の左上に推論した各確率が表示されます。</p>
 <p><img alt="" class="bom_listsize" src="../img/EnviromentJugement/evalutionMovie.png" /></p>
 <p>学習結果が良ければ、TensorRTへ変換して推論時間を短縮します。20_detect.ipynbを閉じてシャットダウンし21_convert_detect.ipynbへ進みましょう。</p>
+<p>21_convert_detect.ipynbを実行して、20_detect.ipynbで生成されたモデルをTesnsor RTへ変換します。</p>
+<p>次に、22_make_movie.ipynbでは環境モデルの動作を撮影画像で確かめます。</p>
+<p>さらに、23_run_detect.ipynbは実際走行してみて、環境モデルにより周回カウントがカウントされているのかを実際の走行によって確かめます。</p>
+<p>確かめるために、24_make_dual_movie.ipynbでは走行モデルと環境モデルの動作を撮影画像で確かめます。</p>
+<p>25_run_dual_detect.ipynbは、Aモデル、Bモデルの走行モデルを奇数、偶数の周回数によってモデルを使い分けて推論走行させます。</p>
 
 
 
