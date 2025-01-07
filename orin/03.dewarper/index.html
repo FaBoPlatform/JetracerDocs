@@ -13,7 +13,7 @@
     
     
       
-        <title>Multiplexer - FaBo JetRacer Docs</title>
+        <title>Dewarperを利用する - FaBo JetRacer Docs</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#multiplexer" class="md-skip">
+        <a href="#dewarper" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Multiplexer
+              Dewarperを利用する
             
           </span>
         </div>
@@ -985,7 +985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../orin/01.sd/" class="md-nav__link">
+      <a href="../01.sd/" class="md-nav__link">
         SDカードの焼込
       </a>
     </li>
@@ -999,7 +999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../orin/02.docker/" class="md-nav__link">
+      <a href="../02.docker/" class="md-nav__link">
         Dockerの構築
       </a>
     </li>
@@ -1628,8 +1628,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#multiprexer" class="md-nav__link">
-    Multiprexer
+  <a href="#deepstreamer-sdk" class="md-nav__link">
+    DeepStreamer SDK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nvdewarper" class="md-nav__link">
+    NVDewarperサンプル
   </a>
   
 </li>
@@ -1649,29 +1656,22 @@
                   
 
 
-<h1 id="multiplexer">Multiplexer</h1>
-<h2 id="multiprexer">Multiprexer</h2>
-<p>FaBo JetRacer #612では、Multiplexerのチップでプロポ制御、JetRacer制御を切り替えます。</p>
-<p>A3のPinの状態をみて、A3が押されている場合は、D2のピンをHighに、押されていない場合は、Lowにします。</p>
-<table>
-<thead>
-<tr>
-<th align="left">ピン</th>
-<th align="left">動作</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">D2</td>
-<td align="left">Multiplexerの切り替え</td>
-</tr>
-<tr>
-<td align="left">A3</td>
-<td align="left">SELの値の入力</td>
-</tr>
-</tbody>
-</table>
-<p>Multiplexerのサンプル</p>
+<h1 id="dewarper">Dewarperを利用する</h1>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>本ドキュメントはJetson Orin Nanoで起動するJetPack5.1.1が対象となります。</p>
+</div>
+<h2 id="deepstreamer-sdk">DeepStreamer SDK</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo apt update
+sudo apt-get install deepstream-6.2
+sudo apt install v4l-utils
+</code></pre></div></td></tr></table></div>
+<h2 id="nvdewarper">NVDewarperサンプル</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>gst-launch-1.0 nvarguscamerasrc sensor_id=0 ! &#39;video/x-raw(memory:NVMM), width=1280, height=720, framerate=60/1&#39; ! nvvideoconvert ! tee name=t t. ! queue ! nvdewarper config-file=/home/jetson/dewarp_config_cam0.txt ! nvvideoconvert ! queue ! mx.sink_0 t. ! queue ! nvdewarper config-file=/home/jetson/dewarp_config_cam1.txt ! nvvideoconvert ! queue ! mx.sink_1 nvstreammux name=mx batch-size=1 width=1280 height=720 num-surfaces-per-frame=1 ! nvmultistreamtiler rows=1 columns=2 width=1280 height=720 ! nvvideoconvert ! &#39;video/x-raw(memory:NVMM), format=NV12&#39; ! nvegltransform ! nveglglessink sync=0
+</code></pre></div></td></tr></table></div>
+<p>dewarp_config_cam0.txt
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1690,26 +1690,71 @@
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">(){</span><span class="w"></span>
-<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">A3</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code>[property]
+#dewarp-dump-frames=10
+output-width=448
+output-height=448
+num-batch-buffers=1
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">(){</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pulseIn</span><span class="p">(</span><span class="n">A3</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">,</span><span class="mi">25000</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">duration</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">){</span><span class="w"></span>
-<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div></td></tr></table></div>
+[surface0]
+surface-index=0
+# 1=PushBroom, 2=VertRadCyl, 3=PerspectivePerspective
+projection-type=3
+width=448
+height=448
+#focal-length=1000
+focal-length=9958.649257742036
+#distortion=-0.3;0.08;0;-0.01;0 
+#distortion=-0.09787;0.00574;-0.00013;0;0
+distortion= -6.956561513881647;-68.83902522804168; -0.004834538444671919;0;0
+src-x0=224
+src-y0=224
+# 0=cudaAddressModeClamp, 1=cudaAddressModeBorder
+#cuda-address-mode=0
+</code></pre></div></td></tr></table></div></p>
+<p>dewarp_config_cam1.txt
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code>[property]
+#dewarp-dump-frames=10
+output-width=448
+output-height=448
+num-batch-buffers=1
+
+[surface0]
+surface-index=0
+# 1=PushBroom, 2=VertRadCyl, 3=PerspectivePerspective
+projection-type=3
+width=800
+height=448
+focal-length=8000
+#distortion=-0.3;0.08;0;-0.01;0 
+#distortion=-0.09787;0.00574;-0.00013;0;0
+distortion= -6.956561513881647;-68.83902522804168; -0.004834538444671919;0;0
+src-x0=224
+src-y0=448
+# 0=cudaAddressModeClamp, 1=cudaAddressModeBorder
+#cuda-address-mode=0
+</code></pre></div></td></tr></table></div></p>
 
 
 
