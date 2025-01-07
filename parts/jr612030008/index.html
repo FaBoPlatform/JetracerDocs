@@ -1849,11 +1849,40 @@
 <p>Jetson Orin Nano 8GB 開発者キット　および Jetson Nano　開発者キット</p>
 <p>JetRacerコントロールボード Rev2.0.21,Rev2.0.23,Rev2.0.28,Rev2.0.29にある固定する切り替えスイッチがありません。必要に応じてお客様が追加でファームウェアを変更し切り替えてください。</p>
 <p>マイコンボードのファームウェアは焼き込み済みです。XIAOのWi-Fiアンテナは使用しません。</p>
+<p>ファインスペック2.4G 電動RCドライブセット（45053）のみ動作確認済み。ただし、受信機とESCが一体型になっているモデルは、使用不可。</p>
 <h2 id="_5">名称と役割</h2>
+<p>RCカーの電源がONになった時は、コントローラーボードにあるオレンジ色のLEDが発光します。</p>
+<p>コントロール基板のLED</p>
+<table>
+<thead>
+<tr>
+<th align="left">カラーLED 色</th>
+<th align="left">　状態　</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ブルー</td>
+<td align="left">受信機から信号がない</td>
+</tr>
+<tr>
+<td align="left">グリーン</td>
+<td align="left">プロポ操作可能</td>
+</tr>
+<tr>
+<td align="left">マゼンタ</td>
+<td align="left">自動走行可能</td>
+</tr>
+</tbody>
+</table>
 <h2 id="_6">コントロールボード接続例</h2>
 <p>受信機の接続　受信機１の場合は、基板１ch、受信機２の場合は、基板２ch、受信機Bの場合は、基板３ch。</p>
 <p>サーボとの接続は、基板Servo、ESCとの接続は基板ESCに接続します。4pinコネクタを使い、#405 JetRacer LEDの接続は、基板SPI-LEDコネクタに接続します。ドーターであるLED基板の方をINPUT側に接続します。</p>
 <p><img alt="" src="../img/030008/jetsonConnetct.JPG" /></p>
+<div class="admonition cation">
+<p class="admonition-title">ズレて接続に注意</p>
+<p>コントロール基板とJetsonを接続するときは、ズレて挿入していないか確認してから電源を入れましょう。故障の原因となります。</p>
+</div>
 <div class="admonition cation">
 <p class="admonition-title">逆接続に注意</p>
 <p>サーボ変換ケーブルまたは、爪のないサーボケーブルご使用で、３ピンコネクタの逆接続は破損の原因となります。電源投入前に確認しましょう。</p>
