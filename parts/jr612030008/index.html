@@ -1628,6 +1628,26 @@
     I/O
   </a>
   
+    <nav class="md-nav" aria-label="I/O">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i2c" class="md-nav__link">
+    I２Cポートピンアサイン
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spi-led" class="md-nav__link">
+    SPI-LEDポートピンアサイン
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1801,6 +1821,26 @@
     I/O
   </a>
   
+    <nav class="md-nav" aria-label="I/O">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i2c" class="md-nav__link">
+    I２Cポートピンアサイン
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spi-led" class="md-nav__link">
+    SPI-LEDポートピンアサイン
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1822,16 +1862,19 @@
 <table>
 <thead>
 <tr>
+<th align="left">Model Number</th>
 <th align="left">Revison</th>
-<th align="left"></th>
+<th align="left">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td align="left">---</td>
 <td align="left">3.0.8</td>
 <td align="left">Jetson Orin Nano専用</td>
 </tr>
 <tr>
+<td align="left">JRB-CB3</td>
 <td align="left">3.0.8 B</td>
 <td align="left">Jetson Nanoに対応</td>
 </tr>
@@ -1841,18 +1884,19 @@
 <h3 id="_1">追加</h3>
 <p>RCカーが電源ON時に、マルチプレクサへの信号を停止機能追加。</p>
 <h3 id="_2">変更</h3>
-<p>受信機、サーボおよびESCの接続、逆接続防止のケーブルに変更。</p>
+<p>受信機、サーボおよびESCの接続、逆接続防止のケーブルコネクタに変更。</p>
 <h3 id="_3">削除</h3>
 <p>ブラシレスモータのセンサーを回転数計測削除。</p>
 <p>９軸センサーBNO055を削除。</p>
 <h2 id="_4">動作環境</h2>
-<p>Jetson Orin Nano 8GB 開発者キット　および Jetson Nano　開発者キット</p>
+<p>Jetson Orin Nano 8GB 開発者キット　および Jetson Nano　4GB開発者キット</p>
 <p>JetRacerコントロールボード Rev2.0.21,Rev2.0.23,Rev2.0.28,Rev2.0.29にある固定する切り替えスイッチがありません。必要に応じてお客様が追加でファームウェアを変更し切り替えてください。</p>
 <p>マイコンボードのファームウェアは焼き込み済みです。XIAOのWi-Fiアンテナは使用しません。</p>
 <p>ファインスペック2.4G 電動RCドライブセット（45053）のみ動作確認済み。ただし、受信機とESCが一体型になっているモデルは、使用不可。</p>
 <h2 id="_5">名称と役割</h2>
-<p>RCカーの電源がONになった時は、コントローラーボードにあるオレンジ色のLEDが発光します。</p>
-<p>コントロール基板のLED</p>
+<p>コントロール基板のオレンジ色LED</p>
+<p>RCカーの電源がONになった時は、コントローラーボードにあるオレンジ色のLEDが発光します。RCの電圧レベルが低下した時、暗くなります。</p>
+<p>コントロール基板カラーLED</p>
 <table>
 <thead>
 <tr>
@@ -1888,13 +1932,93 @@
 <p>サーボ変換ケーブルまたは、爪のないサーボケーブルご使用で、３ピンコネクタの逆接続は破損の原因となります。電源投入前に確認しましょう。</p>
 </div>
 <h2 id="_7">ブロック図</h2>
+<p><img alt="" src="../img/030008/030008signalBlockChart.png" /></p>
 <h2 id="io">I/O</h2>
 <p>GNDは、JetsonとRCカーいずれも共通</p>
-<p><img alt="" src="../img/i2cport.png" /></p>
-<p>※B04B-PSSK-1使用</p>
-<p><img alt="" src="../img/spiport.png" /></p>
-<p>※B04B-PSSK-1使用</p>
+<h3 id="i2c">I２Cポートピンアサイン</h3>
+<p><img alt="" src="../img/030008/FaBo4Pin.png" />
+※B04B-PASK-1使用</p>
+<table>
+<thead>
+<tr>
+<th align="left">Pin Number</th>
+<th align="left">Function</th>
+<th align="left">Description</th>
+<th align="left">I/O</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">GND</td>
+<td align="left">Common</td>
+<td align="left">Ground</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">VCC</td>
+<td align="left">Jetson Power(5V)</td>
+<td align="left">Power</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">SDA</td>
+<td align="left">Jetson I2Cデータ(3.3V)</td>
+<td align="left">I/O</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">SCL</td>
+<td align="left">Jetson I2Cクロック(3.3V)</td>
+<td align="left">I/O</td>
+</tr>
+</tbody>
+</table>
+<p>＊I２Cのバス番号はJetson Nanoは１、Jetson Orin　Nanoは７</p>
+<p>FaBo i2c Brick ９軸加速度センサーを使用した例</p>
+<p><img alt="" src="../img/030008/I2CDevice.JPG" /></p>
+<h3 id="spi-led">SPI-LEDポートピンアサイン</h3>
+<p><img alt="" src="../img/030008/FaBo4Pin.png" /></p>
+<p>※B04B-PASK-1使用</p>
+<table>
+<thead>
+<tr>
+<th align="left">Pin Number</th>
+<th align="left">Function</th>
+<th align="left">Description</th>
+<th align="left">I/O</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">GND</td>
+<td align="left">Common</td>
+<td align="left">Ground</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">VCC</td>
+<td align="left">Jetson Power(5V)</td>
+<td align="left">Power</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">CLK</td>
+<td align="left">XIAO ESP32-S3 SCK(5V)</td>
+<td align="left">OUTPUT</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">DATA</td>
+<td align="left">XIAO ESP32-S3 MOSI(5V)</td>
+<td align="left">OUTPUT</td>
+</tr>
+</tbody>
+</table>
 <p><img alt="" src="../img/xiao14pin.png" /></p>
+<p>FaBo #405 JetRacer LEDを複数接続。</p>
+<p><img alt="" src="../img/030008/ledAP202.JPG" /></p>
 <div class="admonition cation">
 <p class="admonition-title">XIAO接続</p>
 <p>取り付け方法をお間違えなくようにご確認ください。</p>
