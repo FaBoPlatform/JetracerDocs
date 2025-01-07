@@ -1607,17 +1607,51 @@
     名称と役割
   </a>
   
+    <nav class="md-nav" aria-label="名称と役割">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#led" class="md-nav__link">
+    コントロール基板のオレンジ色LED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#led_1" class="md-nav__link">
+    コントロール基板カラーLED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xiao-esp32-s3" class="md-nav__link">
+    XIAO ESP32-S3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    各コネクタ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     コントロールボード接続例
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     ブロック図
   </a>
   
@@ -1641,6 +1675,13 @@
           <li class="md-nav__item">
   <a href="#spi-led" class="md-nav__link">
     SPI-LEDポートピンアサイン
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esp32-s3" class="md-nav__link">
+    ESP32-S3コネクタのピンアサイン
   </a>
   
 </li>
@@ -1800,17 +1841,51 @@
     名称と役割
   </a>
   
+    <nav class="md-nav" aria-label="名称と役割">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#led" class="md-nav__link">
+    コントロール基板のオレンジ色LED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#led_1" class="md-nav__link">
+    コントロール基板カラーLED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xiao-esp32-s3" class="md-nav__link">
+    XIAO ESP32-S3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    各コネクタ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     コントロールボード接続例
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     ブロック図
   </a>
   
@@ -1834,6 +1909,13 @@
           <li class="md-nav__item">
   <a href="#spi-led" class="md-nav__link">
     SPI-LEDポートピンアサイン
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esp32-s3" class="md-nav__link">
+    ESP32-S3コネクタのピンアサイン
   </a>
   
 </li>
@@ -1894,9 +1976,10 @@
 <p>マイコンボードのファームウェアは焼き込み済みです。XIAOのWi-Fiアンテナは使用しません。</p>
 <p>ファインスペック2.4G 電動RCドライブセット（45053）のみ動作確認済み。ただし、受信機とESCが一体型になっているモデルは、使用不可。</p>
 <h2 id="_5">名称と役割</h2>
-<p>コントロール基板のオレンジ色LED</p>
+<p><img alt="" src="../img/030008/JRB-CB3.JPG" /></p>
+<h3 id="led">コントロール基板のオレンジ色LED</h3>
 <p>RCカーの電源がONになった時は、コントローラーボードにあるオレンジ色のLEDが発光します。RCの電圧レベルが低下した時、暗くなります。</p>
-<p>コントロール基板カラーLED</p>
+<h3 id="led_1">コントロール基板カラーLED</h3>
 <table>
 <thead>
 <tr>
@@ -1919,7 +2002,11 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_6">コントロールボード接続例</h2>
+<h3 id="xiao-esp32-s3">XIAO ESP32-S3</h3>
+<p>脱着可能です。ファームウェアは焼き込まれています。ファームウェア書き換え時は取り外してファームウェアを更新してください。</p>
+<h3 id="_6">各コネクタ</h3>
+<p>受信機、ESC,サーボ取り付けはつめがあるのに対しては逆接続は防げますが、爪のないコネクタは防げません。ご注意ください。</p>
+<h2 id="_7">コントロールボード接続例</h2>
 <p>受信機の接続　受信機１の場合は、基板１ch、受信機２の場合は、基板２ch、受信機Bの場合は、基板３ch。</p>
 <p>サーボとの接続は、基板Servo、ESCとの接続は基板ESCに接続します。4pinコネクタを使い、#405 JetRacer LEDの接続は、基板SPI-LEDコネクタに接続します。ドーターであるLED基板の方をINPUT側に接続します。</p>
 <p><img alt="" src="../img/030008/jetsonConnetct.JPG" /></p>
@@ -1931,7 +2018,7 @@
 <p class="admonition-title">逆接続に注意</p>
 <p>サーボ変換ケーブルまたは、爪のないサーボケーブルご使用で、３ピンコネクタの逆接続は破損の原因となります。電源投入前に確認しましょう。</p>
 </div>
-<h2 id="_7">ブロック図</h2>
+<h2 id="_8">ブロック図</h2>
 <p><img alt="" src="../img/030008/030008signalBlockChart.png" /></p>
 <h2 id="io">I/O</h2>
 <p>GNDは、JetsonとRCカーいずれも共通</p>
@@ -2016,9 +2103,10 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="" src="../img/xiao14pin.png" /></p>
 <p>FaBo #405 JetRacer LEDを複数接続。</p>
 <p><img alt="" src="../img/030008/ledAP202.JPG" /></p>
+<h3 id="esp32-s3">ESP32-S3コネクタのピンアサイン</h3>
+<p><img alt="" src="../img/030008/xiaoesp32Pin.png" /></p>
 <div class="admonition cation">
 <p class="admonition-title">XIAO接続</p>
 <p>取り付け方法をお間違えなくようにご確認ください。</p>
