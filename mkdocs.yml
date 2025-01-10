@@ -27,6 +27,12 @@ nav:
   - 1.はじめに: "00.はじめに/start.md"
   - 2.組立:
     - 型番の確認: "01.組み立て/01.check.md"
+    - JR2025-R:
+      - 部品リスト: "01.組み立て/race_edition/01.bom_RaceEdition_01.md"
+      - 組立手順: "01.組み立て/race_edition/02.build_Race_JR2005_01.md"
+    - JR2025-B:
+      - 部品リスト: "01.組み立て/basic_edition/01.bom_BasicEdition_01.md"
+      - 組立手順: "01.組み立て/basic_edition/02.build_Basic_JR2005_01.md"
     - JR1_S_C_F:
       - 部品リスト: "01.組み立て/carbon_edition/JR1_S_C_F/07.bom_CarbonEdition_F.md"
       - 組立手順: "01.組み立て/carbon_edition/JR1_S_C_F/08.build_Carbon_F.md"
