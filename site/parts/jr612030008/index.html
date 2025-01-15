@@ -1808,6 +1808,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    サンプルコード
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2042,6 +2049,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    サンプルコード
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2062,7 +2076,7 @@
                   
 
 
-<h1 id="612-jetracer">#612 JetRacerコントロールボード（工事中）</h1>
+<h1 id="612-jetracer">#612 JetRacerコントロールボード</h1>
 <table>
 <thead>
 <tr>
@@ -2126,6 +2140,8 @@
 </table>
 <h3 id="xiao-esp32-s3">XIAO ESP32-S3</h3>
 <p>脱着可能です。ファームウェアは焼き込まれています。ファームウェア書き換え時は取り外してファームウェアを更新してください。</p>
+<p>Version 1.1.5(Release 2024/12/25)</p>
+<p><a href="https://github.com/FaBoPlatform/FaBo/tree/master/0612_jetracer/arduino/firmware/Firmware%20_ESP32S3/esp32s3">https://github.com/FaBoPlatform/FaBo/tree/master/0612_jetracer/arduino/firmware/Firmware%20_ESP32S3/esp32s3</a></p>
 <h3 id="_6">各コネクタ</h3>
 <p>受信機、ESC,サーボ取り付けはつめがあるのに対しては逆接続は防げますが、爪のないコネクタは防げません。ご注意ください。</p>
 <h2 id="_7">コントロールボード接続例</h2>
@@ -2243,6 +2259,126 @@
 <p class="admonition-title">GNDに関して</p>
 <p>本基板は、JetsonのGNDとRCカーのGNDは接続されております。</p>
 </div>
+<h3 id="_9">サンプルコード</h3>
+<p>Fabo_PCA9685クラスをオーバーライドして組み込みます。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">Fabo_PCA9685</span>
+
+<span class="k">class</span> <span class="nc">pca9685CLK</span><span class="p">(</span><span class="n">Fabo_PCA9685</span><span class="o">.</span><span class="n">PCA9685</span><span class="p">):</span>
+    <span class="n">EXTCLK</span> <span class="o">=</span> <span class="mh">0x40</span>
+    <span class="k">def</span> <span class="nf">Set_hz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hz</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">PWM_HZ</span> <span class="o">=</span> <span class="n">hz</span>
+            <span class="n">prescale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">calc_prescale</span><span class="p">(</span><span class="n">hz</span><span class="p">)</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Hz設定。レジスタに書き込む値はprescaleの値となる</span>
+<span class="sd">            prescale = calc_prescale(hz)</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+            <span class="n">oldmode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">read_byte_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PCA9685_ADDRESS</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">MODE1</span><span class="p">)</span>
+            <span class="n">newmode</span> <span class="o">=</span> <span class="n">oldmode</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">SLEEP</span>
+
+            <span class="c1"># スリープにする</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">write_byte_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PCA9685_ADDRESS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MODE1</span><span class="p">,</span> <span class="n">newmode</span><span class="p">)</span>
+            <span class="c1">#　外部発振を有効化する。(新規追加)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">write_byte_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PCA9685_ADDRESS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MODE1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">SLEEP</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">EXTCLK</span><span class="p">)</span> 
+            <span class="c1">#周波数を設定</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">write_byte_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PCA9685_ADDRESS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">PRE_SCALE</span><span class="p">,</span> <span class="n">prescale</span><span class="p">)</span>
+            <span class="c1">#スリープを解除</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">write_byte_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PCA9685_ADDRESS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MODE1</span><span class="p">,</span> <span class="n">oldmode</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">WAIT_TIME</span><span class="p">)</span>
+            <span class="c1"># リスタートする（必須）</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">write_byte_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PCA9685_ADDRESS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MODE1</span><span class="p">,</span> <span class="p">(</span><span class="n">oldmode</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">RESTART</span><span class="p">))</span>  
+</code></pre></div></td></tr></table></div>
+<p>続いてインスタンスのコード</p>
+<p>ステアリングの中央値は車体ごとにエンドポイントを調整します。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pkg_resources</span>
+<span class="kn">import</span> <span class="nn">smbus</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<span class="n">INITIAL_VALUE</span> <span class="o">=</span> <span class="mi">375</span>
+<span class="n">pwm_center</span> <span class="o">=</span> <span class="n">INITIAL_VALUE</span>
+<span class="n">pwm_right</span> <span class="o">=</span> <span class="n">INITIAL_VALUE</span> <span class="o">+</span> <span class="mi">70</span>
+<span class="n">pwm_left</span> <span class="o">=</span> <span class="n">INITIAL_VALUE</span> <span class="o">-</span> <span class="mi">70</span>
+<span class="n">pwm_stop</span> <span class="o">=</span> <span class="n">INITIAL_VALUE</span>
+
+
+<span class="kn">import</span> <span class="nn">Jetson.GPIO</span> <span class="k">as</span> <span class="nn">GPIO</span>
+
+<span class="n">BOARD_NAME</span><span class="o">=</span><span class="n">GPIO</span><span class="o">.</span><span class="n">gpio_pin_data</span><span class="o">.</span><span class="n">get_data</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">if</span> <span class="n">BOARD_NAME</span> <span class="o">==</span> <span class="s2">&quot;JETSON_NX&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jetson Xavier NXを認識&quot;</span><span class="p">)</span>
+    <span class="n">I2C_BUSNUM</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="k">elif</span> <span class="n">BOARD_NAME</span> <span class="o">==</span> <span class="s2">&quot;JETSON_XAVIER&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jetson AGX Xavierを認識&quot;</span><span class="p">)</span>
+    <span class="n">I2C_BUSNUM</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="k">elif</span> <span class="n">BOARD_NAME</span> <span class="o">==</span> <span class="s2">&quot;JETSON_NANO&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jetson NANOを認識&quot;</span><span class="p">)</span>
+    <span class="n">I2C_BUSNUM</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">SMBUS</span><span class="o">=</span><span class="s1">&#39;smbus&#39;</span>
+<span class="n">BUSNUM</span><span class="o">=</span><span class="n">I2C_BUSNUM</span>
+<span class="n">SERVO_HZ</span><span class="o">=</span><span class="mi">60</span>
+<span class="n">bus</span> <span class="o">=</span> <span class="n">smbus</span><span class="o">.</span><span class="n">SMBus</span><span class="p">(</span><span class="n">BUSNUM</span><span class="p">)</span>
+<span class="n">PCA9685</span> <span class="o">=</span> <span class="n">pca9685CLK</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span><span class="n">INITIAL_VALUE</span><span class="p">,</span><span class="n">address</span><span class="o">=</span><span class="mh">0x40</span><span class="p">)</span>
+<span class="n">PCA9685</span><span class="o">.</span><span class="n">Set_hz</span><span class="p">(</span><span class="n">SERVO_HZ</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 
 
 
