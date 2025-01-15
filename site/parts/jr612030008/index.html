@@ -1808,6 +1808,19 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pca9685" class="md-nav__link">
+    PCA9685の外部水晶発振器について
+  </a>
+  
+    <nav class="md-nav" aria-label="PCA9685の外部水晶発振器について">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     サンプルコード
@@ -2049,6 +2062,19 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pca9685" class="md-nav__link">
+    PCA9685の外部水晶発振器について
+  </a>
+  
+    <nav class="md-nav" aria-label="PCA9685の外部水晶発振器について">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     サンプルコード
@@ -2156,8 +2182,10 @@
 <p class="admonition-title">逆接続に注意</p>
 <p>サーボ変換ケーブルまたは、爪のないサーボケーブルご使用で、３ピンコネクタの逆接続は破損の原因となります。電源投入前に確認しましょう。</p>
 </div>
-<p>!!!Cation 基板接続の注意"
-    コントロール基板の受信機のオスコネクタとコントロール基板のESCメスコネクタまたはサーボメスコネクタ通しの接続は故障の原因となりますのでご注意ください。</p>
+<div class="admonition cation">
+<p class="admonition-title">基板接続の注意</p>
+<p>コントロール基板の受信機のオスコネクタとコントロール基板のESCメスコネクタまたはサーボメスコネクタ通しの接続は故障の原因となりますのでご注意ください。</p>
+</div>
 <h2 id="_8">ブロック図</h2>
 <p><img alt="" src="../img/030008/030008signalBlockChart.png" /></p>
 <h2 id="io">I/O</h2>
@@ -2259,6 +2287,10 @@
 <p class="admonition-title">GNDに関して</p>
 <p>本基板は、JetsonのGNDとRCカーのGNDは接続されております。</p>
 </div>
+<h2 id="pca9685">PCA9685の外部水晶発振器について</h2>
+<p>FaBoのコントロール基板にあるPCA9685のすぐ横に外部の水晶発振器２５MHzがありこちらの発振を使用しますとPCA9685の内部発振器より周囲温度環境に影響を受けにくい正確な発振が得られます。</p>
+<p>このことによりステアリング量、スロットル量が安定化します。また、スロットルの中央値も安定化することにより車体にブレーキ信号からバック信号へ切り替えが容易になります。</p>
+<p>一旦下記のコードを実行すると電源が切れるまで外部発振器が優先され内部発振には設定できません。ご注意ください。</p>
 <h3 id="_9">サンプルコード</h3>
 <p>Fabo_PCA9685クラスをオーバーライドして組み込みます。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
