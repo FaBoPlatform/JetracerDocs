@@ -27,11 +27,13 @@ https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32
 
 Arduino IDEのツールからボードマネージャーにてesp32を検索します。
 
-ESP32 Arduinoの最新バージョンをインストールします。
+ESP32 Arduinoの2.0.17をインストールします。(2025年3月)
 
-ツールボードからXIAO ESP32S3を選択して以下のサイトのコードをダウンロードします。
+ツールボードからXIAO ESP32S3を選択し、以下のサイトのコードをダウンロードします。
 
 [https://github.com/FaBoPlatform/FaBo/tree/master/0612_jetracer/arduino/firmware/Firmware%20_ESP32S3](https://github.com/FaBoPlatform/FaBo/tree/master/0612_jetracer/arduino/firmware/Firmware%20_ESP32S3)
+
+ポートを選択してXIAOを認識しているかを確認します。
 
 書き込みが終了しましたら、Jetsonの電源が入っていないかを確認し、XIAOを再びコントロール基板に装着します。
 
