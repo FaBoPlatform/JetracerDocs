@@ -2288,7 +2288,7 @@
 <p>本基板は、JetsonのGNDとRCカーのGNDは接続されております。</p>
 </div>
 <h2 id="pca9685">PCA9685の外部水晶発振器について</h2>
-<p>FaBoのコントロール基板にあるPCA9685のすぐ横に外部の水晶発振器２５MHzがありこちらの発振を使用しますとPCA9685の内部発振器より周囲温度環境に影響を受けにくい正確な発振が得られます。</p>
+<p>FaBoのコントロール基板にあるPCA9685のすぐ横に外部の水晶発振器２５MHzがありこちらの発振を使用しますとPCA9685の内部発振器よりタイミングのズレが少なく、周囲温度環境や電圧に影響を受けにくい正確な発振が得られます。（デフォルトでは無効になっています。）</p>
 <p>このことによりステアリング量、スロットル量が安定化します。また、スロットルの中央値も安定化することにより車体にブレーキ信号からバック信号へ切り替えが容易になります。</p>
 <p>一旦下記のコードを実行すると電源が切れるまで外部発振器が優先され内部発振には設定できません。ご注意ください。</p>
 <h3 id="_9">サンプルコード</h3>
@@ -2317,7 +2317,8 @@
 <span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">Fabo_PCA9685</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#FaBo JetRacer REV3.0.8 25MHz外部発振器サンプルコード</span>
+<span class="kn">import</span> <span class="nn">Fabo_PCA9685</span>
 
 <span class="k">class</span> <span class="nc">pca9685CLK</span><span class="p">(</span><span class="n">Fabo_PCA9685</span><span class="o">.</span><span class="n">PCA9685</span><span class="p">):</span>
     <span class="n">EXTCLK</span> <span class="o">=</span> <span class="mh">0x40</span>
@@ -2329,8 +2330,7 @@
 <span class="sd">            prescale = calc_prescale(hz)</span>
 <span class="sd">            &#39;&#39;&#39;</span>
             <span class="n">oldmode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">read_byte_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PCA9685_ADDRESS</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">MODE1</span><span class="p">)</span>
-            <span class="n">newmode</span> <span class="o">=</span> <span class="n">oldmode</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">SLEEP</span>
-
+            <span class="n">newmode</span> <span class="o">=</span> <span class="n">oldmode</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">SLEEP</span> <span class="c1"># sleep</span>
             <span class="c1"># スリープにする</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">write_byte_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PCA9685_ADDRESS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MODE1</span><span class="p">,</span> <span class="n">newmode</span><span class="p">)</span>
             <span class="c1">#　外部発振を有効化する。(新規追加)</span>
@@ -2344,8 +2344,10 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">write_byte_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PCA9685_ADDRESS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MODE1</span><span class="p">,</span> <span class="p">(</span><span class="n">oldmode</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">RESTART</span><span class="p">))</span>  
 </code></pre></div></td></tr></table></div>
 <p>続いてインスタンスのコード</p>
-<p>ステアリングの中央値は車体ごとにエンドポイントを調整します。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<p>ステアリングの中央値は車体ごとにエンドポイントを調整します。
+６０Hzのサーボ使用
+Jetson Orin Nanoではi2cバスを７、Jetson Nanoは１を使用してください。</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -2355,61 +2357,30 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">pkg_resources</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">smbus</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">json</span>
 
-
-<span class="n">INITIAL_VALUE</span> <span class="o">=</span> <span class="mi">375</span>
-<span class="n">pwm_center</span> <span class="o">=</span> <span class="n">INITIAL_VALUE</span>
-<span class="n">pwm_right</span> <span class="o">=</span> <span class="n">INITIAL_VALUE</span> <span class="o">+</span> <span class="mi">70</span>
-<span class="n">pwm_left</span> <span class="o">=</span> <span class="n">INITIAL_VALUE</span> <span class="o">-</span> <span class="mi">70</span>
-<span class="n">pwm_stop</span> <span class="o">=</span> <span class="n">INITIAL_VALUE</span>
-
-
-<span class="kn">import</span> <span class="nn">Jetson.GPIO</span> <span class="k">as</span> <span class="nn">GPIO</span>
-
-<span class="n">BOARD_NAME</span><span class="o">=</span><span class="n">GPIO</span><span class="o">.</span><span class="n">gpio_pin_data</span><span class="o">.</span><span class="n">get_data</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">if</span> <span class="n">BOARD_NAME</span> <span class="o">==</span> <span class="s2">&quot;JETSON_NX&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jetson Xavier NXを認識&quot;</span><span class="p">)</span>
-    <span class="n">I2C_BUSNUM</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="k">elif</span> <span class="n">BOARD_NAME</span> <span class="o">==</span> <span class="s2">&quot;JETSON_XAVIER&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jetson AGX Xavierを認識&quot;</span><span class="p">)</span>
-    <span class="n">I2C_BUSNUM</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="k">elif</span> <span class="n">BOARD_NAME</span> <span class="o">==</span> <span class="s2">&quot;JETSON_NANO&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jetson NANOを認識&quot;</span><span class="p">)</span>
-    <span class="n">I2C_BUSNUM</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">INITIAL_VALUE</span> <span class="o">=</span> <span class="mi">372</span>
 
 <span class="n">SMBUS</span><span class="o">=</span><span class="s1">&#39;smbus&#39;</span>
-<span class="n">BUSNUM</span><span class="o">=</span><span class="n">I2C_BUSNUM</span>
+<span class="n">BUSNUM</span><span class="o">=</span><span class="mi">7</span>
 <span class="n">SERVO_HZ</span><span class="o">=</span><span class="mi">60</span>
 <span class="n">bus</span> <span class="o">=</span> <span class="n">smbus</span><span class="o">.</span><span class="n">SMBus</span><span class="p">(</span><span class="n">BUSNUM</span><span class="p">)</span>
 <span class="n">PCA9685</span> <span class="o">=</span> <span class="n">pca9685CLK</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span><span class="n">INITIAL_VALUE</span><span class="p">,</span><span class="n">address</span><span class="o">=</span><span class="mh">0x40</span><span class="p">)</span>
 <span class="n">PCA9685</span><span class="o">.</span><span class="n">Set_hz</span><span class="p">(</span><span class="n">SERVO_HZ</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+一般的なサーボ周波数は６０HzでPCA9685のPWM解像度（１２ビット）は４０９６になります。そのため1ビットあたりの時間は約４.０９６uSになり
+想定しているサーボ、ESCの中立の状態は1520uSであるので1520/4.096=約３７２ビットとなります。
+ステアリング信号の場合は、サーボの無理な負荷をかけないようして、可動範囲を設定し、メカニカルな要素もありますので数値を調整してください。</p>
+<p>※無理な設定は故障の原因となる場合がありますのでご注意ください。
+※必ず車体は作業台の上もしくは安全を確保した状態で実行してください。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">st</span> <span class="o">=</span> <span class="mi">372</span> <span class="c1">#サーボ（可動範囲に注意）</span>
+<span class="n">th</span> <span class="o">=</span> <span class="mi">372</span> <span class="c1">#ESC</span>
+<span class="n">PCA9685</span><span class="o">.</span><span class="n">set_channel_value</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">st</span><span class="p">)</span>
+<span class="n">PCA9685</span><span class="o">.</span><span class="n">set_channel_value</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">th</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 
 
