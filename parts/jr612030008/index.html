@@ -2360,7 +2360,7 @@ Jetson Orin Nanoではi2cバスを７、Jetson Nanoは１を使用してくだ�
 <span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">smbus</span>
 
-<span class="n">INITIAL_VALUE</span> <span class="o">=</span> <span class="mi">372</span>
+<span class="n">INITIAL_VALUE</span> <span class="o">=</span> <span class="mi">375</span>
 
 <span class="n">SMBUS</span><span class="o">=</span><span class="s1">&#39;smbus&#39;</span>
 <span class="n">BUSNUM</span><span class="o">=</span><span class="mi">7</span>
@@ -2369,16 +2369,16 @@ Jetson Orin Nanoではi2cバスを７、Jetson Nanoは１を使用してくだ�
 <span class="n">PCA9685</span> <span class="o">=</span> <span class="n">pca9685CLK</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span><span class="n">INITIAL_VALUE</span><span class="p">,</span><span class="n">address</span><span class="o">=</span><span class="mh">0x40</span><span class="p">)</span>
 <span class="n">PCA9685</span><span class="o">.</span><span class="n">Set_hz</span><span class="p">(</span><span class="n">SERVO_HZ</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-一般的なサーボ周波数は６０HzでPCA9685のPWM解像度（１２ビット）は４０９６になります。そのため1ビットあたりの時間は約４.０９６uSになり
-想定しているサーボ、ESCの中立の状態は1520uSであるので1520/4.096=約３７２ビットとなります。
+一般的なサーボ周波数は６０HzでPCA9685のPWM解像度（１２ビット）は４０９６になります。そのため1ビットあたりの時間は約4.069uSになり
+想定しているサーボ、ESCの中立の状態は1520uSであるので1520/4.069=約375ビットとなります。
 ステアリング信号の場合は、サーボの無理な負荷をかけないようして、可動範囲を設定し、メカニカルな要素もありますので数値を調整してください。</p>
 <p>※無理な設定は故障の原因となる場合がありますのでご注意ください。
 ※必ず車体は作業台の上もしくは安全を確保した状態で実行してください。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">st</span> <span class="o">=</span> <span class="mi">372</span> <span class="c1">#サーボ（可動範囲に注意）</span>
-<span class="n">th</span> <span class="o">=</span> <span class="mi">372</span> <span class="c1">#ESC</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">st</span> <span class="o">=</span> <span class="mi">375</span> <span class="c1">#サーボ（可動範囲に注意）</span>
+<span class="n">th</span> <span class="o">=</span> <span class="mi">375</span> <span class="c1">#ESC</span>
 <span class="n">PCA9685</span><span class="o">.</span><span class="n">set_channel_value</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">st</span><span class="p">)</span>
 <span class="n">PCA9685</span><span class="o">.</span><span class="n">set_channel_value</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">th</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
