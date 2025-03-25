@@ -2289,7 +2289,7 @@
 </div>
 <h2 id="pca9685">PCA9685の外部水晶発振器について</h2>
 <p>FaBoのコントロール基板にあるPCA9685のすぐ横に外部の水晶発振器２５MHzがありこちらの発振を使用しますとPCA9685の内部発振器よりタイミングのズレが少なく、周囲温度環境や電圧に影響を受けにくい正確な発振が得られます。（デフォルトでは無効になっています。）</p>
-<p>このことによりステアリング量、スロットル量が安定化します。また、スロットルの中央値も安定化することにより車体にブレーキ信号からバック信号へ切り替えが容易になります。</p>
+<p>このことによりステアリング量、スロットル量が安定化します。また、スロットルの中央値も安定化することにより車体にブレーキ信号からバック信号へ切り替えがより安定的になります。</p>
 <p>一旦下記のコードを実行すると電源が切れるまで外部発振器が優先され内部発振には設定できません。ご注意ください。</p>
 <h3 id="_9">サンプルコード</h3>
 <p>Fabo_PCA9685クラスをオーバーライドして組み込みます。</p>
@@ -2317,7 +2317,10 @@
 <span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#FaBo JetRacer REV3.0.8 25MHz外部発振器サンプルコード</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#FaBo JetRacer REV3.0.8 25MHz外部発振器サンプルコード</span>
+
 <span class="kn">import</span> <span class="nn">Fabo_PCA9685</span>
 
 <span class="k">class</span> <span class="nc">pca9685CLK</span><span class="p">(</span><span class="n">Fabo_PCA9685</span><span class="o">.</span><span class="n">PCA9685</span><span class="p">):</span>
@@ -2330,7 +2333,8 @@
 <span class="sd">            prescale = calc_prescale(hz)</span>
 <span class="sd">            &#39;&#39;&#39;</span>
             <span class="n">oldmode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">read_byte_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PCA9685_ADDRESS</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">MODE1</span><span class="p">)</span>
-            <span class="n">newmode</span> <span class="o">=</span> <span class="n">oldmode</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">SLEEP</span> <span class="c1"># sleep</span>
+            <span class="n">newmode</span> <span class="o">=</span> <span class="n">oldmode</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">SLEEP</span>
+
             <span class="c1"># スリープにする</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">write_byte_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PCA9685_ADDRESS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MODE1</span><span class="p">,</span> <span class="n">newmode</span><span class="p">)</span>
             <span class="c1">#　外部発振を有効化する。(新規追加)</span>
@@ -2357,10 +2361,26 @@ Jetson Orin Nanoではi2cバスを７、Jetson Nanoは１を使用してくだ�
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pkg_resources</span>
 <span class="kn">import</span> <span class="nn">smbus</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">INITIAL_VALUE</span> <span class="o">=</span> <span class="mi">373</span>
+
+<span class="n">INITIAL_VALUE</span> <span class="o">=</span> <span class="mi">375</span>
+<span class="n">pwm_center</span> <span class="o">=</span> <span class="n">INITIAL_VALUE</span>
+<span class="n">pwm_right</span> <span class="o">=</span> <span class="n">INITIAL_VALUE</span> <span class="o">+</span> <span class="mi">100</span>
+<span class="n">pwm_left</span> <span class="o">=</span> <span class="n">INITIAL_VALUE</span> <span class="o">-</span> <span class="mi">100</span>
+<span class="n">pwm_stop</span> <span class="o">=</span> <span class="n">INITIAL_VALUE</span>
 
 <span class="n">SMBUS</span><span class="o">=</span><span class="s1">&#39;smbus&#39;</span>
 <span class="n">BUSNUM</span><span class="o">=</span><span class="mi">7</span>
@@ -2370,17 +2390,133 @@ Jetson Orin Nanoではi2cバスを７、Jetson Nanoは１を使用してくだ�
 <span class="n">PCA9685</span><span class="o">.</span><span class="n">Set_hz</span><span class="p">(</span><span class="n">SERVO_HZ</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 一般的なサーボ周波数は６０HzでPCA9685のPWM解像度（１２ビット）は４０９６になります。そのため1ビットあたりの時間は約4.069uSになり
-想定しているサーボ、ESCの中立の状態は1520uSであるので1520/4.069=約373ビットとなります。
-ステアリング信号の場合は、サーボの無理な負荷をかけないようして、可動範囲を設定し、メカニカルな要素もありますので数値を調整してください。</p>
+想定しているサーボ、ESCの中立の状態は1520uSであるので1520/4.069=約373ビットとなります。</p>
 <p>※無理な設定は故障の原因となる場合がありますのでご注意ください。
 ※必ず車体は作業台の上もしくは安全を確保した状態で実行してください。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">st</span> <span class="o">=</span> <span class="mi">373</span> <span class="c1">#サーボ（可動範囲に注意）</span>
-<span class="n">th</span> <span class="o">=</span> <span class="mi">373</span> <span class="c1">#ESC</span>
-<span class="n">PCA9685</span><span class="o">.</span><span class="n">set_channel_value</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">st</span><span class="p">)</span>
-<span class="n">PCA9685</span><span class="o">.</span><span class="n">set_channel_value</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">th</span><span class="p">)</span>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># PWMキャリブレーション プロポを動かさないでください。</span>
+<span class="n">data1</span> <span class="o">=</span> <span class="n">bus</span><span class="o">.</span><span class="n">read_i2c_block_data</span><span class="p">(</span><span class="mh">0x08</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">raw1</span> <span class="o">=</span> <span class="n">data1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span> <span class="o">|</span> <span class="n">data1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span> <span class="o">|</span> <span class="n">data1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="o">|</span> <span class="n">data1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">raw2</span> <span class="o">=</span> <span class="n">data1</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span> <span class="o">|</span> <span class="n">data1</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span> <span class="o">|</span> <span class="n">data1</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="o">|</span> <span class="n">data1</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">raw3</span> <span class="o">=</span> <span class="n">data1</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span> <span class="o">|</span> <span class="n">data1</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span> <span class="o">|</span> <span class="n">data1</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="o">|</span> <span class="n">data1</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wave Length st </span><span class="si">{}</span><span class="s1">(uS),th </span><span class="si">{}</span><span class="s1">(uS),sw </span><span class="si">{}</span><span class="s1">(uS)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">raw1</span><span class="p">,</span><span class="n">raw2</span><span class="p">,</span><span class="n">raw3</span><span class="p">))</span>
+<span class="c1">#プロポの信号から中立状態にするPCA9685のPWMカウント値を算出。</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">resolution</span> <span class="o">=</span> <span class="mi">4096</span>
+<span class="n">pwm_center</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">raw1</span><span class="o">/</span><span class="mi">1000000</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">freq</span><span class="o">/</span><span class="n">resolution</span><span class="p">))</span>
+<span class="n">pwm_stop</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">raw2</span><span class="o">/</span><span class="mi">1000000</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">freq</span><span class="o">/</span><span class="n">resolution</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pwm_center</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="mi">330</span> <span class="o">&lt;=</span> <span class="n">pwm_center</span> <span class="o">&lt;=</span> <span class="mi">430</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">330</span> <span class="o">&lt;=</span> <span class="n">pwm_stop</span> <span class="o">&lt;=</span> <span class="mi">430</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value is within the normal range.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">pwm_center</span> <span class="o">=</span> <span class="mi">375</span>
+    <span class="n">pwm_stop</span> <span class="o">=</span> <span class="mi">375</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The values were abnormal, so the default settings have been restored.&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PCA9685 Count Value:center </span><span class="si">{}</span><span class="s1">,neutral </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pwm_center</span><span class="p">,</span><span class="n">pwm_stop</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+ゲームパッドなどのF710を使用すると動作が確認しやすいです。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>         
+<span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="c1">#Displayをオフ</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;SDL_VIDEODRIVER&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;dummy&quot;</span>
+
+
+<span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="n">joy</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">joystick</span><span class="o">.</span><span class="n">Joystick</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">joy</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">leftStick</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span> <span class="n">joy</span><span class="o">.</span><span class="n">get_axis</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span> <span class="mi">100</span> <span class="p">)</span> <span class="o">+</span> <span class="n">pwm_stop</span>
+        <span class="n">rightStick</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span> <span class="n">joy</span><span class="o">.</span><span class="n">get_axis</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span> <span class="mi">100</span> <span class="p">)</span> <span class="o">+</span> <span class="n">pwm_center</span>
+        <span class="n">button0</span> <span class="o">=</span> <span class="n">joy</span><span class="o">.</span><span class="n">get_button</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">button1</span> <span class="o">=</span> <span class="n">joy</span><span class="o">.</span><span class="n">get_button</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">button2</span> <span class="o">=</span> <span class="n">joy</span><span class="o">.</span><span class="n">get_button</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">button3</span> <span class="o">=</span> <span class="n">joy</span><span class="o">.</span><span class="n">get_button</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">pump</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;left=</span><span class="si">%d</span><span class="s2">  right=</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">leftStick</span><span class="p">,</span> <span class="n">rightStick</span><span class="p">))</span>
+
+        <span class="n">PCA9685</span><span class="o">.</span><span class="n">set_channel_value</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rightStick</span><span class="p">)</span>
+        <span class="n">PCA9685</span><span class="o">.</span><span class="n">set_channel_value</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">leftStick</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">button0</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Button_A&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">button1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Button_B&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">button2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Button_X&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">button3</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Button_Y&quot;</span><span class="p">)</span>
+
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+        <span class="n">clear_output</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">except</span><span class="p">(</span> <span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="ne">SystemExit</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Ctr + D pushed. EXIT！&quot;</span> <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 
 
