@@ -30,6 +30,9 @@ nav:
     - JR2025-R:
       - 部品リスト: "01.組み立て/race_edition/01.bom_RaceEdition_01.md"
       - 組立手順: "01.組み立て/race_edition/02.build_Race_JR2005_01.md"
+    - JR2-S-N-A :
+      - 部品リスト: "01.組み立て/race_edition/01.bom_RaceEdition_02.md"
+      - 組立手順: "01.組み立て/race_edition/02.build_Race_JR2005_02.md"
     - JR2025-B:
       - 部品リスト: "01.組み立て/basic_edition/01.bom_BasicEdition_01.md"
       - 組立手順: "01.組み立て/basic_edition/02.build_Basic_JR2005_01.md"
