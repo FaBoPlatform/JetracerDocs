@@ -431,14 +431,14 @@
       
         <li class="md-nav__item">
   <a href="#rc" class="md-nav__link">
-    RCカーのコンポーネント(本キットの場合)
+    RCカーのコンポーネント
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    組立て
+  <a href="#jetracer" class="md-nav__link">
+    JetRacerの組立て
   </a>
   
 </li>
@@ -1875,14 +1875,14 @@
       
         <li class="md-nav__item">
   <a href="#rc" class="md-nav__link">
-    RCカーのコンポーネント(本キットの場合)
+    RCカーのコンポーネント
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    組立て
+  <a href="#jetracer" class="md-nav__link">
+    JetRacerの組立て
   </a>
   
 </li>
@@ -1924,7 +1924,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="rc">RCカーのコンポーネント(本キットの場合)</h2>
+<h2 id="rc">RCカーのコンポーネント</h2>
 <p>タミヤ TT-02 エキスパートビルドのご使用の場合（通常版）</p>
 <p><img alt="" src="../../race_edition/img/001assy/XB001.JPG" /></p>
 <p>TT-02 XBは完成品ですのでRCは組み立て不要です。箱から取り出し、真っ直ぐ走るかを確認します。動作確認を行ってください。</p>
@@ -1943,7 +1943,7 @@
 <p>ケーブルを切らないように注意し、結束バンドを切ります。</p>
 <p><img alt="" src="../../race_edition/img/001assy/XB008.JPG" /></p>
 <p>２つのコネクタを外します。受信機(TRU-08)も裏面のシール剥がして取り外します。バッテリーホルダーも取り除きます。サーボの上にある両面テープで固定している受信機(TRU-08)を一旦取り外します。</p>
-<h2 id="_2">組立て</h2>
+<h2 id="jetracer">JetRacerの組立て</h2>
 <p>※組み立て車両はTamiya TT-02 エキスパートビルドを使用しております。</p>
 <p><img alt="" src="../img/001assy/BS001.JPG" /></p>
 <p>六角ドライバーでタッピングビスでCSIカメラを固定します。</p>
@@ -1978,24 +1978,39 @@
 <p><img alt="" src="../img/001assy/BS024.JPG" /></p>
 <p>ナットドライバーで締め付けます。</p>
 <p><img alt="" src="../img/001assy/BS025.JPG" /></p>
-<p>コントローラボード基板を用意します。</p>
-<p><img alt="" src="../img/001assy/BS035.JPG" /></p>
-<p>CSIカメラケーブルを接続します。黒い部分を引き抜き、ケーブルを挿します。</p>
+<p>SDカードを挿入します。</p>
+<p><img alt="" src="../img/001assy/BS048.JPG" /></p>
+<p>Jetson Orin Nano開発者ボードを車体に載せます。</p>
+<p>CSIカメラケーブルを接続します。黒い部分を引き※、CSIケーブルを挿します。幅が狭い方（２２ピン）がJetson側になります。（下接点）</p>
+<p>※とても、弱い部分なので引きすぎないように注意して優しく引きます。</p>
 <p><img alt="" src="../img/001assy/BS030.JPG" /></p>
 <p>ケーブルを奥まで挿したら、黒い部分をコネクタ方向へ押して接続します。</p>
 <p><img alt="" src="../img/001assy/BS031.JPG" /></p>
-<p>同様な方法でCSIケーブルをCSIカメラにも接続します。</p>
+<p>同様な方法でCSIケーブルをCSIカメラにも接続します。CSIカメラケーブルは１５ピンで幅が広いほうになります。（下接点）　</p>
+<p>黒い部分を引き上げます。</p>
+<p><img alt="" src="../img/001assy/BS054.JPG" /></p>
+<p>CSIケーブルを挿入し、黒い部分を下方向を押して取り付けます。</p>
+<p><img alt="" src="../img/001assy/BS053.JPG" /></p>
 <p><img alt="" src="../img/001assy/BS032.JPG" /></p>
 <p>SDカードをJetson Orin Nano Superに取り付けます。</p>
 <p>Jetson固定（透明パーツ）</p>
 <p><img alt="" src="../img/001assy/BS033.JPG" /></p>
 <p>タッピングビスでJetson固定を固定します。</p>
 <p><img alt="" src="../img/001assy/BS034.JPG" /></p>
+<p>マジックテープをバックマウントにある横穴にとおして、モバイルバッテリーを設置してマジックテープで固定します。</p>
+<p>コントローラーボード基板を用意します。</p>
+<p><img alt="" src="../img/001assy/BS035.JPG" /></p>
+<p>コントローラーボードをJetson Orin Nano SuperにあるGPIO 40ピンヘッダーに取り付けます。</p>
+<p>ズレて挿入しないように確実に接続します。</p>
 <p>SPI-LEDのケーブルをバックマウントのフックに掛けて、コントロール基板のSPI-LEDポートと接続します。</p>
 <p><img alt="" src="../img/001assy/BS037.JPG" /></p>
+<p>取り外した受信機を取り付けます。両面テープを写真のように張ります。</p>
+<p><img alt="" src="../img/001assy/BS051.JPG" /></p>
+<p>受信機を載せて、フロントタイヤが当たらないことを確認します。</p>
+<p><img alt="" src="./img/001assy/BS050.JPG" /></p>
 <p>トリガーケーブルとUSBケーブルを接続します。</p>
 <p><img alt="" src="../img/001assy/BS038.JPG" /></p>
-<p>トリガーケーブルをJetson Orin NanoのDCジャックに接続します。Jetson Orin Nano Superに電源が入ります。</p>
+<p>トリガーケーブルをJetson Orin NanoのDCジャックに接続します。Jetson Orin Nano Superに電源が入ります。起動して、しばらくするとOLEDディスプレイに文字が表示されるようになります。</p>
 <p><img alt="" src="../img/001assy/BS039.JPG" /></p>
 <p>作業台の上に置き、RCカーのニッカドバッテリーをRCカーに接続します。</p>
 <p><img alt="" src="../img/001assy/BS040.JPG" /></p>
@@ -2007,7 +2022,10 @@
 <p><img alt="" src="../img/001assy/BS045.JPG" /></p>
 <p>カメラマウントにもCSIケーブル離脱防止のためのシールを貼ります。
 <img alt="" src="../img/001assy/BS047.JPG" /></p>
-<p>カメラのレンズキャップを外して完成となります。内部の破損を防ぐために走行時にはボディを被せて走行させてください。</p>
+<p>カメラのレンズキャップを外して完成となります。もしピントがずれてぼやける場合はレンズを回して調整してください。</p>
+<p>RCカーのスイッチ電源がONになるとコントローラーボードにあるLED（オレンジが光ります）が点灯します。</p>
+<p>思わぬ暴走を防ぐため、必ず作業台の上で作業をお願いいたします。</p>
+<p>内部の破損を防ぐために走行時にはボディにカメラが露出するように穴を開けてボディを被せて走行させてください。</p>
 
               
             </article>
