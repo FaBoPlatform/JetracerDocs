@@ -12,7 +12,6 @@ extra:
     search:
         language: 'jp'
 markdown_extensions:
-  - fontawesome_markdown
   - pymdownx.highlight:
       use_pygments: true
       noclasses: false
@@ -76,7 +75,7 @@ nav:
     - 環境情報判断: "04.学習/12.EnvironmentalJudgment.md"
   - 6.Orin Nano:
     - SDカードの焼込: "orin/01.sd.md"
-    - Dockerの構築: "orin/02.docker.md"
+    - JetRacerの構築: "orin/02.install.md"
   - 7.その他:
     - SDカードの焼込: "sd_fabo/01.image.md"
     - SDカードの新規作成:
