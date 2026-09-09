@@ -913,8 +913,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-usb" class="md-nav__link">
-    2. USBケーブル接続
+  <a href="#2" class="md-nav__link">
+    2. 電源投入
   </a>
   
 </li>
@@ -1910,8 +1910,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-usb" class="md-nav__link">
-    2. USBケーブル接続
+  <a href="#2" class="md-nav__link">
+    2. 電源投入
   </a>
   
 </li>
@@ -1964,14 +1964,12 @@
 <table>
 <thead>
 <tr>
-<th>メニュー表示</th>
 <th>対象</th>
 <th>型番</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Wi-Fiの設定（現行：Orin Nano / Super）</td>
 <td>Jetson Orin Nano / Jetson Orin Nano Super開発者キット搭載製品</td>
 <td>JR2025-R,JR2025-B,JR2025-R-NV,JR2-S-A-A,JR2-S-N-A,JR2025SRX-R</td>
 </tr>
@@ -1986,14 +1984,18 @@
 <p>設定中はRCカーの電源をオフにし、台などに載せて車輪を浮かせてください。</p>
 <h2 id="1">1. 準備</h2>
 <p>Jetson用モバイルバッテリーとRCカー用バッテリーを、あらかじめ充電しておきます。</p>
-<p>RCカーの電源がオフになっていることを確認し、台などに載せて車輪を浮かせます。RCカー用バッテリーの充電が完了したら、RCカーに接続します。</p>
-<h2 id="2-usb">2. USBケーブル接続</h2>
+<p>RCカーの電源がオフになっていることを確認し、台などに載せて車輪を浮かせます。RCカー用バッテリーの充電が完了したら、RCカーに接続します。
+<img alt="" src="../img/RCSWITCH.JPG" /></p>
+<h2 id="2">2. 電源投入</h2>
 <p>Jetson Orin NanoがマイクロSDカードが挿入されていることを確認し、電源を投入します。
-RCカーの電源はオフのままです。トリガーケーブルでモバイルバッテリーからJetson Orin Nanoへ給電し
-しばらく経つとOLEDが表示されます。</p>
+RCカーの電源はオフのままです。トリガーケーブルでモバイルバッテリーからJetson Orin Nanoへ給電します。
+<img alt="" src="../img/TRRIGERCABLE.JPG" />
+しばらく経つとOLEDが表示されます。
+<img alt="" src="../img/CONNECTUSB.JPG" /></p>
 <h2 id="3-usb">3. USBケーブル接続</h2>
 <p>市販品のUSBケーブルを用意し、パソコンに接続します。
 しばらくするとOLEDディスプレイに192.168.55.1が表示されます。パソコンのブラウザから192.168.55.1:8888とアドレスバーに入力してください。</p>
+<p><img alt="" src="../img/OLED_USB_OVER_ETHENET2.JPG" /></p>
 <p><a href="https://faboplatform.github.io/JetracerDocs/tips/02.wificonectionhadling/">Windowsの場合</a></p>
 <h2 id="4">4. パスワード入力</h2>
 <p>jupyter labが表示されパスワードはjetsonになります。</p>
